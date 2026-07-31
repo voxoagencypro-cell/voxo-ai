@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///home/hemso/T%C3%A9l%C3%A9chargements/voxo-ai-v2/app/page.tsx"],"sourcesContent":["import { redirect } from \"next/navigation\";\nexport default function IndexPage() { redirect(\"/fr\"); }\n"],"names":[],"mappings":";;;AAAA;AAAA;;AACe,SAAS;IAAc,CAAA,GAAA,qLAAA,CAAA,WAAQ,AAAD,EAAE;AAAQ","debugId":null}}]
+}

@@ -1,0 +1,3 @@
+import { Logo } from "@/components/logo";
+import type { Locale } from "@/lib/i18n";
+export function Footer({locale,d}:{locale:Locale;d:any}) { return <footer className="border-t border-white/[.08] py-12"><div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-5 md:flex-row md:items-end lg:px-8"><div><Logo locale={locale}/><p className="mt-4 max-w-sm text-sm leading-6 text-zinc-600">{d.text}</p></div><div className="flex flex-wrap gap-6 text-sm text-zinc-600"><a href={`/${locale}/contact`}>{d.legal}</a><a href={`/${locale}/contact`}>{d.privacy}</a><span>© {new Date().getFullYear()} VOXO AI</span></div></div></footer> }

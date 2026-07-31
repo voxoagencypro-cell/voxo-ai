@@ -1,0 +1,2 @@
+import { notFound } from "next/navigation";import { isLocale } from "@/lib/i18n";import { InnerPage } from "@/components/inner-page";import { ContactForm } from "@/components/contact-form";
+export default async function Page({params}:{params:Promise<{locale:string}>}){const{locale}=await params;if(!isLocale(locale))notFound();return <InnerPage locale={locale} eyebrow="CONTACT" title="Voyons ce que VOXO AI peut automatiser pour vous." text="Présentez-nous votre activité, votre volume d’appels et votre méthode actuelle de prise de rendez-vous."><ContactForm/></InnerPage>}
