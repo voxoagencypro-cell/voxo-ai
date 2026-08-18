@@ -1,2 +1,17 @@
-import { notFound } from "next/navigation";import { isLocale } from "@/lib/i18n";import { InnerPage } from "@/components/inner-page";import { PhoneDemo } from "@/components/phone-demo";import { Button } from "@/components/ui/button";
-export default async function Page({params}:{params:Promise<{locale:string}>}){const{locale}=await params;if(!isLocale(locale))notFound();return <InnerPage locale={locale} eyebrow="LIVE DEMO" title="Écoutez VOXO AI en action." text="Cette interface présente le futur espace de démonstration vocale. La connexion Retell AI pourra être ajoutée sans modifier le design."><div className="grid items-center gap-16 lg:grid-cols-2"><PhoneDemo/><div><h2 className="text-3xl font-semibold">Scénario de démonstration</h2><p className="mt-4 leading-7 text-zinc-500">Un client appelle pour demander une intervention. VOXO AI identifie son besoin, recueille ses coordonnées et réserve un créneau disponible.</p><Button className="mt-8">Lancer la démo bientôt</Button></div></div></InnerPage>}
+import { notFound } from "next/navigation";
+import { DemoRequest } from "../../../components/demo-request";
+import { isLocale } from "@/lib/i18n";
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!isLocale(locale)) {
+    notFound();
+  }
+
+  return <DemoRequest locale={locale} />;
+}
