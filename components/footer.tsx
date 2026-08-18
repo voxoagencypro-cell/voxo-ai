@@ -66,7 +66,7 @@ export function Footer({
               </a>
 
               <a
-                href="https://www.linkedin.com/company/14453691"
+                href="https://www.linkedin.com/company/voxo-ai/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition hover:text-white"
