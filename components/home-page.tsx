@@ -29,109 +29,13 @@ import { PhoneDemo } from "@/components/phone-demo";
 import { Reveal } from "@/components/reveal";
 import type { Locale } from "@/lib/i18n";
 
-const steps = [
-  [PhoneCall, "1. Répond", "VOXO AI décroche vos appels instantanément."],
-  [MessageSquareText, "2. Comprend", "Elle comprend la demande de votre client."],
-  [CalendarDays, "3. Agit", "Elle réserve le rendez-vous dans votre agenda."],
-  [CheckCircle2, "4. Confirme", "Le client reçoit une confirmation par SMS ou e-mail."],
-] as const;
-
-const clientTypes = [
-  "GARAGES",
-  "RÉGIES",
-  "ARTISANS",
-  "SALONS",
-  "RESTAURATION",
-];
-
-const demoScenarios = [
-  {
-    label: "Garage",
-    company: "Garage Dupont SA",
-    caller: "Bonjour, je voudrais prendre rendez-vous pour une vidange demain matin.",
-    reply: "Bien sûr. J’ai une disponibilité demain à 09h30. Souhaitez-vous réserver ce créneau ?",
-    result: "Vidange réservée demain à 09h30",
-  },
-  {
-    label: "Artisan",
-    company: "Martin Rénovation",
-    caller: "Bonjour, j'aimerais un devis pour refaire ma salle de bain.",
-    reply: "Avec plaisir. Puis-je connaître votre adresse afin de planifier une visite ?",
-    result: "Demande de devis enregistrée",
-  },
-
-  {
-    label: "Régie",
-    company: "Régie du Centre",
-    caller: "J’ai une fuite d’eau importante dans mon appartement.",
-    reply: "Je vais traiter cela comme une urgence. Pouvez-vous me confirmer votre adresse ?",
-    result: "Urgence qualifiée et transmise au service technique",
-  },
-
-  
-] as const;
-
-  const sectors = [
-    {
-      icon: Wrench,
-      title: "Garages automobiles",
-      description:
-        "Prise de rendez-vous, demandes de devis, pannes et urgences.",
-      bullets: [
-        "Répond 24h/24",
-        "Planifie les interventions",
-        "Transfère les urgences",
-      ],
-    },
-    {
-      icon: Building2,
-      title: "Restaurants & Hôtels",
-      description:
-        "Réservations, informations, horaires et réponses automatiques à vos clients.",
-      bullets: [
-        "Prend les réservations",
-        "Répond aux questions fréquentes",
-        "Disponible 24h/24",
-      ],
-    },
-    {
-      icon: Building2,
-      title: "Régies immobilières",
-      description:
-        "Qualification des demandes locataires et transmission au bon service.",
-      bullets: [
-        "Trie les urgences",
-        "Crée les demandes",
-        "Informe les locataires",
-      ],
-    },
-    {
-      icon: Scissors,
-      title: "Salons & instituts",
-      description:
-        "Réservations, modifications d'horaires et rappels automatiques.",
-      bullets: [
-        "Réserve 24h/24",
-        "Réduit les absences",
-        "Répond aux tarifs",
-      ],
-    },
-    {
-      icon: Hammer,
-      title: "Artisans",
-      description:
-        "Qualification des chantiers, demandes de devis et rappels clients.",
-      bullets: [
-        "Collecte les informations",
-        "Priorise les urgences",
-        "Planifie les visites",
-      ],
-    },
-  ];
-
 export function HomePage({ locale, d }: { locale: Locale; d: any }) {
   const [demoScenario, setDemoScenario] = useState(0);
-  const activeDemo = demoScenarios[demoScenario];
+
+  const stepIcons = [PhoneCall, MessageSquareText, CalendarDays, CheckCircle2];
+  const sectorIcons = [Wrench, Building2, Building2, Scissors, Hammer];
+  const demoActionIcons = [PhoneCall, MessageSquareText, CalendarDays, CheckCircle2];
+  const activeDemo = d.demoInteractive.scenarios[demoScenario];
 
   return (
     <main className="overflow-hidden bg-[#02050b]">
@@ -164,22 +68,19 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-white/[.11] bg-white/[.045] px-4 py-2 text-xs font-semibold tracking-wide text-zinc-200 shadow-[0_10px_45px_rgba(0,0,0,.22)] backdrop-blur-xl">
               <span>🇨🇭</span>
-              RÉCEPTIONNISTE IA POUR LES ENTREPRISES SUISSES
+              {d.hero.badge}
             </div>
 
             <h1 className="mt-7 text-balance text-5xl font-semibold leading-[.96] tracking-[-.055em] sm:text-7xl lg:text-[72px] xl:text-[82px]">
-              Ne manquez plus
+              {d.hero.title1}
               <br />
-              jamais{" "}
               <span className="bg-gradient-to-r from-brand-300 via-brand-400 to-blue-600 bg-clip-text text-transparent">
-                un appel.
+                {d.hero.title2}
               </span>
             </h1>
 
             <p className="mt-7 max-w-[650px] text-lg leading-8 text-zinc-300 sm:text-xl">
-              VOXO AI répond à vos clients, qualifie leurs demandes et prend
-              vos rendez-vous automatiquement, même quand votre équipe est
-              occupée.
+              {d.hero.text}
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -188,7 +89,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                 className="h-14 px-8 text-base shadow-[0_18px_55px_rgba(24,94,255,.35)] transition hover:-translate-y-0.5 hover:shadow-[0_24px_70px_rgba(24,94,255,.48)]"
               >
                 <Play className="mr-2 fill-current" size={17} />
-                Lancer la démo
+                {d.hero.demo}
               </Button>
 
               <Button
@@ -196,7 +97,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                 variant="outline"
                 className="h-14 px-8 text-base backdrop-blur-xl transition hover:-translate-y-0.5"
               >
-                Voir les offres
+                {d.hero.offers}
               </Button>
             </div>
 
@@ -204,30 +105,30 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
               <div className="rounded-2xl border border-white/[.09] bg-white/[.035] px-4 py-4 backdrop-blur-xl">
                 <div className="flex items-center gap-2 text-brand-400">
                   <Clock3 size={17} />
-                  <span className="text-sm font-semibold text-white">24h/24</span>
+                  <span className="text-sm font-semibold text-white">{d.hero.cards[0][0]}</span>
                 </div>
                 <p className="mt-2 text-xs leading-5 text-zinc-400">
-                  Une réponse même hors horaires.
+                  {d.hero.cards[0][1]}
                 </p>
               </div>
 
               <div className="rounded-2xl border border-white/[.09] bg-white/[.035] px-4 py-4 backdrop-blur-xl">
                 <div className="flex items-center gap-2 text-brand-400">
                   <CalendarDays size={17} />
-                  <span className="text-sm font-semibold text-white">Agenda</span>
+                  <span className="text-sm font-semibold text-white">{d.hero.cards[1][0]}</span>
                 </div>
                 <p className="mt-2 text-xs leading-5 text-zinc-400">
-                  Les rendez-vous sont planifiés.
+                  {d.hero.cards[1][1]}
                 </p>
               </div>
 
               <div className="rounded-2xl border border-white/[.09] bg-white/[.035] px-4 py-4 backdrop-blur-xl">
                 <div className="flex items-center gap-2 text-brand-400">
                   <ShieldCheck size={17} />
-                  <span className="text-sm font-semibold text-white">Suisse</span>
+                  <span className="text-sm font-semibold text-white">{d.hero.cards[2][0]}</span>
                 </div>
                 <p className="mt-2 text-xs leading-5 text-zinc-400">
-                  Une solution pensée localement.
+                  {d.hero.cards[2][1]}
                 </p>
               </div>
             </div>
@@ -266,10 +167,10 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-white">
-                    Emma est en ligne
+                    {d.hero.online}
                   </p>
                   <p className="mt-1 text-xs text-zinc-500">
-                    Appel pris instantanément
+                    {d.hero.instant}
                   </p>
                 </div>
               </div>
@@ -287,10 +188,10 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-white">
-                    Rendez-vous confirmé
+                    {d.hero.confirmed}
                   </p>
                   <p className="mt-1 text-xs text-zinc-500">
-                    Demain à 09h30
+                    {d.hero.tomorrow}
                   </p>
                 </div>
               </div>
@@ -309,7 +210,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                 <div>
                   <p className="text-sm font-semibold text-white">4,9/5</p>
                   <p className="mt-1 text-xs text-zinc-500">
-                    Expérience fluide
+                    {d.hero.smooth}
                   </p>
                 </div>
               </div>
@@ -320,12 +221,10 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
         <div className="relative mx-auto max-w-[1480px] px-5 pb-7 lg:px-10">
           <div className="grid items-center gap-6 rounded-[24px] border border-white/[.09] bg-[#07101b]/88 px-7 py-6 shadow-[0_28px_80px_rgba(0,0,0,.35)] backdrop-blur-xl md:grid-cols-[1.2fr_repeat(4,1fr)]">
             <p className="text-sm leading-6 text-zinc-200">
-              Conçu pour les entreprises
-              <br />
-              en Suisse 🇨🇭
+              {d.hero.builtFor}
             </p>
 
-            {clientTypes.map((name) => (
+            {d.hero.clientTypes.map((name: string) => (
               <div
                 key={name}
                 className="text-center text-sm font-semibold tracking-[.13em] text-zinc-400"
@@ -342,24 +241,22 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
           <Reveal>
             <div>
               <p className="text-xs font-bold tracking-[.12em] text-brand-600">
-                COMMENT ÇA MARCHE
+                {d.how.eyebrow}
               </p>
 
               <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-                Une IA entraînée pour représenter votre entreprise
+                {d.how.title}
               </h2>
 
               <p className="mt-5 leading-7 text-slate-600">
-                VOXO AI comprend votre activité, vos services et vos
-                disponibilités pour offrir à vos clients une expérience
-                naturelle et professionnelle.
+                {d.how.text}
               </p>
 
               <a
                 href="#secteurs"
                 className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-600"
               >
-                Découvrir le fonctionnement
+                {d.how.discover}
                 <ArrowRight size={16} />
               </a>
             </div>
@@ -368,7 +265,10 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
           <div className="relative grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             <div className="pointer-events-none absolute left-[8%] right-[8%] top-8 hidden h-px bg-gradient-to-r from-transparent via-brand-300/60 to-transparent xl:block" />
 
-            {steps.map(([Icon, title, stepText]) => (
+            {d.how.steps.map((step: string[], index: number) => {
+              const Icon = stepIcons[index];
+              const [title, stepText] = step;
+              return (
               <Reveal key={title}>
                 <div className="group relative text-center">
                   <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl border border-brand-200 bg-white text-brand-600 shadow-[0_16px_40px_rgba(37,99,235,.12)] transition duration-300 group-hover:-translate-y-1 group-hover:border-brand-400">
@@ -382,36 +282,36 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                   </p>
                 </div>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
 
           <Reveal>
             <div className="rounded-[28px] border border-white/[.08] bg-[#07101b] p-7 text-white shadow-[0_24px_70px_rgba(0,0,0,.18)]">
               <h3 className="text-center font-semibold">
-                Indicateurs de démonstration
+                {d.how.metricsTitle}
               </h3>
 
               <div className="mt-7 space-y-5">
                 <Metric
                   icon={PhoneCall}
-                  value="24/7"
-                  label="disponibilité téléphonique"
+                  value={d.how.metrics[0][0]}
+                  label={d.how.metrics[0][1]}
                 />
                 <Metric
                   icon={CalendarDays}
-                  value="Auto"
-                  label="prise de rendez-vous"
+                  value={d.how.metrics[1][0]}
+                  label={d.how.metrics[1][1]}
                 />
                 <Metric
                   icon={Clock3}
-                  value="Temps"
-                  label="gagné par votre équipe"
+                  value={d.how.metrics[2][0]}
+                  label={d.how.metrics[2][1]}
                 />
               </div>
 
               <p className="mt-6 text-center text-[11px] leading-5 text-zinc-500">
-                Les résultats réels dépendent du volume d’appels et de la
-                configuration choisie.
+                {d.how.metricsNote}
               </p>
             </div>
           </Reveal>
@@ -421,23 +321,23 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
           <div className="grid gap-4 rounded-2xl border border-slate-200 bg-white px-6 py-5 shadow-sm sm:grid-cols-2 lg:grid-cols-4">
             <Trust
               icon={ShieldCheck}
-              title="Hébergement en Suisse"
-              text="Données sécurisées"
+              title={d.how.trust[0][0]}
+              text={d.how.trust[0][1]}
             />
             <Trust
               icon={CheckCircle2}
-              title="Conforme nLPD / RGPD"
-              text="Protection maximale"
+              title={d.how.trust[1][0]}
+              text={d.how.trust[1][1]}
             />
             <Trust
               icon={Headphones}
-              title="Support réactif"
-              text="Une équipe à votre écoute"
+              title={d.how.trust[2][0]}
+              text={d.how.trust[2][1]}
             />
             <Trust
               icon={Sparkles}
-              title="Sans engagement"
-              text="Une offre flexible"
+              title={d.how.trust[3][0]}
+              text={d.how.trust[3][1]}
             />
           </div>
         </div>
@@ -455,46 +355,20 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <Heading
-              eyebrow="SECTEURS"
-              title="Une IA adaptée à votre métier"
-              text="VOXO AI s’adapte à vos horaires, vos services et vos règles de fonctionnement."
+              eyebrow={d.sectors.eyebrow}
+              title={d.sectors.title}
+              text={d.sectors.text}
             />
 
             <div className="max-w-sm rounded-2xl border border-white/[.08] bg-white/[.03] px-5 py-4 text-sm leading-6 text-zinc-400 backdrop-blur-xl">
-              Chaque agent est configuré selon votre activité, votre vocabulaire
-              et vos méthodes de travail.
+              {d.sectors.note}
             </div>
           </div>
 
           <div className="mt-16 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {sectors.map(({ icon: Icon, title, description, bullets }, index) => {
-              const examples = [
-                {
-                  client: "Je voudrais réserver une vidange demain matin.",
-                  ai: "Très bien, je vérifie les disponibilités.",
-                },
-                {
-                  client: "J'ai besoin d'un rendez-vous cette semaine.",
-                  ai: "Je peux vous proposer plusieurs créneaux.",
-                },
-                {
-                  client: "J'ai une fuite d'eau dans mon appartement.",
-                  ai: "Je collecte l'adresse et le niveau d'urgence.",
-                },
-                {
-                  client: "Je souhaite déplacer mon rendez-vous.",
-                  ai: "Bien sûr, je consulte les prochains créneaux.",
-                },
-                {
-                  client: "Pouvez-vous venir établir un devis ?",
-                  ai: "Je note votre demande et vos disponibilités.",
-                },
-                {
-                  client: "Je souhaite réserver une table pour ce soir.",
-                  ai: "Très bien, pour combien de personnes ?",
-                },
-              ];
-              const example = examples[index];
+            {d.sectors.items.map((sector: any, index: number) => {
+              const Icon = sectorIcons[index];
+              const { title, description, bullets, example } = sector;
 
               return (
                 <Reveal key={title}>
@@ -513,7 +387,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                         </span>
 
                         <span className="rounded-full border border-emerald-400/15 bg-emerald-400/[.08] px-3 py-1.5 text-[11px] font-medium text-emerald-300">
-                          Disponible 24h/24
+                          {d.sectors.available}
                         </span>
                       </div>
 
@@ -528,22 +402,22 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                       <div className="mt-6 rounded-2xl border border-white/[.07] bg-black/20 p-4">
                         <div className="flex items-center gap-2 text-[11px] font-semibold tracking-[.14em] text-brand-400">
                           <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,.7)]" />
-                          EXEMPLE D’APPEL
+                          {d.sectors.callExample}
                         </div>
 
                         <div className="mt-4 space-y-3">
                           <div className="max-w-[88%] rounded-2xl rounded-tl-md bg-white/[.06] px-4 py-3 text-sm leading-6 text-zinc-300">
-                            {example.client}
+                            {example[0]}
                           </div>
 
                           <div className="ml-auto max-w-[88%] rounded-2xl rounded-tr-md bg-brand-500/15 px-4 py-3 text-sm leading-6 text-brand-100">
-                            {example.ai}
+                            {example[1]}
                           </div>
                         </div>
                       </div>
 
                       <ul className="mt-6 space-y-3">
-                        {bullets.map((item) => (
+                      {bullets.map((item: string) => (
                           <li
                             key={item}
                             className="flex items-center gap-3 text-sm text-zinc-300"
@@ -561,7 +435,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                         href={`/${locale}/demo`}
                         className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand-400 transition duration-300 group-hover:gap-3"
                       >
-                        Tester cette configuration
+                        {d.sectors.test}
                         <ArrowRight size={16} />
                       </a>
                     </div>
@@ -580,19 +454,18 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <p className="text-xs font-semibold tracking-[.22em] text-brand-400">
-              DÉMO INTERACTIVE
+              {d.demoInteractive.eyebrow}
             </p>
             <h2 className="mt-4 text-balance text-4xl font-semibold tracking-[-.035em] sm:text-6xl">
-              Voyez comment VOXO AI gère un appel
+              {d.demoInteractive.title}
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
-              Choisissez un métier et découvrez le déroulement d’un appel,
-              depuis la demande du client jusqu’à l’action réalisée.
+              {d.demoInteractive.text}
             </p>
           </div>
 
           <div className="mx-auto mt-12 flex w-fit flex-wrap justify-center gap-2 rounded-2xl border border-white/[.08] bg-white/[.035] p-2 backdrop-blur-xl">
-            {demoScenarios.map((scenario, index) => (
+            {d.demoInteractive.scenarios.map((scenario: any, index: number) => (
               <button
                 key={scenario.label}
                 type="button"
@@ -625,7 +498,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                   </span>
                   <div>
                     <p className="text-xs font-semibold tracking-[.16em] text-brand-400">
-                      APPEL EN DIRECT
+                      {d.demoInteractive.liveCall}
                     </p>
                     <h3 className="mt-1 font-semibold text-white">
                       {activeDemo.company}
@@ -638,7 +511,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-60" />
                     <span className="relative h-2.5 w-2.5 rounded-full bg-emerald-300" />
                   </span>
-                  En conversation
+                  {d.demoInteractive.conversation}
                 </span>
               </div>
 
@@ -685,7 +558,7 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                   </span>
                   <div>
                     <p className="text-sm font-semibold text-emerald-200">
-                      Action réalisée
+                      {d.demoInteractive.actionDone}
                     </p>
                     <p className="mt-1 text-sm leading-6 text-zinc-400">
                       {activeDemo.result}
@@ -703,32 +576,14 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
               className="rounded-[34px] border border-white/[.09] bg-white/[.03] p-6 backdrop-blur-xl sm:p-8"
             >
               <p className="text-xs font-semibold tracking-[.18em] text-brand-400">
-                CE QUE FAIT L’IA
+                {d.demoInteractive.whatAiDoes}
               </p>
 
               <div className="mt-7 space-y-3">
-                {[
-                  {
-                    icon: PhoneCall,
-                    title: "Répond immédiatement",
-                    text: "Le client n’attend pas et obtient une réponse naturelle.",
-                  },
-                  {
-                    icon: MessageSquareText,
-                    title: "Comprend la demande",
-                    text: "L’agent collecte les informations utiles, une question à la fois.",
-                  },
-                  {
-                    icon: CalendarDays,
-                    title: "Exécute l’action",
-                    text: "Le rendez-vous est planifié ou la demande transmise au bon service.",
-                  },
-                  {
-                    icon: CheckCircle2,
-                    title: "Confirme au client",
-                    text: "Le client reçoit une confirmation claire de la suite donnée.",
-                  },
-                ].map(({ icon: Icon, title, text: description }, index) => (
+                {d.demoInteractive.actions.map((action: string[], index: number) => {
+                  const Icon = demoActionIcons[index];
+                  const [title, description] = action;
+                  return (
                   <motion.div
                     key={title}
                     initial={{ opacity: 0, y: 12 }}
@@ -746,7 +601,8 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                       </p>
                     </div>
                   </motion.div>
-                ))}
+                  );
+                })}
               </div>
 
               <Button
@@ -754,12 +610,11 @@ export function HomePage({ locale, d }: { locale: Locale; d: any }) {
                 className="mt-7 h-14 w-full text-base shadow-[0_18px_55px_rgba(24,94,255,.30)]"
               >
                 <Play className="mr-2 fill-current" size={17} />
-                Tester la vraie démo
+                {d.demoInteractive.realDemo}
               </Button>
 
               <p className="mt-4 text-center text-xs leading-5 text-zinc-500">
-                La connexion vocale Retell sera activée dès que votre compte
-                disposera d’un moyen de paiement valide.
+                {d.demoInteractive.retellNote}
               </p>
             </motion.div>
           </div>
@@ -843,15 +698,14 @@ function Pricing({ locale, d }: { locale: Locale; d: any }) {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-            Choisissez l’offre adaptée à votre volume d’appels et à votre
-            organisation.
+            {d.subtitle}
           </p>
         </div>
 
         <div className="mt-12 grid items-stretch gap-5 lg:grid-cols-3">
           {d.plans.map((p: any, i: number) => {
             const isPro = i === 1;
-            const isCustom = p.name === "PERSONNALISÉ";
+            const isCustom = i === 2;
 
             return (
               <Reveal key={p.name}>
@@ -869,11 +723,7 @@ function Pricing({ locale, d }: { locale: Locale; d: any }) {
                   )}
 
                   <p className="text-xs font-semibold tracking-[.14em] text-brand-400">
-                    {isPro
-                      ? "POUR LES ÉQUIPES"
-                      : isCustom
-                        ? "SUR MESURE"
-                        : "POUR DÉMARRER"}
+                    {d.labels[i]}
                   </p>
 
                   <h3 className="mt-3 text-2xl font-semibold text-white">
@@ -930,14 +780,12 @@ function Pricing({ locale, d }: { locale: Locale; d: any }) {
                         : ""
                     }`}
                   >
-                    {isCustom ? "Demander un devis" : d.start}
+                    {isCustom ? d.quote : d.start}
                     <ArrowRight className="ml-2" size={16} />
                   </Button>
 
                   <p className="mt-3 text-center text-[11px] text-zinc-500">
-                    {isCustom
-                      ? "Configuration entièrement adaptée à votre entreprise."
-                      : "Configuration personnalisée selon votre activité."}
+                    {d.notes[i]}
                   </p>
                 </div>
               </Reveal>
