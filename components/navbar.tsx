@@ -51,11 +51,11 @@ export function Navbar({
   }, []);
 
   const links = [
-    [nav.solution, "#solution"],
-    [nav.sectors, "#secteurs"],
+    [nav.solution, `/${locale}#solution`],
+    [nav.sectors, `/${locale}#secteurs`],
     [nav.demo, `/${locale}/demo`],
-    [nav.pricing, "#tarifs"],
-    [nav.faq, "#faq"],
+    [nav.pricing, `/${locale}#tarifs`],
+    [nav.faq, `/${locale}#faq`],
   ];
 
   function getLanguageHref(nextLocale: Locale) {
