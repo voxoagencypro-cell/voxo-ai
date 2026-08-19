@@ -6,9 +6,9 @@ type Props = {
 };
 
 export const metadata: Metadata = {
-  title: "Réceptionniste IA Genève | Standard téléphonique IA | VOXO AI",
+  title: "Réceptionniste IA à Genève | Standard téléphonique IA | VOXO AI",
   description:
-    "Réceptionniste IA à Genève pour entreprises. VOXO AI répond à vos appels 24h/24, renseigne vos clients, prend des rendez-vous et automatise votre accueil téléphonique.",
+    "Réceptionniste IA à Genève pour entreprises. VOXO AI répond à vos appels 24h/24, renseigne vos clients, gère les rendez-vous et automatise votre accueil téléphonique.",
   keywords: [
     "réceptionniste IA Genève",
     "standard téléphonique IA Genève",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Réceptionniste IA à Genève | VOXO AI",
     description:
-      "Automatisez vos appels et rendez-vous avec une réceptionniste IA conçue pour les entreprises de Genève et de Suisse romande.",
+      "Automatisez vos appels, demandes clients et rendez-vous avec une réceptionniste IA conçue pour les entreprises de Genève.",
     url: "https://voxo-ai.ch/fr/receptionniste-ia-geneve",
     siteName: "VOXO AI",
     locale: "fr_CH",
@@ -84,7 +84,7 @@ export default async function ReceptionnisteIAGeneve({ params }: Props) {
           </Link>
 
           <Link
-            href={`/${locale}/tarifs`}
+            href={`/${locale}#tarifs`}
             className="inline-flex rounded-full border border-white/20 px-8 py-4 font-semibold text-white transition hover:bg-white/10"
           >
             Voir les tarifs
@@ -100,9 +100,10 @@ export default async function ReceptionnisteIAGeneve({ params }: Props) {
           </h2>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-300">
-            Un appel manqué peut représenter un client ou une réservation
-            perdue. VOXO AI prend le relais lorsque vous ne pouvez pas répondre
-            et permet à vos clients d&apos;obtenir une réponse rapidement.
+            À Genève, un appel manqué peut représenter une réservation, un
+            prospect ou une demande client perdue. VOXO AI prend le relais
+            lorsque vous ne pouvez pas répondre et permet à vos clients
+            d&apos;obtenir rapidement les informations dont ils ont besoin.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -144,13 +145,14 @@ export default async function ReceptionnisteIAGeneve({ params }: Props) {
       <section className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="text-3xl font-bold md:text-4xl">
-            Pour quelles entreprises à Genève ?
+            Quelles entreprises à Genève peuvent utiliser VOXO AI ?
           </h2>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-300">
-            VOXO AI peut être adapté aux entreprises qui reçoivent
-            régulièrement des appels, des demandes d&apos;informations ou des
-            demandes de rendez-vous.
+            La solution peut être adaptée aux entreprises genevoises qui
+            reçoivent régulièrement des appels, des demandes
+            d&apos;informations, des réservations ou des demandes de
+            rendez-vous.
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -163,6 +165,28 @@ export default async function ReceptionnisteIAGeneve({ params }: Props) {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* GENEVE */}
+      <section className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-20">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Automatiser son accueil téléphonique à Genève
+          </h2>
+
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-300">
+            Pour une entreprise locale, rester joignable tout au long de la
+            journée peut être difficile. Les équipes sont souvent en rendez-vous,
+            avec des clients, sur le terrain ou déjà occupées avec d&apos;autres
+            demandes.
+          </p>
+
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-gray-300">
+            VOXO AI permet de mettre en place un accueil téléphonique
+            automatisé capable de répondre aux demandes courantes et de
+            transmettre les informations importantes à votre équipe.
+          </p>
         </div>
       </section>
 
@@ -191,7 +215,7 @@ export default async function ReceptionnisteIAGeneve({ params }: Props) {
       <section className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-20 text-center">
           <h2 className="text-3xl font-bold md:text-5xl">
-            Testez votre réceptionniste IA
+            Testez votre réceptionniste IA à Genève
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-300">
