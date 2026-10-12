@@ -1,0 +1,38 @@
+---
+description: EKP decision flow — Frontend Styling and Markup
+alwaysApply: false
+---
+
+# Frontend Styling and Markup Decision Flow
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- 1. UI behavior and ownership?
+- → Domain/state/composition: frontend-architecture.md (EKP-FE01–FE08).
+- → Markup/styling/layout/a11y ops/testing boundary: continue.
+- 2. Existing project conventions (EKP-FE10)
+- → Identify current styling/markup architecture; prefer it.
+- 3. Semantic / native capabilities (EKP-FE09)
+- → Prefer native HTML/controls before custom widgets.
+- 4. Reuse styling architecture and tokens (EKP-FE10, EKP-FE13)
+- → Extend existing system; do not invent a parallel stack.
+- 5. Simplest mechanism (EKP-FE11)
+- → Escalate complexity only with justification (EKP-P02).
+- 6. Style ownership (EKP-FE12)
+- → Clear owner; fix cascade/specificity without global override wars.
+- 7. Layout / responsive (EKP-FE14)
+- → Mobile-first default; Flex vs Grid by dimensionality; content-driven breakpoints.
+- 8. Accessibility (EKP-FE15 / EKP-FE06)
+- → Keyboard, focus, dialogs, forms, motion, contrast before merge.
+- 9. Verify user-visible behavior (EKP-FE16)
+- → Cite EKP-TS; avoid implementation-detail tests.
+- 10. Performance claims?
+- → Cite EKP-PM; FE07 for render/fetch scope.
+- 11. Global styling architecture change?
+- → Require ADR when blast radius is high (EKP-FE08 / EKP-AD).
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — AI Decision Flow

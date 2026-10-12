@@ -1,0 +1,26 @@
+---
+description: "EKP-TY05 — Encode decisions with discriminated unions"
+alwaysApply: false
+---
+
+# EKP-TY05 — Encode decisions with discriminated unions
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- Replace boolean flags and optional fields with tagged unions so invalid states are unrepresentable.
+- Prefer `kind` or `type` discriminator field consistent across the codebase.
+- Exhaustiveness checking (`switch` + `never`) for union handling—do not leave default fall-through silent.
+- Do not simulate unions with parallel optional fields (`error?: …; data?: …`) when states are mutually exclusive.
+
+## Preferences
+
+- Good: `type LoadState = { status: 'loading' } | { status: 'error'; message: string } | { status: 'ok'; data: T }`
+- Bad: `{ loading?: boolean; error?: string; data?: T }` with ambiguous combinations.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY05
+- Implements: EKP-P04, EKP-P07
+- Severity: recommended

@@ -1,0 +1,21 @@
+---
+description: "EKP-EH12 — Do not hide architectural problems behind error handling"
+alwaysApply: false
+---
+
+# EKP-EH12 — Do not hide architectural problems behind error handling
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Retry, fallback, and catch-and-continue can mask wrong boundaries, missing idempotency, or coupling defects.
+- Fallback to stale cache is a product decision, not a default error handler.
+- Generic "degraded mode" without defined behavior is silent failure (**EKP-EH02**).
+- Structural fixes (split responsibility, fix dependency direction) belong in `refactoring.md` / architecture—not deeper catch blocks.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH12
+- Implements: EKP-P07
+- Severity: recommended

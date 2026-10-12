@@ -1,0 +1,26 @@
+---
+description: "EKP-FE06 — Accessibility is an architectural requirement"
+alwaysApply: false
+---
+
+# EKP-FE06 — Accessibility is an architectural requirement
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- a11y is not a polish pass—keyboard flow, semantics, and contrast affect correctness and compliance.
+- Prefer semantic HTML/native roles before custom widgets; document custom widget a11y contract.
+- Labels, errors, and live regions for dynamic content must be associated correctly.
+- Do not rely on color alone for critical state (cite proportional effort **EKP-P02** for internal-only tools).
+
+## Preferences
+
+- Good: Form field with `label`, `aria-invalid`, and described error text.
+- Bad: `div onClick` as primary button with no role/tabIndex.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE06
+- Implements: EKP-P04, EKP-P06
+- Severity: recommended

@@ -1,0 +1,26 @@
+---
+description: "EKP-TY06 — Keep module boundaries explicit"
+alwaysApply: false
+---
+
+# EKP-TY06 — Keep module boundaries explicit
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- Files and packages are architecture units—public API vs internal modules must be clear.
+- Prefer ESM `import`/`export`; document exceptions for CJS interop.
+- Circular module dependencies are a design smell—break cycles with interfaces or shared kernel types.
+- Side effects belong at composition root, not in shared utility modules.
+
+## Preferences
+
+- Good: `package.json` `"exports"` maps public API.
+- Bad: `import { helper } from '../../deep/internal/util'` from another package.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY06
+- Implements: EKP-P06, EKP-P09
+- Severity: recommended

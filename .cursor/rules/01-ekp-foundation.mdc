@@ -1,0 +1,31 @@
+---
+description: EKP engineering principles — required decision framework
+alwaysApply: true
+---
+
+# EKP Engineering Principles
+
+> **Source:** `knowledge/engineering/engineering-principles.md`
+
+## Directives
+
+- This document defines the universal engineering principles that govern how software is designed, built, reviewed, and maintained across all technology stacks in EKP. It explains how senior engineers make technical decisions under uncertainty, when to apply each principle, and when deliberate deviation is justified. Every other knowledge document in this repository derives its authority from these principles.
+- EKP-P01 — Solve the actual problem — Address the root cause or the stated requirement—not the symptom, not the interesting adjacent problem, not the problem you wish you had.
+- EKP-P02 — Proportionality — Match solution complexity to problem significance, lifespan, and blast radius.
+- EKP-P03 — Prefer reversible decisions — When two options are equally viable, choose the one that is cheaper to change later.
+- EKP-P04 — Explicit over implicit — Make contracts, assumptions, and failure modes visible—not inferred from convention or tribal knowledge.
+- EKP-P05 — Local reasoning — A unit of code should be understandable without loading the entire system into working memory.
+- EKP-P06 — Own the boundary — Every interface between systems, teams, or layers has an owner responsible for contract stability, error semantics, and versioning.
+- EKP-P07 — Fail fast and visibly — Errors should surface at the point of failure—or as close as possible—with enough context to diagnose.
+- EKP-P08 — Evidence before optimization — Do not optimize without measurement. Do not measure without a hypothesis.
+- EKP-P09 — Compose, do not accumulate — Prefer small, composable units over monolithic structures that accrete unrelated responsibility.
+- EKP-P10 — Maintainability is a feature — Optimize for the cost of change over the cost of initial authorship.
+
+## Constraints
+
+- Every technical decision must consider EKP-P01 through EKP-P10.
+- Deviation requires documented rationale.
+
+## References
+
+- `knowledge/engineering/engineering-principles.md` — Engineering Principles

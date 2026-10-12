@@ -1,0 +1,19 @@
+---
+description: "EKP-TS11 — Testing cost must match change risk"
+alwaysApply: false
+---
+
+# EKP-TS11 — Testing cost must match change risk
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Testing effort is proportional to blast radius, lifespan, and change frequency—not uniform across all code.
+- Testing budget is negotiated like refactoring budget (**EKP-RF04** reference only).
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS11
+- Implements: EKP-P02, EKP-P03, EKP-P10
+- Severity: recommended

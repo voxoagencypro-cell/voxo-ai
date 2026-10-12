@@ -1,0 +1,478 @@
+{
+  "adapters": [
+    "cursor"
+  ],
+  "configuration_sha256": "97860b7defdee9a3095dcfaddb50c898b1c1d4d9b7a7c66b16162a313eb7b742",
+  "created_directories": [
+    ".cursor/rules",
+    ".ekp"
+  ],
+  "ekp_version": "0.22.0",
+  "install_root": ".",
+  "installed_at": "2026-10-12T16:23:18Z",
+  "managed_files": [
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/00-ekp-orchestrator.mdc",
+      "sha256": "2ed8c92989251807381ad17870a2b11854701de8a1a7a15256948ed84bc1a4b6"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/01-ekp-foundation.mdc",
+      "sha256": "6399896c2d1081eefb3be73108fbee9f01fe1d5eada637080749f89244adb934"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/10-ekp-rf-decision-flow.mdc",
+      "sha256": "82e8f94d5b80f6c9b9ee4f274a5d395a5bfb503122daba97ce82deca24e4b779"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/11-ekp-ts-decision-flow.mdc",
+      "sha256": "33df9b6858353b6dfda478cbe52885ad63e3b61ae795b22e1deb101fb0226eeb"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/12-ekp-eh-decision-flow.mdc",
+      "sha256": "d24c5300b75a38e7c63518c953bfb910fca646b684c613de001280f20e95f043"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/13-ekp-lb-decision-flow.mdc",
+      "sha256": "e47abb8ce38588f87232572741f2a534fa7adac90955831e8d277f3affdcca02"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/14-ekp-typescript-fundamentals-decision-flow.mdc",
+      "sha256": "906bc936b8d31179d4e7704f24747941bf1f122c502eec805432ab1f106b045d"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/15-ekp-frontend-architecture-decision-flow.mdc",
+      "sha256": "78e1419324aeeb3588ddf2e62e4dbe6f14ef1cff1918e8a28ac3752fc5a8eb14"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/16-ekp-frontend-styling-and-markup-decision-flow.mdc",
+      "sha256": "dd6bf9e7c2f18e9ff22976252dde976f16f7d0e7772a5518f246d77454ac806d"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai01-scope-stated-task.mdc",
+      "sha256": "56aec1876db42320290de74ec1f018c0a1db77f97b4020f7e213b3a16aa5ec48"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai02-read-write.mdc",
+      "sha256": "570891059f01d18606163e9c87b04e9a755d88e2310db2681d4e798eb26ecb72"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai03-proportional-change-size.mdc",
+      "sha256": "6102c17fcb4fcb8eb3f74a0f98b73783159bb72091450a674b945d8b85e111f9"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai04-prefer-reversible-steps.mdc",
+      "sha256": "8398662bda4c6b9212509100475907112078395af763f0ece8a23e30229e5c33"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai05-tests-define-done.mdc",
+      "sha256": "d1dcf51477f9a78a6198d7c9904fb1847a6b91bbf9ba3e9c477e9f7e977dcc78"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai06-cite-ekp-concept.mdc",
+      "sha256": "1dd9ae83925d27c382f4c0cfefdce66b642778e042de6f554ff679a114e27def"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai07-human-gate-highrisk.mdc",
+      "sha256": "a2e6430570011d061cb147e58ac0f90c48644a433cd2906634f5df32cf16a458"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai08-no-secrets-prompts.mdc",
+      "sha256": "88f7880034a15d62110122bfb6a1fe50c64ce6bd166eeca6cce363144fea5b58"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai09-review-diffs-not.mdc",
+      "sha256": "4539d0c31b466673d267eda5d100f8259e3237870f4476cba86a8f81b4f1222b"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai10-escalate-sibling-documents.mdc",
+      "sha256": "21798b0d69314951182c8753c1941cb62fa3151fa0596f2e0881f90feac85e2c"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai11-incremental-commits-bigbang.mdc",
+      "sha256": "e6ad1a708a74ffd3a658542c1b73e5b6df53eaf55c1994fd21a08a1a3c3e71e8"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ai12-verify-claiming-done.mdc",
+      "sha256": "8182e45dafcc44c57e411f829165eef515d41d934a0886460251b20fa698ffcb"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh01-expected-vs-unexpected.mdc",
+      "sha256": "04f389c6221f92b28dd8d2624758790eb0491c98be332b21ba9ba5d5741dec9b"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh02-fail-explicitly-not.mdc",
+      "sha256": "8b8468fc00d9fad055c24f9f70602c4792eeceb980e183ea3be43e43f84586bd"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh03-preserve-useful-failure.mdc",
+      "sha256": "9195b1ea777ec0a7c1f64f00f791a7a40656a9c6b7584bbe6d746d0f5c98060e"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh04-handle-errors-correct.mdc",
+      "sha256": "1edd4b99f4c4c73c62baa7b1101ba3534d2e532c8d845dd36d87e062b5e3010c"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh05-do-not-use.mdc",
+      "sha256": "d492e2272044be26ebc50c35142f8f9f3e35dc657ed36a8802187b19ddc5cc5a"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh06-define-ownership-recovery.mdc",
+      "sha256": "c88a251a64de11b80e2e39b2e8639aba3a6aad559410b5793875c594cf0d9cf4"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh07-keep-error-contracts.mdc",
+      "sha256": "9f754dbb0bfae6be74351dec66bc2f87f73bdbf8df20ed461e1c8198c8b1e68c"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh08-avoid-leaking-implementation.mdc",
+      "sha256": "cc3b8f5452e36511f9e1b407d946ab2e1c373b7929a32d95abe858a2a9263210"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh09-prefer-actionable-failures.mdc",
+      "sha256": "f37a8cfd346dd81670d707f9a58c8af60f1d68c5baa43b8e5145a0b6f844d136"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh10-avoid-overcatching-swallowing.mdc",
+      "sha256": "b31a63577a474f485a8f88c84cd4ea168ce3ac2d7c82ecb2c3bc4fa867246853"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh11-match-failure-strategy.mdc",
+      "sha256": "eb95bfb722d4ee5be104e4e719ae9bd0f2fb9f2df8510b783b17913aa9f7a3c3"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-eh12-do-not-hide.mdc",
+      "sha256": "df3628b47fd7691ef05bd56ccb971c921b0e772cb48dd22682df4b628d355bf2"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe01-components-own-ui.mdc",
+      "sha256": "64cc5fc12cf977371de10bf2d964473b3109d3d43daa90624cb00d18c7653233"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe02-state-has-single.mdc",
+      "sha256": "4d50ab80e6e36f7aad6955ca4700ee67bdf579d36f967c0d0c5068b1d6fc2ba3"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe03-compose-ui-from.mdc",
+      "sha256": "e4b07f2c57ace9f705e1b5b924a11c86a61bdeff8af0648b76a69a06a80eaad0"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe04-separate-presentation-from.mdc",
+      "sha256": "07676feb3351b3bc41bc5c639c5845016a5c3e216ec5fd029c6bf7de17c51c43"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe05-model-async-ui.mdc",
+      "sha256": "298b0b9e6a5049c35e8430a5a55ef56907ed892f7e9448d95862f5fd74285819"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe06-accessibility-is-architectural.mdc",
+      "sha256": "90aed35af80b238675631870664ea93daebf77cb3be8f760200774f193a53da6"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe07-respect-rendering-datafetch.mdc",
+      "sha256": "b7c34705b088052224eda0dd5a714e0318b3c57a14b1b080cab1e87da7274d5a"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe08-record-oneway-frontend.mdc",
+      "sha256": "dce1713c2c5be685c23c2f38d9e0e6ad824c0705dd2947218adaebc0a3e80d1d"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe09-prefer-semantic-html.mdc",
+      "sha256": "808cd38c5dd87a41e97317a1e83fd59f555a0287a530e386cf69444d4f488892"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe10-styling-architecture-is.mdc",
+      "sha256": "20b9d7e94ef9cd857c6c9049ef0f0db0a3071b89b11bfe060165d421465f9115"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe11-prefer-simplest-styling.mdc",
+      "sha256": "6bf55195e71639e580a1df2569646e3623d526ff8f05f1798227f3a556f74232"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe12-own-cascade-specificity.mdc",
+      "sha256": "53627706740bcb1afe58a736f3e5d9ac7e6bf9a77e942cd202ae978d777dbad1"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe13-centralize-repeated-visual.mdc",
+      "sha256": "fcf6335ead2e4afbd70709252ac3af1d7ffa9e15dd8477b233e4fb7272d18f84"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe14-choose-layout-responsive.mdc",
+      "sha256": "5695ce1a982cce52e0e0364c1addda2217411cd1c6a11ab1a9d9cee4042d94f8"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe15-operational-accessibility-interactive.mdc",
+      "sha256": "e4c53779e5f80106de364413adea8d8c1a40df9f7963fede54acf4fdf804af8a"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-fe16-verify-ui-by.mdc",
+      "sha256": "daecac743a79a967ffccab1aa38cd2fa6a0467ed172c542165e62e6594d2d328"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb01-when-layering-matters.mdc",
+      "sha256": "ff40ca79d93ee5cc16762e1da4fcd762b14addca81d588b6763410e157d0727c"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb02-proportionality-architecture.mdc",
+      "sha256": "0e3b928b5ae8b764a8946af57076db3ac0fc477f09398d346c5bfc3bcc064782"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb03-convention-alignment.mdc",
+      "sha256": "aa6397a820ba49efcbdda92ca63115d2245e96230fb893ee562269c8b1edc0da"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb04-escalation-from-engineering.mdc",
+      "sha256": "192760922537a0abae31123ef10e6fbf144cca8ddfbca21a06b33cb2fa8922f8"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb05-dependency-direction.mdc",
+      "sha256": "31914864c09ac1aa597849ceb7366b91b9fffdadbef7eafe7a938f3d775f1a8a"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb06-layer-responsibilities.mdc",
+      "sha256": "3bcf088d63c34921186ed4a87995a3ab6575fb1c4c02f93b84e7d382fbdee236"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb07-what-crosses-layer.mdc",
+      "sha256": "17f0f2377ae3b6dee2a60f6219fc37dd9766656a0f3b09ae112d21c3750b7a6a"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb08-contract-stability-ownership.mdc",
+      "sha256": "e641df09341f970633a02fcce06c141000ac080a3185ebdaea7addd2b59a3083"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb09-validation-boundary.mdc",
+      "sha256": "b0a0264d2f8cd744ee3ae8a7367460085c2531f8376224bc16e93d35e79d1023"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb10-versioning-migration.mdc",
+      "sha256": "7272f791e64178eb6755105f4b5dac11d8e25f9670c97d631b4043cb58564ad5"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb11-error-semantics-across.mdc",
+      "sha256": "1992aa881242203a6c72cd46917a9b284bac343d31a6c46a18f32028183b17a5"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb12-idempotency-boundaries.mdc",
+      "sha256": "bbcf4d67cb9a6c7f75d629295811e974b71ffef9eeb2b3df4fac25b69fb2d435"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb13-timeout-retry-failure.mdc",
+      "sha256": "42efccf356af2b198229fd6dad595148e53df9351575ddeb57384114c8e5b3a0"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb14-leaky-abstractions.mdc",
+      "sha256": "2a879f0597b97a9d43a13e308cc473081e240a461faf60c303912806253e26a7"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb15-anemic-boundaries.mdc",
+      "sha256": "6339a11742fd941bd63ec58deab4584c36cf7e55cb8f59c8d4e895c00b03574d"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-lb16-architecture-change-governance.mdc",
+      "sha256": "de01906bbe5d0ebaef2a791680be557dc2ed8c0f10dd91b7fd789bfd54cc8094"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-rf01-behavior-preservation.mdc",
+      "sha256": "5af7572972205e3305c9aef2b4ea2bf7ad45cc8935254a5dd5fa04ec045857ae"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-rf02-small-steps.mdc",
+      "sha256": "14e6df61640061efa9a9e00f0f44955da49aae884413b4966089d166a18e6961"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-rf03-tests-safety-nets.mdc",
+      "sha256": "44f9faa6e88659a7eb678e97cb611eb7ec5693b72f111361e5ca3b69627f7ced"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-rf04-when-refactor.mdc",
+      "sha256": "8f97aa820cd8214634657dc254684dad3cd7c96ce512fb6b68c4e69e3c65fff9"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-rf05-named-refactoring-procedures.mdc",
+      "sha256": "9cc9529263d8b0dfe671938527d257aa46700c0e18519bd6546e8211a0955251"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-rf06-opportunistic-refactoring-scope.mdc",
+      "sha256": "4d72a36a0c71b25f7230252d47e8d9b85cd3dbdb7ca9c5ca5cf7e9901c26ecde"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-rf07-incidents-rewrites-escalation.mdc",
+      "sha256": "8284d86198a6e42649780b4fa11ca32a08c14800ca3ddab721a31c3854227b1f"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts01-tests-are-executable.mdc",
+      "sha256": "504a69626deca80f4262be448169e8cd557521eb183fd56049bca4856c0d478f"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts02-test-pyramid-proportional.mdc",
+      "sha256": "e50dc2cf987ccc26e02e24437e939ef8195226bc9a6981e1b1dea53883238f18"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts03-test-behavior-not.mdc",
+      "sha256": "b190667102e44dfdb5b0522bb0495e18aea105e0766a2b30c315aab4f685a589"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts04-choose-correct-testing.mdc",
+      "sha256": "75e356b5fc1767bfc365b5377149c0055337b988a4b31d6229dc16f166c6aaf1"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts05-characterization-tests-existing.mdc",
+      "sha256": "6a698545500a356ef3bf7f5ecbf3ce82cbb26a7d2b459cb1861291111935a7e2"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts06-test-doubles-isolation.mdc",
+      "sha256": "ced5ec73bf17240def23719e1efc699ae200a7cb703b031c8204baafa1068342"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts07-avoid-overmocking.mdc",
+      "sha256": "4488770fad30345b1f7caa596fa9e48a279350a3859dd803c3e61922d488f9a9"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts08-test-data-ownership.mdc",
+      "sha256": "33563681a3cea7cb111bbdc811d12cd03d848e5e8e9663be214ddc63c0cd2389"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts09-flaky-tests-are.mdc",
+      "sha256": "1f3bd62f10833d73033534001e3638ed085db12140d4d2b47486c6a41d486506"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts10-coverage-is-signal.mdc",
+      "sha256": "10563ced97de4735bef032446d82c8e1957cd17d50068040817bdf7792bc85a1"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts11-testing-cost-must.mdc",
+      "sha256": "c2077771ce3fe135712801554cdde45c9cd3e1bbe2a46813bd7261eec5363aac"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ts12-review-signals-test.mdc",
+      "sha256": "f1748bd54858468aa18b1ca4c8b1f742434e78aa13ea4f58679fdb7b21d7c0e5"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty01-treat-strict-mode.mdc",
+      "sha256": "f050a0ed48628170de181c358e1ceeaef6f5069bbb6a174a4b5e5e105a5280d3"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty02-model-types-structurally.mdc",
+      "sha256": "dc7cb7f18c2e1cc5149bf219816eee127fe71f64594d2ab9c2415b3be868579c"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty03-ban-any-prefer.mdc",
+      "sha256": "a212fb39dd50e886f80b6af00d62b9f75185014b06308d756cf7c02c7a00319e"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty04-use-readonly-protect.mdc",
+      "sha256": "9633d79ec6ea226aa1bfa4011fc26c693dc57a6e0bc0ece191593a6e0727d32e"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty05-encode-decisions-discriminated.mdc",
+      "sha256": "17b4312af9c77ffcfbb7c37877e9373669e1e7fd644a830dcbd78f9ed9937449"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty06-keep-module-boundaries.mdc",
+      "sha256": "578f2d48abf2d6922ec66bfaf09532da56f897dc6a409b7cf77ecf07b478d59c"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty07-know-what-compiler.mdc",
+      "sha256": "55406cc8dc33c715e83730d714f624e671a408969f9f575983d0e9726ca2bf22"
+    },
+    {
+      "adapter": "cursor",
+      "relative_path": ".cursor/rules/concept-ekp-ty08-validate-runtime-boundaries.mdc",
+      "sha256": "21bd8f1f4d840d2be4723401a33fca3dd4305d7bb0d34fbbaacc00b5d97125a0"
+    }
+  ],
+  "mode": "composition",
+  "profile": "project-composition",
+  "schema_version": 1
+}

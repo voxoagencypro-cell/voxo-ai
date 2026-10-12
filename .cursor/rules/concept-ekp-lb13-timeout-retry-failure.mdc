@@ -1,0 +1,21 @@
+---
+description: "EKP-LB13 — Timeout, retry, and failure contracts"
+alwaysApply: false
+---
+
+# EKP-LB13 — Timeout, retry, and failure contracts
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Cross-boundary calls must define timeout, retry, and failure behavior—not infinite waits or unbounded retries.
+- Retries only for idempotent operations or with deduplication; use backoff.
+- Define circuit-breaking or degradation behavior when downstream fails—at application or infrastructure layer, documented per boundary.
+- Cascading failure from one slow dependency is a boundary design failure.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB13
+- Implements: EKP-P06
+- Severity: recommended

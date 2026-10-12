@@ -1,0 +1,20 @@
+---
+description: "EKP-EH01 — Expected vs unexpected failures"
+alwaysApply: false
+---
+
+# EKP-EH01 — Expected vs unexpected failures
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Distinguish failures the system is designed to handle from defects that indicate broken assumptions.
+- Expected failures use domain-appropriate representation (result type, rejection code, validation error)—not generic catch-all handling.
+- Unexpected failures must not be converted to empty success responses.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH01
+- Implements: EKP-P07
+- Severity: recommended

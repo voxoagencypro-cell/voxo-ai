@@ -1,0 +1,20 @@
+---
+description: "EKP-TS06 — Test doubles and isolation"
+alwaysApply: false
+---
+
+# EKP-TS06 — Test doubles and isolation
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Doubles (mocks, stubs, fakes) **control boundaries** so the unit under test can be exercised deterministically.
+- Prefer **fake** over **mock** when behavior verification matters more than call counting.
+- Doubles are not a substitute for integration tests at real seams.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS06
+- Implements: EKP-P10
+- Severity: recommended

@@ -1,0 +1,21 @@
+---
+description: "EKP-EH10 — Avoid over-catching and swallowing failures"
+alwaysApply: false
+---
+
+# EKP-EH10 — Avoid over-catching and swallowing failures
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Broad catch blocks that absorb unknown failures hide defects and corrupt state.
+- `catch (Exception)` / `catch (...)` at outer shell only—to log, translate, and rethrow or fail the request—not to continue as if success.
+- Never catch without handling: log + rethrow, log + mapped failure, or documented safe fallback with business justification.
+- Empty catch blocks are prohibited except in documented finalizer patterns with explicit rationale.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH10
+- Implements: EKP-P07
+- Severity: recommended

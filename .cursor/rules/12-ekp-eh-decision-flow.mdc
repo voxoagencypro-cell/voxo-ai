@@ -1,0 +1,35 @@
+---
+description: EKP decision flow — Error Handling
+alwaysApply: false
+---
+
+# Error Handling Decision Flow
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- 1. What failure type is this (taxonomy)?
+- → Classify: validation, business, infrastructure, integration, defect.
+- → EH-AI-01: Do not suggest handling without classification. Stop if unknown.
+- 2. Is this expected or unexpected (EKP-EH01)?
+- → Expected: explicit rejection path with stable contract.
+- → Unexpected: fail visibly; do not normalize to success.
+- 3. Is this the correct boundary to handle it (EKP-EH04)?
+- → NO: Move handling to delivery/application/infrastructure edge.
+- → YES: continue.
+- 4. Does handling preserve context without leaking detail (EKP-EH03, EKP-EH08)?
+- → NO: Fix mapping before adding catch blocks.
+- 5. Does the change alter a public error contract (EKP-EH07)?
+- → YES: Flag breaking change; EH-AI-03: preserve existing contracts unless requested.
+- 6. Is retry, fallback, or circuit-breaking required?
+- → YES: Verify ownership (EKP-EH06) and idempotency (EKP-LB12).
+- → Cross-service: escalate to architecture—do not invent local retry policy.
+- 7. Is a new abstraction introduced only for errors?
+- → EH-AI-04: Reject unless variation or test seam justifies (EKP-DP01).
+- 8. Does recurring failure indicate architectural defect (EKP-EH12)?
+- → YES: EH-AI-05: Propose boundary/contract fix—not deeper catch.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — AI Decision Flow

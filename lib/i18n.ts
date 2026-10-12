@@ -9,13 +9,18 @@ export function isLocale(value: string): value is Locale {
 const dictionaries = {
   fr: {
     nav: {
+      home: "Accueil",
+      consulting: "Consulting IA",
+      acquisition: "Acquisition & Publicité",
+      agents: "Agents IA",
+      crm: "CRM & Automatisation",
+      contact: "Contact",
+      demo: "Réserver une démo gratuite",
       solution: "Solution",
       sectors: "Secteurs",
       pricing: "Tarifs",
-      demo: "Démo",
       faq: "FAQ",
-      contact: "Contact",
-      cta: "Réserver une démo",
+      cta: "Réserver une démo gratuite",
     },
 
     hero: {
@@ -269,7 +274,7 @@ const dictionaries = {
     },
 
     footer: {
-      text: "Réception téléphonique intelligente pour les PME suisses.",
+      text: "Consulting et systèmes IA pour relier acquisition, messages, appels, rendez-vous et suivi client.",
       legal: "Mentions légales",
       privacy: "Confidentialité",
     },
@@ -277,13 +282,18 @@ const dictionaries = {
 
   de: {
     nav: {
+      home: "Start",
+      consulting: "KI-Beratung",
+      acquisition: "Akquisition & Werbung",
+      agents: "KI-Agenten",
+      crm: "CRM & Automatisierung",
+      contact: "Kontakt",
+      demo: "Kostenlose Demo buchen",
       solution: "Lösung",
       sectors: "Branchen",
       pricing: "Preise",
-      demo: "Demo",
       faq: "FAQ",
-      contact: "Kontakt",
-      cta: "Demo buchen",
+      cta: "Kostenlose Demo buchen",
     },
 
     hero: {
@@ -537,7 +547,7 @@ const dictionaries = {
     },
 
     footer: {
-      text: "Intelligente Telefonannahme für Schweizer KMU.",
+      text: "KI-Beratung und Systeme für Akquisition, Nachrichten, Anrufe, Termine und Kundenfollow-up.",
       legal: "Impressum",
       privacy: "Datenschutz",
     },
@@ -545,13 +555,18 @@ const dictionaries = {
 
   en: {
     nav: {
+      home: "Home",
+      consulting: "AI Consulting",
+      acquisition: "Acquisition & Ads",
+      agents: "AI Agents",
+      crm: "CRM & Automation",
+      contact: "Contact",
+      demo: "Book a free demo",
       solution: "Solution",
       sectors: "Industries",
       pricing: "Pricing",
-      demo: "Demo",
       faq: "FAQ",
-      contact: "Contact",
-      cta: "Book a demo",
+      cta: "Book a free demo",
     },
 
     hero: {
@@ -805,7 +820,7 @@ const dictionaries = {
     },
 
     footer: {
-      text: "Intelligent call handling for Swiss small businesses.",
+      text: "AI consulting and systems connecting ads, messaging, calls, appointments, and client follow-up.",
       legal: "Legal notice",
       privacy: "Privacy",
     },

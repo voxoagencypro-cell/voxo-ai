@@ -1,0 +1,27 @@
+---
+description: "EKP-AI12 — Verify before claiming done"
+alwaysApply: false
+---
+
+# EKP-AI12 — Verify before claiming done
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- Completion is a contract: scope addressed, changes listed, verification performed, risks stated. "Done" without verification is a process failure.
+- Report verification commands run (test, lint, build) and their outcome when available.
+- State remaining risks, follow-ups, or manual checks required.
+- If verification failed, report failure—do not claim success.
+- Use the completion template in AI Decision Flow step 8.
+
+## Preferences
+
+- Good: "Scope: email validation added. Files: `UserForm.ts`, `UserForm.test.ts`. Tests: `npm test UserForm` — 14 passed. Risk: server-side validation still required."
+- Bad: "All done!" with no files, tests, or verification mentioned.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI12
+- Implements: EKP-P07, EKP-P10
+- Severity: required

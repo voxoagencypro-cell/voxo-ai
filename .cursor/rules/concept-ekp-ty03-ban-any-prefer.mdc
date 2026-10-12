@@ -1,0 +1,26 @@
+---
+description: "EKP-TY03 — Ban `any`; prefer `unknown` at trust boundaries"
+alwaysApply: false
+---
+
+# EKP-TY03 — Ban `any`; prefer `unknown` at trust boundaries
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- `any` disables the type system; external data is `unknown` until narrowed or validated.
+- Replace `any` in legacy code incrementally when touched (cite EKP-RF).
+- JSON.parse, DOM events, third-party callbacks: treat as `unknown` or typed wrapper.
+- Never cast `as SomeType` on external input without validation (runtime or schema).
+
+## Preferences
+
+- Good: `const data: unknown = JSON.parse(raw); const order = parseOrder(data);`
+- Bad: `(response as Order).total` on fetch body; `Record<string, any>` for API models.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY03
+- Implements: EKP-P06, EKP-P07
+- Severity: recommended

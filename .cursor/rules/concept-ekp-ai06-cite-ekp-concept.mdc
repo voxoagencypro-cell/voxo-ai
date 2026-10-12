@@ -1,0 +1,27 @@
+---
+description: "EKP-AI06 — Cite EKP concept IDs"
+alwaysApply: false
+---
+
+# EKP-AI06 — Cite EKP concept IDs
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- AI recommendations must be traceable to governed knowledge—not generic "best practices." Concept IDs make reasoning auditable in review.
+- Prefer citing sibling document concepts over restating principle prose.
+- When recommending a pattern or refactor, name the EKP concept that justifies it.
+- If no EKP concept applies, state that explicitly and flag for human review.
+- Do not invent EKP IDs—use only IDs defined in published knowledge documents.
+
+## Preferences
+
+- Good: "Per EKP-EH04, this exception should preserve the error code at the boundary."
+- Bad: "Best practice is to always use a repository pattern here."
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI06
+- Implements: EKP-P04
+- Severity: required

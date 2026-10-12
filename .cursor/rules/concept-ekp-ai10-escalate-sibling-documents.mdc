@@ -1,0 +1,41 @@
+---
+description: "EKP-AI10 — Escalate to sibling documents"
+alwaysApply: false
+---
+
+# EKP-AI10 — Escalate to sibling documents
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- This document orchestrates—it does not replace domain-specific EKP knowledge. Classify the problem and route to the correct sibling Decision Flow.
+- Class/module design → `solid.md` (EKP-SL). Stop after design guidance applied.
+- Named pattern selection → `design-patterns.md` (EKP-DP). Stop after pattern choice.
+- Structural change → `refactoring.md` (EKP-RF) Decision Flow.
+- Verification → `testing.md` (EKP-TS) Decision Flow.
+- Errors/failures → `error-handling.md` (EKP-EH).
+- System/integration boundary → `layering-and-boundaries.md` (EKP-LB) Decision Flow.
+- HTTP API add/change → `architecture/api-design.md` (EKP-AP) Decision Flow.
+- Schema, migration, or transaction scope → `database/database-design.md` (EKP-DB).
+- Module/package coupling or split → `architecture/coupling-and-cohesion.md` (EKP-MC).
+- Cross-service messaging or sync/async choice → `architecture/integration-patterns.md` (EKP-IN).
+- One-way door / Level 4 / ADR required → `architecture/adr-practices.md` (EKP-AD).
+- Security-sensitive change (auth, PII, payment, secrets) → `security/security-fundamentals.md` (EKP-SF) Decision Flow.
+- PHP language/module design (types, Composer, globals, config edge) → `php/php-fundamentals.md` (EKP-PH) Decision Flow.
+- Symfony application structure (DI, thin controllers, modules, Messenger, Security wiring) → `symfony/symfony-architecture.md` (EKP-SY) Decision Flow.
+- TypeScript language/module design (strict, unknown, unions, modules, runtime boundaries) → `typescript/typescript-fundamentals.md` (EKP-TY) Decision Flow.
+- Frontend UI architecture (components, state, async UI, a11y, rendering boundaries) → `frontend/frontend-architecture.md` (EKP-FE) Decision Flow.
+- Platform, CI/CD, deployment, environments, operational observability, rollback safety, platform config/secrets → `devops/devops-fundamentals.md` (EKP-DV) Decision Flow.
+- Do not duplicate sibling content—cite and route.
+
+## Preferences
+
+- Good: "This is a Level 2 extract method refactor—applying EKP-RF Decision Flow step 3."
+- Bad: Assistant pastes entire SOLID explanation instead of linking to EKP-SL03.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI10
+- Implements: EKP-P05
+- Severity: required

@@ -1,0 +1,26 @@
+---
+description: "EKP-TS05 — Characterization tests for existing systems"
+alwaysApply: false
+---
+
+# EKP-TS05 — Characterization tests for existing systems
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Before changing untested legacy, capture **current** behavior as a safety net—even if that behavior is imperfect.
+- Required precondition for Level 2+ refactoring when no tests exist—see `refactoring.md` EKP-RF03 (cite only; procedures stay there).
+- Accept imperfect assertions initially; tighten when requirements are clarified.
+- Do not delete characterization tests to green a refactor—update when behavior intentionally changes.
+
+## Preferences
+
+- Good: Golden-file or snapshot of API response for known input before Extract Class on legacy handler.
+- Bad: Large refactor on zero-test module with manual "I clicked around" verification only.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS05
+- Implements: EKP-P03
+- Severity: recommended

@@ -1,0 +1,27 @@
+---
+description: "EKP-AI11 — Incremental commits over big-bang changes"
+alwaysApply: false
+---
+
+# EKP-AI11 — Incremental commits over big-bang changes
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- AI-assisted work should produce reviewable units of change. Big-bang diffs hide defects and block reversibility.
+- Separate formatting, refactor, and behavior changes when feasible.
+- Do not mix unrelated file changes in one response.
+- When a task is large, propose a phased plan with checkpoints.
+- Align with `refactoring.md` incremental discipline (EKP-RF02).
+
+## Preferences
+
+- Good: Phase 1: characterization tests. Phase 2: extract method. Phase 3: rename—each verifiable.
+- Bad: Single response rewrites auth, database layer, and API DTOs for a typo fix.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI11
+- Implements: EKP-P03, EKP-P10
+- Severity: required

@@ -1,0 +1,26 @@
+---
+description: "EKP-LB09 — Validation at the boundary"
+alwaysApply: false
+---
+
+# EKP-LB09 — Validation at the boundary
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Validate and normalize at the point of entry—do not trust upstream because it is "internal."
+- Reject invalid input with explicit error semantics—do not coerce silently unless documented safe default (failure handling practice: [error-handling.md](../engineering/error-handling.md) EKP-EH; boundary contracts: EKP-LB11).
+- Map external representations to domain types in the outer layer—domain should not parse raw HTTP or SQL row shapes.
+- Idempotency keys and auth tokens are boundary concerns—validate before use-case execution.
+
+## Preferences
+
+- Good: API controller validates DTO → maps to `PlaceOrderCommand` → handler executes.
+- Bad: Domain service accepts untyped `array $payload` from controller.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB09
+- Implements: EKP-P06
+- Severity: recommended

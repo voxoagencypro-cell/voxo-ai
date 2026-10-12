@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     } = await supabase.auth.getUser();
 
     const adminEmail =
-      process.env.NEXT_PUBLIC_VOXO_ADMIN_EMAIL
+      process.env.VOXO_ADMIN_EMAIL
         ?.trim()
         .toLowerCase();
 

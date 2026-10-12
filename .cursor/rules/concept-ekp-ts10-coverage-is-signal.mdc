@@ -1,0 +1,21 @@
+---
+description: "EKP-TS10 — Coverage is a signal, not a target"
+alwaysApply: false
+---
+
+# EKP-TS10 — Coverage is a signal, not a target
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Coverage measures **lines exercised**, not **behavior verified**. High coverage can miss critical paths; low coverage can hide risk.
+- 100% line coverage does not imply correct assertions.
+- Critical domains (payments, auth, data migration) deserve explicit behavioral tests regardless of coverage percentage.
+- Evidence-based optimization of test investment aligns with **EKP-P08** — see `performance/performance-mindset.md` (EKP-PM); do not implement P08 here.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS10
+- Implements: EKP-P10
+- Severity: recommended

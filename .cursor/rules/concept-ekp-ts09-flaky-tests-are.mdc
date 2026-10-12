@@ -1,0 +1,20 @@
+---
+description: "EKP-TS09 — Flaky tests are reliability failures"
+alwaysApply: false
+---
+
+# EKP-TS09 — Flaky tests are reliability failures
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- A flaky test destroys trust in the suite—teams ignore red builds and miss real regressions.
+- Inject clocks, random seeds, and async boundaries for determinism.
+- Flaky E2E may indicate missing boundary contract (EKP-LB13)—not only test bug.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS09
+- Implements: EKP-P03, EKP-P10
+- Severity: recommended

@@ -1,0 +1,26 @@
+---
+description: "EKP-TY07 — Know what the compiler proves—and what it does not"
+alwaysApply: false
+---
+
+# EKP-TY07 — Know what the compiler proves—and what it does not
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- Types erase at runtime—compiler success is not proof of correct behavior or performance.
+- Generics document relationships—they do not add runtime checks.
+- `enum` vs `const` object unions: choose consciously for bundle and runtime semantics.
+- Measure before optimizing types for compile speed only (**EKP-P08**).
+
+## Preferences
+
+- Good: Schema validation (zod/io-ts/etc.) at API edge + TS types derived or aligned.
+- Bad: “TypeScript guarantees this API response shape” with no runtime check.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY07
+- Implements: EKP-P05, EKP-P08
+- Severity: recommended

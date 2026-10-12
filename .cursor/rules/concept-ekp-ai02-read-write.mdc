@@ -1,0 +1,27 @@
+---
+description: "EKP-AI02 — Read before write"
+alwaysApply: false
+---
+
+# EKP-AI02 — Read before write
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- AI assistants must understand existing code, conventions, and tests before proposing changes. Generation without exploration produces conflicts with project patterns.
+- Identify project conventions: naming, directory structure, error handling style, test patterns.
+- Search for existing utilities before introducing new helpers or dependencies.
+- Do not assume file contents—verify imports, types, and interfaces.
+- For multi-file tasks, list files to inspect before making changes.
+
+## Preferences
+
+- Good: Assistant reads `OrderService`, existing tests, and error types before adding a new validation method.
+- Bad: Assistant creates a new `Utils` class without checking whether the project already has a validation helper.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI02
+- Implements: EKP-P05
+- Severity: required

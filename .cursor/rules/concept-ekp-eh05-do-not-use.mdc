@@ -1,0 +1,20 @@
+---
+description: "EKP-EH05 — Do not use exceptions as normal control flow"
+alwaysApply: false
+---
+
+# EKP-EH05 — Do not use exceptions as normal control flow
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Exceptions (or equivalent non-local jumps) signal exceptional conditions—not routine branches.
+- Using exceptions for validation in hot paths obscures happy-path readability and complicates review.
+- When the language or framework convention strongly favors exceptions for expected cases, document the convention and keep categories distinct from defect exceptions.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH05
+- Implements: EKP-P07
+- Severity: recommended

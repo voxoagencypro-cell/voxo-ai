@@ -1,0 +1,20 @@
+---
+description: "EKP-TS04 — Choose the correct testing boundary"
+alwaysApply: false
+---
+
+# EKP-TS04 — Choose the correct testing boundary
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Test at the lowest boundary that still captures the risk—no lower (misses defect), no higher (slow and vague).
+- Do not unit-test framework wiring that integration tests already cover.
+- API contract tests belong at the boundary the contract defines (EKP-LB08).
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS04
+- Implements: EKP-P03, EKP-P10
+- Severity: recommended

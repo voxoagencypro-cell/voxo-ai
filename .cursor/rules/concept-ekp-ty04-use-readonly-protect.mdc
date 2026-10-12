@@ -1,0 +1,26 @@
+---
+description: "EKP-TY04 — Use `readonly` to protect shared models"
+alwaysApply: false
+---
+
+# EKP-TY04 — Use `readonly` to protect shared models
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- Mutable shared types hide change blast radius—especially props, config, and domain snapshots passed across layers.
+- Use `ReadonlyArray<T>` / `readonly T[]` for collections that must not be mutated by consumers.
+- Deep immutability is not automatic—document when shallow `readonly` is insufficient.
+- Do not mutate objects received as function parameters unless API explicitly documents mutation.
+
+## Preferences
+
+- Good: `interface UserView { readonly id: string; readonly name: string }`
+- Bad: Mutating `props.user.name` inside a child module.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY04
+- Implements: EKP-P04, EKP-P09
+- Severity: recommended

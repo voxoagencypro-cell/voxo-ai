@@ -1,0 +1,18 @@
+---
+description: "EKP-LB04 — Escalation from engineering documents"
+alwaysApply: false
+---
+
+# EKP-LB04 — Escalation from engineering documents
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Route questions to the correct layer document—avoid solving system problems with class patterns or refactor procedures alone.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB04
+- Implements: EKP-P05, EKP-P06
+- Severity: recommended

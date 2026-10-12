@@ -1,0 +1,21 @@
+---
+description: "EKP-EH09 — Prefer actionable failures"
+alwaysApply: false
+---
+
+# EKP-EH09 — Prefer actionable failures
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- When the caller or user can correct the failure, say what to do—not only that something failed.
+- Business rejections: state rule and relevant domain fact ("Insufficient balance: required 100, available 40").
+- System failures: actionable for operators (correlation ID, dependency name)—not for end users.
+- "An error occurred" with no category is never sufficient for expected failure paths.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH09
+- Implements: EKP-P07
+- Severity: recommended

@@ -1,0 +1,20 @@
+---
+description: "EKP-LB15 — Anemic boundaries"
+alwaysApply: false
+---
+
+# EKP-LB15 — Anemic boundaries
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Boundaries that pass through data without ownership create integration defects no single team fixes.
+- Prefer consumer-driven contract tests or schema validation in CI for critical boundaries.
+- Thin pass-through services that only forward JSON add latency without boundary value—consolidate or justify with ADR.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB15
+- Implements: EKP-P06
+- Severity: recommended

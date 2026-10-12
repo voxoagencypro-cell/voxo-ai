@@ -1,0 +1,40 @@
+---
+description: EKP decision flow — Layering and Boundaries
+alwaysApply: false
+---
+
+# Layering and Boundaries Decision Flow
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- 1. Is the problem at function, class, or system level?
+- → Function/name: clean-code.md (EKP-CC). Stop.
+- → Class/module: solid.md (EKP-SL). Stop.
+- → In-process pattern: design-patterns.md (EKP-DP). Stop.
+- → System/integration boundary: continue.
+- 2. Is explicit layering justified for this system's lifespan and blast radius?
+- → NO: Prefer simpler structure (EKP-LB01, EKP-LB02). Stop.
+- → YES: continue.
+- 3. Does the change alter a contract between teams, services, or layers?
+- → YES: Identify boundary owner (EKP-LB08). Document contract impact.
+- → NO: Apply layer rules within single deployable (EKP-LB05–07).
+- 4. Does the change require Level 4 refactoring?
+- → YES: Do NOT auto-apply. Draft ADR + phased plan (EKP-RF07, EKP-LB16).
+- → NO: Link refactoring.md procedure if structural steps needed.
+- 5. Are validation, errors, idempotency, and timeouts defined at the boundary?
+- → NO: Define before implementation (EKP-LB09–13).
+- → YES: proceed with implementation.
+- 6. Never solve a service-boundary problem with only a class-level pattern.
+- → Escalate to EKP-LB; cite EKP-DP10 cross-service case explicitly.
+
+## Constraints
+
+- Step 4 — block. ADR gate
+- Step 5 — block until defined. Contract completeness
+- Step 6 — hard block. Anti-pattern
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — AI Decision Flow

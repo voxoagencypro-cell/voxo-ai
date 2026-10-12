@@ -1,0 +1,25 @@
+---
+description: "EKP-TS03 — Test the behavior, not the implementation"
+alwaysApply: false
+---
+
+# EKP-TS03 — Test the behavior, not the implementation
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Tests should survive internal refactors that preserve observable behavior.
+- Assert on **outputs, state, and side effects** the caller cares about—not private methods or internal call order unless that order is the contract.
+- Refactoring that breaks tests without changing external behavior indicates **implementation-coupled tests**—fix the tests, not the refactor goal.
+
+## Preferences
+
+- Good: Given cart with one item, when checkout completes, then order total matches item price plus tax.
+- Bad: Assert mock received `save()` exactly once on internal repository method after rename.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS03
+- Implements: EKP-P10
+- Severity: recommended

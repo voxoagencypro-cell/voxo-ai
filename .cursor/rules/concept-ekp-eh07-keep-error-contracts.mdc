@@ -1,0 +1,21 @@
+---
+description: "EKP-EH07 — Keep error contracts stable"
+alwaysApply: false
+---
+
+# EKP-EH07 — Keep error contracts stable
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Callers and integrators depend on failure shapes. Breaking error contracts is a breaking API change.
+- Adding new failure types is usually safe; removing or renumbering codes requires migration (EKP-LB10).
+- Internal-only failures may evolve more freely—separate public contract from internal diagnostics.
+- Version error payloads when multiple API versions are supported.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH07
+- Implements: EKP-P07
+- Severity: recommended

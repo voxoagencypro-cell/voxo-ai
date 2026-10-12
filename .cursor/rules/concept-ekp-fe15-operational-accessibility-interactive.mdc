@@ -1,0 +1,31 @@
+---
+description: "EKP-FE15 — Operational accessibility for interactive surfaces"
+alwaysApply: false
+---
+
+# EKP-FE15 — Operational accessibility for interactive surfaces
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- Extend architectural a11y (EKP-FE06) with operational principles for interactive surfaces—without a WCAG encyclopedia.
+- Prefer semantic HTML/native controls (EKP-FE09) before custom widgets.
+- **Dialogs:** on open, move focus appropriately; while open, keep focus within the modal when modal semantics require it; on close, restore focus to a meaningful invoking element when possible.
+- **Route/view changes:** ensure keyboard and assistive-tech users can understand where focus moved.
+- Associate form errors with fields; use live regions for critical dynamic status when needed—do not over-ARIA.
+- Do not communicate important state through color alone.
+- Respect `prefers-reduced-motion` for non-essential motion.
+- Treat contrast as an engineering requirement for critical text and controls.
+- Custom widgets require an explicit accessibility contract.
+
+## Preferences
+
+- Good: Modal moves focus to its title/first focusable control and restores focus on close; field errors are programmatically associated.
+- Bad: Focus lost after dialog close; status only via red text color; custom listbox with no keyboard model.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE15
+- Implements: EKP-P04, EKP-P06
+- Severity: recommended

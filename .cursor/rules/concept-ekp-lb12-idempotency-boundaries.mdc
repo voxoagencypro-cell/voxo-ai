@@ -1,0 +1,21 @@
+---
+description: "EKP-LB12 — Idempotency at boundaries"
+alwaysApply: false
+---
+
+# EKP-LB12 — Idempotency at boundaries
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Operations that may be retried (webhooks, message consumers, payment callbacks) must declare idempotency behavior at the boundary.
+- Accept idempotency keys for externally triggered writes where duplicates are possible.
+- Consumers must handle duplicate delivery without corrupting state.
+- Side effects (email, charge, shipment) require deduplication strategy at boundary or application layer.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB12
+- Implements: EKP-P06
+- Severity: recommended

@@ -1,0 +1,27 @@
+---
+description: "EKP-AI05 — Tests define done"
+alwaysApply: false
+---
+
+# EKP-AI05 — Tests define done
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- AI assistants must not claim completion without appropriate verification. "Done" means behavior is protected by tests or explicit justification for omission.
+- If tests are not added, state why existing coverage is sufficient (cite test names or EKP-TS concepts).
+- Run tests when possible before claiming completion.
+- Route test strategy questions to `testing.md` Decision Flow.
+- Do not delete tests to make a change "pass" unless requirements changed.
+
+## Preferences
+
+- Good: Assistant adds unit test for new validation rule and reports test command result.
+- Bad: Assistant says "implementation complete" with no mention of tests on a logic change.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI05
+- Implements: EKP-P03, EKP-P10
+- Severity: required

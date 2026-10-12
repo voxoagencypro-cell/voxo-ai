@@ -1,0 +1,20 @@
+---
+description: "EKP-LB03 — Convention alignment"
+alwaysApply: false
+---
+
+# EKP-LB03 — Convention alignment
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Follow existing system structure before introducing new layer vocabulary.
+- New modules fit existing dependency direction; do not introduce a parallel layering scheme in one feature.
+- When migrating legacy systems, document divergence from target layering in tickets or ADRs—not only in code comments.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB03
+- Implements: EKP-P05
+- Severity: recommended

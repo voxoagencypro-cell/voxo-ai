@@ -1,0 +1,22 @@
+---
+description: "EKP-LB11 — Error semantics across boundaries"
+alwaysApply: false
+---
+
+# EKP-LB11 — Error semantics across boundaries
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Errors crossing a boundary must be explicit, structured, and owned—never ambiguous success/failure.
+- Do not leak internal stack traces or infrastructure details in outward responses.
+- Propagate correlation IDs across service calls for diagnosis (**EKP-P07**).
+- Boolean `success: false` without reason code is insufficient—include machine-readable error type and human message.
+- Map domain exceptions to boundary responses in the delivery/adapter layer—not in domain core.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB11
+- Implements: EKP-P05, EKP-P06
+- Severity: recommended

@@ -1,0 +1,26 @@
+---
+description: "EKP-EH02 — Fail explicitly, not silently"
+alwaysApply: false
+---
+
+# EKP-EH02 — Fail explicitly, not silently
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Absence of signal is not a valid error strategy unless the absence itself is a documented, safe outcome.
+- Prefer explicit failure types over ambiguous "no result" when the caller cannot distinguish "not found" from "error occurred."
+- Boolean success flags without reason codes violate **EKP-P07**—include machine-readable failure category.
+- Internal pipelines: fail loudly. User-facing paths: fail gracefully with safe messaging—not silently.
+
+## Preferences
+
+- Good: Operation returns `Result<Invoice, InvoiceError>` with `NotFound` vs `StorageUnavailable` variants.
+- Bad: Method returns empty list when database query failed.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH02
+- Implements: EKP-P07
+- Severity: recommended

@@ -1,0 +1,18 @@
+---
+description: "EKP-RF01 — Behavior preservation"
+alwaysApply: false
+---
+
+# EKP-RF01 — Behavior preservation
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- Refactoring changes structure, not observable behavior. External inputs produce the same outputs, side effects, and error semantics before and after.
+
+## References
+
+- `knowledge/engineering/refactoring.md` — EKP-RF01
+- Implements: EKP-P03
+- Severity: recommended

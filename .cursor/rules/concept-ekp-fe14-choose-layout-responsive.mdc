@@ -1,0 +1,30 @@
+---
+description: "EKP-FE14 — Choose layout and responsive strategy intentionally"
+alwaysApply: false
+---
+
+# EKP-FE14 — Choose layout and responsive strategy intentionally
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- Layout and responsive behavior are engineering choices—mobile-first and content-driven by default, without arbitrary breakpoint dogma.
+- Prefer **content-driven** breakpoints over device-name or brand-specific rules.
+- Prefer fluid layouts over arbitrary fixed grids when content width varies.
+- Use **Flexbox** for primarily one-dimensional layout; **Grid** for primarily two-dimensional layout.
+- Use **container queries** when component-local adaptation is clearer; use **media queries** for viewport/environment adaptation.
+- Do **not** prescribe universal breakpoint pixel tables—follow project breakpoints/tokens when they exist.
+- Avoid device-specific hacks and user-agent/device-name CSS.
+- Prefer existing typography/spacing scales or tokens for responsive type and space.
+
+## Preferences
+
+- Good: Layout adapts when content requires it; Flex/Grid choice matches dimensionality; project breakpoint tokens reused.
+- Bad: “iPhone-only” CSS; invented breakpoint scale fighting the design system; Grid used for a simple horizontal button row without reason.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE14
+- Implements: EKP-P02, EKP-P05
+- Severity: recommended

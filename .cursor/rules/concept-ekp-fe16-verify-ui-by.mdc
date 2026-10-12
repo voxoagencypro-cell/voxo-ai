@@ -1,0 +1,28 @@
+---
+description: "EKP-FE16 — Verify UI by user-visible outcomes"
+alwaysApply: false
+---
+
+# EKP-FE16 — Verify UI by user-visible outcomes
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- Verify UI through **user-visible outcomes**, not implementation details. Keep this boundary thin—cite EKP-TS for pyramid, flakes, doubles, and proportionality.
+- Include keyboard/a11y-critical behavior where risk warrants it.
+- Reserve E2E for high-value or high-risk journeys; avoid E2E for trivial local behavior (**EKP-TS** / **EKP-P02**).
+- Do not treat CSS class names or internal structure as the primary behavioral contract.
+- Do not couple tests to private component implementation details.
+- Do not invent test-runner tutorials here—route tooling questions to project standards and EKP-TS.
+
+## Preferences
+
+- Good: Test that submit shows pending then success/error messaging the user sees.
+- Bad: E2E suite for class rename; assertions on internal CSS module hashes as behavior.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE16
+- Implements: EKP-P03, EKP-P10
+- Severity: recommended

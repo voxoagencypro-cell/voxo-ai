@@ -1,0 +1,18 @@
+---
+description: "EKP-RF05 — Named refactoring procedures"
+alwaysApply: false
+---
+
+# EKP-RF05 — Named refactoring procedures
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- Standardized step sequences for common structural changes. Catalog only—no textbook prose.
+
+## References
+
+- `knowledge/engineering/refactoring.md` — EKP-RF05
+- Implements: EKP-P10
+- Severity: recommended

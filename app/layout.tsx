@@ -4,15 +4,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://voxo-ai.ch"),
   title: {
-    default: "VOXO AI — Réceptionniste téléphonique IA",
+    default: "VOXO AI — Consulting & Systèmes IA",
     template: "%s | VOXO AI",
   },
   description:
-    "VOXO AI répond à vos appels, qualifie vos prospects et réserve vos rendez-vous 24h/24.",
+    "VOXO AI conçoit des systèmes qui relient acquisition, messages, appels, rendez-vous et suivi client.",
   openGraph: {
-    title: "VOXO AI",
+    title: "VOXO AI — Consulting & Systèmes IA",
     description:
-      "Votre réceptionniste téléphonique IA pour les entreprises suisses.",
+      "Consulting et systèmes IA pour les entreprises : acquisition, agents, CRM et automatisation.",
     url: "https://voxo-ai.ch",
     siteName: "VOXO AI",
     locale: "fr_CH",

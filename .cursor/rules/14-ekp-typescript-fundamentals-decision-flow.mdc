@@ -1,0 +1,30 @@
+---
+description: EKP decision flow — TypeScript Fundamentals
+alwaysApply: false
+---
+
+# TypeScript Fundamentals Decision Flow
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- 1. Language vs UI architecture?
+- → NO, component/state/rendering: escalate to frontend-architecture.md (EKP-FE). Stop here.
+- → YES: continue.
+- 2. Strict contract (EKP-TY01)
+- → New `any` or strict opt-out: reject or justify.
+- 3. External data (EKP-TY03, EKP-TY08)
+- → unknown + validate; no bare `as` on IO.
+- 4. Shared models (EKP-TY04)
+- → Prefer readonly; no silent mutation of shared shapes.
+- 5. Control-flow types (EKP-TY05)
+- → Prefer discriminated unions over flag soup.
+- 6. Module boundaries (EKP-TY06)
+- → No deep imports; break cycles.
+- 7. Compiler vs runtime (EKP-TY07)
+- → Do not claim safety without runtime boundary checks where needed.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — AI Decision Flow

@@ -1,0 +1,20 @@
+---
+description: "EKP-TS07 — Avoid over-mocking"
+alwaysApply: false
+---
+
+# EKP-TS07 — Avoid over-mocking
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Over-mocking couples tests to implementation; harmless refactors break the suite.
+- If removing a mock makes the test simpler and still fast, remove it.
+- Hard-to-test units often signal design problems—cite EKP-SL for diagnosis, not testing workarounds.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS07
+- Implements: EKP-P10
+- Severity: recommended

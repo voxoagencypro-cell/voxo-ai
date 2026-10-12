@@ -1,0 +1,21 @@
+---
+description: "EKP-EH06 — Define ownership of recovery decisions"
+alwaysApply: false
+---
+
+# EKP-EH06 — Define ownership of recovery decisions
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Someone must decide: retry, abort, compensate, degrade, or escalate. Unowned recovery becomes inconsistent behavior.
+- Retry decisions require idempotency awareness (EKP-LB12)—escalate to architecture when cross-service.
+- Infrastructure may retry transient provider errors only when application has declared the operation idempotent or safe to repeat.
+- "Let the caller figure it out" without a documented contract is not ownership.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH06
+- Implements: EKP-P07
+- Severity: recommended

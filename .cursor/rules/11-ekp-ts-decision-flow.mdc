@@ -1,0 +1,31 @@
+---
+description: EKP decision flow — Testing
+alwaysApply: false
+---
+
+# Testing Decision Flow
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- 1. Is the behavior under test understood (inputs, action, expected outcome)?
+- → NO: TS-AI-01 — Do not generate tests. Clarify behavior first. Stop.
+- 2. Is this a behavior test or implementation test?
+- → Implementation: TS-AI-02 — Rewrite to assert observable outcome. Stop if cannot.
+- 3. Are mocks/doubles proposed?
+- → YES: TS-AI-03 — Name the boundary reason (external, slow, non-deterministic).
+- → NO boundary reason: Remove mock. Stop.
+- 4. Is the goal coverage increase without stated risk?
+- → YES: TS-AI-04 — Identify risk first. Stop.
+- 5. Does the project have existing test conventions?
+- → YES: TS-AI-05 — Follow them (structure, directory, naming).
+- 6. Cite EKP-TS ID when recommending test strategy.
+- 7. Is the problem a wrong service/module boundary?
+- → YES: TS-AI-07 — Escalate to EKP-LB / ADR — not more mocks.
+- 8. Is this a risky change on untested legacy?
+- → YES: TS-AI-08 — Propose characterization tests (EKP-TS05) before structural change.
+
+## References
+
+- `knowledge/testing/testing.md` — AI Decision Flow

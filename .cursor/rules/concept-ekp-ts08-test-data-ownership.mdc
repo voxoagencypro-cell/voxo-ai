@@ -1,0 +1,21 @@
+---
+description: "EKP-TS08 — Test data ownership"
+alwaysApply: false
+---
+
+# EKP-TS08 — Test data ownership
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Test data must be **deterministic, isolated, and owned** by the test—no hidden shared state.
+- Use factories or builders for readable setup—naming follows EKP-CC01 where applicable.
+- Shared fixtures are acceptable when read-only and documented; mutable shared fixtures cause flakes.
+- Avoid production database copies with PII—use synthetic data.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS08
+- Implements: EKP-P10
+- Severity: recommended

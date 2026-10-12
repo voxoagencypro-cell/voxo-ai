@@ -1,0 +1,18 @@
+---
+description: "EKP-RF06 — Opportunistic refactoring and scope smuggling"
+alwaysApply: false
+---
+
+# EKP-RF06 — Opportunistic refactoring and scope smuggling
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- Improve code you touch—without expanding task scope.
+
+## References
+
+- `knowledge/engineering/refactoring.md` — EKP-RF06
+- Implements: EKP-P01, EKP-P10
+- Severity: recommended

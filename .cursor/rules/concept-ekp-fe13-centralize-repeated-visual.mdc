@@ -1,0 +1,27 @@
+---
+description: "EKP-FE13 — Centralize repeated visual decisions as tokens"
+alwaysApply: false
+---
+
+# EKP-FE13 — Centralize repeated visual decisions as tokens
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- When visual decisions repeat or represent a design-system axis, centralize them (e.g. CSS custom properties)—do not invent parallel palettes.
+- Prefer the project’s existing token/design-system strategy; do not create a second token system.
+- Do not tokenize one-off values or impose token bureaucracy on tiny UIs (**EKP-P02**).
+- Prefer token-driven theming (including dark mode) when theming exists; follow project strategy.
+- Global theme architecture may warrant an ADR (cite EKP-FE08).
+
+## Preferences
+
+- Good: Shared spacing/color axes come from existing custom properties or design tokens.
+- Bad: Hardcoded parallel palette for dark mode; tokenizing a unique one-pixel nudge.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE13
+- Implements: EKP-P04, EKP-P09
+- Severity: recommended

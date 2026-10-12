@@ -1,0 +1,50 @@
+---
+description: EKP master AI decision flow — apply before any implementation
+alwaysApply: true
+---
+
+# EKP AI Orchestrator
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- 1. Scope verification
+- Is the request scoped with clear acceptance criteria?
+- → NO: EKP-AI01 — Ask for scope. Do not implement. Stop.
+- 2. Repository exploration
+- Have you read relevant code, tests, and conventions?
+- → NO: EKP-AI02 — Explore first. Stop.
+- 3. Change size evaluation
+- Is the proposed change proportional to the problem (EKP-AI03)?
+- → NO: Propose smaller approach. Stop if user insists on disproportionate change without approval.
+- 4. Architecture boundary detection
+- Does the change cross a service, team, or layer boundary?
+- → YES: Route to layering-and-boundaries.md Decision Flow (EKP-LB). Stop auto-apply.
+- → NO: Continue.
+- 5. Testing requirement evaluation
+- Does the change alter behavior or risk?
+- → YES: Apply testing.md guidance (EKP-TS). Add/update tests or justify omission (EKP-AI05).
+- → NO: State why existing coverage suffices.
+- 6. Error handling evaluation
+- Does the change touch failure paths, validation, or external I/O?
+- → YES: Apply error-handling.md (EKP-EH). Define failure semantics before implementation.
+- → NO: Continue.
+- 7. Human approval gate
+- Is risk High or Critical (refactoring Risk Matrix) or does change touch auth/payment/migration?
+- → YES: EKP-AI07 — Explain trade-offs. Do NOT auto-apply. Await explicit approval.
+- → NO: Continue.
+- 8. Completion verification
+- Summarize: scope met, files changed, behavior impact, tests/verification run, remaining risks.
+- → Only after step 8 may the assistant claim completion (EKP-AI12).
+
+## Constraints
+
+- Step 1 — Scope — block. Hard gate — EKP-AI01
+- Step 2 — Exploration — block. Hard gate — EKP-AI02
+- Step 7 — Human gate — hard block. EKP-AI07 — no auto-apply
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — AI Decision Flow
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI01 through EKP-AI12

@@ -1,0 +1,26 @@
+---
+description: "EKP-TY01 — Treat strict mode as the default contract"
+alwaysApply: false
+---
+
+# EKP-TY01 — Treat strict mode as the default contract
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- `strict` (and related flags) turn type discipline on by default—opt out only with documented reason, not by accident.
+- Do not disable `strictNullChecks` or `noImplicitAny` to “unblock” a PR—fix types or narrow scope.
+- Document project-wide exceptions in ADR or `tsconfig` comments with owner and expiry.
+- New code should compile clean under the strictest config the project claims.
+
+## Preferences
+
+- Good: Shared `tsconfig.strict.json` extended by apps.
+- Bad: `// @ts-nocheck` on production modules; `strict: false` in library consumed by others.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY01
+- Implements: EKP-P04, EKP-P05
+- Severity: recommended

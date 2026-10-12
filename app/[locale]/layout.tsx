@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
+import { LocaleShell } from "@/components/locale-shell";
 import { getDictionary, isLocale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -50,10 +49,8 @@ export default async function LocaleLayout({
   const d = getDictionary(locale);
 
   return (
-    <>
-      <Navbar locale={locale} nav={d.nav} />
+    <LocaleShell locale={locale} nav={d.nav} footer={d.footer}>
       {children}
-      <Footer locale={locale} d={d.footer} />
-    </>
+    </LocaleShell>
   );
 }

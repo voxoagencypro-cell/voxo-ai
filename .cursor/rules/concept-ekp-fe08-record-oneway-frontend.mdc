@@ -1,0 +1,26 @@
+---
+description: "EKP-FE08 — Record one-way frontend architecture decisions"
+alwaysApply: false
+---
+
+# EKP-FE08 — Record one-way frontend architecture decisions
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- Client architecture choices (global store vs local, routing model, SSR, micro-frontends) are costly to reverse—document them.
+- Prefer reversible choices for early product (**EKP-P03**).
+- Align folder structure with feature boundaries (cite EKP-MC)—not only with framework defaults.
+- Deprecate patterns with migration note when superseded.
+
+## Preferences
+
+- Good: ADR: “Use URL state for shareable filters; context for ephemeral panel UI.”
+- Bad: Introduce Redux + React Query + custom event bus in one PR without decision record.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE08
+- Implements: EKP-P03, EKP-P09
+- Severity: recommended

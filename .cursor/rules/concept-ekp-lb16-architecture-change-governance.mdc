@@ -1,0 +1,21 @@
+---
+description: "EKP-LB16 — Architecture change governance"
+alwaysApply: false
+---
+
+# EKP-LB16 — Architecture change governance
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Structural architecture work requires explicit governance—not scope smuggling in feature or bugfix PRs.
+- Do not extract services, replace persistence layer, or restructure module graph in bugfix PRs.
+- AI assistants: propose architecture changes as ADR drafts—do not auto-apply Level 4 work.
+- Temporary bridges across layers are allowed with **documented expiry** (ticket, ADR, or tech-debt register).
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB16
+- Implements: EKP-P03, EKP-P06
+- Severity: recommended

@@ -62,40 +62,40 @@ export function DemoRequest({ locale }: DemoRequestProps) {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           {/* Partie gauche */}
           <div className="pt-8">
-            <div className="mb-5 inline-flex rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm font-semibold text-blue-400">
-              DÉMONSTRATION EN DIRECT
+            <div className="mb-5 inline-flex rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-2 text-sm font-semibold text-brand-300">
+              DÉMO GRATUITE · SYSTÈME IA
             </div>
 
             <h1 className="max-w-xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-              Découvrez VOXO AI
-              <span className="block text-blue-500">
-                en conditions réelles.
+              Voyez comment nous relions
+              <span className="block bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent">
+                acquisition, messages, appels et CRM.
               </span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-gray-400">
-              Expliquez-nous votre activité et vos besoins. Notre équipe vous
-              présentera VOXO AI lors d&apos;une démonstration personnalisée en
-              direct.
+              Décrivez votre activité et vos priorités (publicité, réponses
+              clients, rendez-vous, suivi commercial). Nous vous montrons un
+              parcours adapté — sans engagement.
             </p>
 
             <div className="mt-10 space-y-5">
               <Feature
                 number="01"
-                title="Une démo adaptée à votre entreprise"
-                text="Nous préparons un scénario correspondant à votre activité."
+                title="Votre parcours client"
+                text="Acquisition, messages, appels, rendez-vous et CRM — ce que nous pouvons relier pour vous."
               />
 
               <Feature
                 number="02"
-                title="Découvrez l'IA en direct"
-                text="Testez les appels, les réponses et les automatisations avec notre équipe."
+                title="Démo concrète"
+                text="Exemples adaptés à votre secteur et à vos outils (sans promesse d'intégration non configurée)."
               />
 
               <Feature
                 number="03"
-                title="Sans engagement"
-                text="La démonstration est gratuite et vous permet de voir concrètement ce que VOXO AI peut automatiser."
+                title="Devis sur mesure"
+                text="Après la démo, proposition d'accompagnement — sans grille tarifaire imposée."
               />
             </div>
           </div>
@@ -105,17 +105,17 @@ export function DemoRequest({ locale }: DemoRequestProps) {
             {!sent ? (
               <>
                 <div className="mb-8">
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-300">
                     VOXO AI
                   </p>
 
                   <h2 className="mt-3 text-3xl font-bold">
-                    Demander ma démo
+                    Réserver ma démo gratuite
                   </h2>
 
                   <p className="mt-3 text-gray-400">
-                    Remplissez le formulaire. Notre équipe vous contactera pour
-                    organiser votre démonstration en direct.
+                    Indiquez vos priorités (publicité, messages, appels, CRM).
+                    Nous vous recontactons pour planifier la session.
                   </p>
                 </div>
 

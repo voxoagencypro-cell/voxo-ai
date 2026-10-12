@@ -1,0 +1,34 @@
+---
+description: EKP decision flow — Frontend Architecture
+alwaysApply: false
+---
+
+# Frontend Architecture Decision Flow
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- 1. TypeScript language vs UI structure?
+- → Types/modules/unknown/strict: typescript-fundamentals.md (EKP-TY).
+- → Component/state/rendering: continue.
+- 2. Component vs domain (EKP-FE01)
+- → Business rules in view: extract to feature service/hook.
+- 3. State ownership (EKP-FE02)
+- → Duplicate sources: consolidate owner; model async with EKP-TY05.
+- 4. Composition (EKP-FE03)
+- → God component: split by concern.
+- 5. View models (EKP-FE04)
+- → Raw DTO in UI kit: map at boundary.
+- 6. Async UX (EKP-FE05)
+- → Missing error/loading: add explicit states.
+- 7. a11y (EKP-FE06)
+- → Keyboard/semantics failures: fix before merge.
+- 8. Fetch/render scope (EKP-FE07)
+- → Measure if performance claim; narrow subscriptions.
+- 9. One-way decisions (EKP-FE08)
+- → New global pattern: require ADR (EKP-AD).
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — AI Decision Flow

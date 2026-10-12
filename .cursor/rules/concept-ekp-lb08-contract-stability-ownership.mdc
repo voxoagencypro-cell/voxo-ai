@@ -1,0 +1,21 @@
+---
+description: "EKP-LB08 — Contract stability and ownership"
+alwaysApply: false
+---
+
+# EKP-LB08 — Contract stability and ownership
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Every boundary has a named owner responsible for the contract's stability, documentation, and breaking-change process.
+- Publish contract artifacts: OpenAPI for HTTP, schema for events, documented error codes—not tribal knowledge.
+- Breaking changes require a migration path: versioned endpoint, dual-write period, or explicit consumer notification.
+- "Internal" APIs between teams are **still boundaries**—treat them with the same discipline as public APIs unless documented otherwise.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB08
+- Implements: EKP-P06
+- Severity: recommended

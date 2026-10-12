@@ -1,0 +1,26 @@
+---
+description: "EKP-FE01 — Components own UI; not business policy"
+alwaysApply: false
+---
+
+# EKP-FE01 — Components own UI; not business policy
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- UI components render and capture intent—they do not embed domain rules that belong in application or domain layers.
+- Do not call HTTP clients directly from leaf presentation components when a feature boundary exists.
+- Shared presentation components must not import feature-specific domain types.
+- When framework types leak inward, document exception and exit plan.
+
+## Preferences
+
+- Good: `OrderSummary` receives `OrderViewModel`; pricing rules live in `calculateOrderTotal`.
+- Bad: Tax calculation inside a button click handler in a list item component.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE01
+- Implements: EKP-P05, EKP-P06
+- Severity: recommended

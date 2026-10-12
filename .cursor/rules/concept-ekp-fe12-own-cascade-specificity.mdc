@@ -1,0 +1,27 @@
+---
+description: "EKP-FE12 — Own cascade, specificity, and style boundaries"
+alwaysApply: false
+---
+
+# EKP-FE12 — Own cascade, specificity, and style boundaries
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- Styles need clear ownership; cascade and specificity must stay intentional and locally reasoned.
+- Keep global styles intentional and documented—not accidental leakage.
+- Avoid selector wars, deep selector chains, and escalating specificity to “win.”
+- Treat `!important` as exception-only with a documented reason.
+- Do not fix local styling problems with increasingly global overrides.
+
+## Preferences
+
+- Good: Feature owns its styles; conflict resolved by correcting ownership.
+- Bad: Global override and `!important` to beat a component rule nobody owns.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE12
+- Implements: EKP-P04, EKP-P05
+- Severity: recommended

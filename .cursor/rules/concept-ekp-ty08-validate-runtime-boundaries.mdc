@@ -1,0 +1,26 @@
+---
+description: "EKP-TY08 — Validate at runtime boundaries"
+alwaysApply: false
+---
+
+# EKP-TY08 — Validate at runtime boundaries
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- TypeScript ends where untrusted data enters—parse, validate, then narrow to typed domain.
+- Centralize parsers per boundary type; do not scatter ad-hoc `as` casts.
+- Map parse failures to explicit error contracts (cite EKP-EH)—no silent defaults.
+- Configuration and env vars: parse at bootstrap; inject typed values inward.
+
+## Preferences
+
+- Good: `parseConfig(env)` returns `Result<AppConfig, ConfigError>`.
+- Bad: `const port = Number(process.env.PORT!)` without validation or default policy.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY08
+- Implements: EKP-P06, EKP-P07
+- Severity: recommended

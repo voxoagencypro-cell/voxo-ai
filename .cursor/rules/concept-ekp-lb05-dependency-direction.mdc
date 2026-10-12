@@ -1,0 +1,20 @@
+---
+description: "EKP-LB05 — Dependency direction"
+alwaysApply: false
+---
+
+# EKP-LB05 — Dependency direction
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Source code dependencies point **inward** toward policy and domain—not outward toward infrastructure details.
+- Infrastructure implements interfaces defined by inner layers; it does not define business rules.
+- Shared kernel between services is a **boundary decision**—minimize; version explicitly; prefer duplication over wrong shared coupling (**EKP-P02**).
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB05
+- Implements: EKP-P05, EKP-P06
+- Severity: recommended

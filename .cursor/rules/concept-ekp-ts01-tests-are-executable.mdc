@@ -1,0 +1,26 @@
+---
+description: "EKP-TS01 — Tests are executable knowledge"
+alwaysApply: false
+---
+
+# EKP-TS01 — Tests are executable knowledge
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Tests document behavior that the team relies on. They are living specification—not proof of bug-free code.
+- Tests protect **maintainability** by making change reviewable: green suite = behavior preserved within test scope.
+- Tests do **not** guarantee absence of defects—they bound known risk and catch regressions in covered behavior.
+- Delete or update tests when requirements change—stale tests are misleading documentation.
+
+## Preferences
+
+- Good: Test names state behavior: `rejects_order_when_inventory_insufficient`.
+- Bad: Test named `testHandler` with assertions that only check non-null return.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS01
+- Implements: EKP-P10
+- Severity: recommended

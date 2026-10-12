@@ -1,0 +1,27 @@
+---
+description: "EKP-AI04 — Prefer reversible steps"
+alwaysApply: false
+---
+
+# EKP-AI04 — Prefer reversible steps
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- AI-assisted work must preserve the ability to roll back or review incrementally. Irreversible steps require explicit human approval.
+- Before structural change, confirm tests exist or propose characterization tests (see `testing.md`, EKP-TS05).
+- Route Level 2+ refactoring to `refactoring.md` Decision Flow—do not auto-apply Level 3+.
+- Separate behavior changes from structural changes when possible.
+- State what behavior must remain true after the change.
+
+## Preferences
+
+- Good: Extract method in one commit; run tests; proceed to next step in follow-up.
+- Bad: Rename, move, and restructure twelve files in one agent turn with no test updates.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI04
+- Implements: EKP-P03
+- Severity: required

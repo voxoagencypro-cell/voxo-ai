@@ -1,0 +1,18 @@
+---
+description: "EKP-LB01 — When layering matters"
+alwaysApply: false
+---
+
+# EKP-LB01 — When layering matters
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Layering is a tool for local reasoning at system scale—not a default tax on every codebase.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB01
+- Implements: EKP-P02, EKP-P05
+- Severity: recommended

@@ -1,0 +1,26 @@
+---
+description: "EKP-FE03 — Compose UI from small, predictable units"
+alwaysApply: false
+---
+
+# EKP-FE03 — Compose UI from small, predictable units
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- Composition beats inheritance and mega-components—build UIs from focused units with clear props contracts.
+- Split when a component handles unrelated concerns (layout + data fetch + form + modal).
+- Props interfaces are public API—keep them stable and minimal.
+- Avoid “utility” components that know every feature flag.
+
+## Preferences
+
+- Good: `PageLayout` + `OrderFilters` + `OrderTable` composed in route shell.
+- Bad: 800-line `Dashboard.tsx` with embedded fetch, table, and modal logic.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE03
+- Implements: EKP-P05, EKP-P09
+- Severity: recommended

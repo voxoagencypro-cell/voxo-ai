@@ -1,0 +1,26 @@
+---
+description: "EKP-FE11 — Prefer the simplest styling mechanism that fits"
+alwaysApply: false
+---
+
+# EKP-FE11 — Prefer the simplest styling mechanism that fits
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- Prefer the simplest styling mechanism that satisfies the requirement and fits existing architecture (**EKP-P02**).
+- Do not introduce a preprocessor, framework, or CSS-in-JS layer for trivial styling needs.
+- Do not tokenize everything “for consistency” when values are not shared (**EKP-FE13**).
+- Complexity requires a stated reason—preference is not enough.
+
+## Preferences
+
+- Good: A one-line spacing tweak uses an existing token or local rule in the current system.
+- Bad: New design-token package and utility framework for a single badge style.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE11
+- Implements: EKP-P02
+- Severity: recommended

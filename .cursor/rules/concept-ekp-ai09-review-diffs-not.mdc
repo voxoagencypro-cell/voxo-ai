@@ -1,0 +1,27 @@
+---
+description: "EKP-AI09 — Review diffs, not intentions"
+alwaysApply: false
+---
+
+# EKP-AI09 — Review diffs, not intentions
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- AI assistants and reviewers must evaluate actual changes—files touched, behavior diff, test delta—not the assistant's stated intent.
+- Call out behavior changes vs. refactor-only changes explicitly.
+- Highlight deletions, permission changes, and public API modifications.
+- Do not claim "no behavior change" without test or reasoning support.
+- Encourage diff review before merge; assistant should make diffs reviewable in size.
+
+## Preferences
+
+- Good: "Changed `validateEmail` to reject plus-addresses; updated `EmailValidatorTest.testRejectsPlusAddress`."
+- Bad: "Improved validation" with no file list or test mention.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI09
+- Implements: EKP-P10
+- Severity: required

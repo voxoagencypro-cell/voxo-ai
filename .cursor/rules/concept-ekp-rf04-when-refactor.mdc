@@ -1,0 +1,18 @@
+---
+description: "EKP-RF04 — When to refactor"
+alwaysApply: false
+---
+
+# EKP-RF04 — When to refactor
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- Refactor when structural change reduces future cost **and** fits task scope and budget—not whenever code is imperfect.
+
+## References
+
+- `knowledge/engineering/refactoring.md` — EKP-RF04
+- Implements: EKP-P02, EKP-P03, EKP-P10
+- Severity: recommended

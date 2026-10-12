@@ -1,0 +1,37 @@
+---
+description: EKP decision flow — Refactoring
+alwaysApply: false
+---
+
+# Refactoring Decision Flow
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- 1. Can the requested change be implemented safely WITHOUT refactoring?
+- → YES: Implement directly. Stop.
+- 2. Would Level 1 refactoring significantly improve readability
+- for the code being touched?
+- → YES: Perform Level 1 only. Stay within task scope and budget.
+- → NO: Go to 3.
+- 3. Would Level 2 improve maintainability for the stated requirement?
+- → YES: Only if tests are green AND within task scope/budget.
+- Prefer separate commit. State behavior preserved (EKP-RF01).
+- → NO: Go to 4.
+- 4. Would Level 3 or Level 4 be required?
+- → YES: Do NOT perform automatically.
+- Explain trade-offs, scope, tests, and governance.
+- Level 4: ADR required. Await explicit approval.
+- → NO: Implement without further structural change.
+- 5. Never expand scope because "the architecture could be cleaner."
+- → Violates EKP-P01 and EKP-RF06. Prohibited.
+
+## Constraints
+
+- Step 4 — block. Human gate
+- Step 5 — hard block. Scope smuggling
+
+## References
+
+- `knowledge/engineering/refactoring.md` — AI Decision Flow

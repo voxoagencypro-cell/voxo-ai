@@ -1,0 +1,27 @@
+---
+description: "EKP-AI07 — Human gate for high-risk work"
+alwaysApply: false
+---
+
+# EKP-AI07 — Human gate for high-risk work
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- Some changes are too risky for autonomous AI application. The assistant must stop, explain trade-offs, and await explicit approval.
+- Do not auto-apply Level 4 architectural change—propose ADR draft instead (EKP-LB16, EKP-RF07).
+- Do not modify authentication, authorization, payment, or data migration logic without explicit user approval.
+- Present alternatives, risks, and verification plan before high-risk implementation.
+- When in doubt, block and ask—do not guess on irreversible decisions.
+
+## Preferences
+
+- Good: Assistant explains migration risk, lists rollback plan, and waits for "proceed" before schema change.
+- Bad: Assistant rewrites auth middleware in agent mode because user mentioned "login bug."
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI07
+- Implements: EKP-P01, EKP-P03
+- Severity: required

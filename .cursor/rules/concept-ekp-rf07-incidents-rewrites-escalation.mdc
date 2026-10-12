@@ -1,0 +1,21 @@
+---
+description: "EKP-RF07 — Incidents, rewrites, and escalation"
+alwaysApply: false
+---
+
+# EKP-RF07 — Incidents, rewrites, and escalation
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- Incidents optimize for speed and reversibility. Structural work waits. Level 4 requires ADR.
+- **Rewrites:** Require ADR or explicit modernization approval. Parallel run or strangler when possible—not big-bang delete.
+- **Level 4:** Never auto-apply. Propose ADR, phases, test plan. Route to `layering-and-boundaries.md` — do not teach architecture here.
+- **SOLID gaps:** Diagnose with EKP-SL IDs in follow-up ticket—do not refactor toward SOLID in hotfix (**EKP-P03**).
+
+## References
+
+- `knowledge/engineering/refactoring.md` — EKP-RF07
+- Implements: EKP-P03
+- Severity: recommended

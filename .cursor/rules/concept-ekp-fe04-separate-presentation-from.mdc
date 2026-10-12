@@ -1,0 +1,26 @@
+---
+description: "EKP-FE04 — Separate presentation from domain"
+alwaysApply: false
+---
+
+# EKP-FE04 — Separate presentation from domain
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- Domain models and view models differ—map at the boundary so UI can evolve independently of backend shape.
+- Presentation components depend on view types, not raw transport shapes.
+- Formatting, i18n, and display defaults belong in presentation layer.
+- Do not expose persistence identifiers or internal flags to generic UI kit components.
+
+## Preferences
+
+- Good: `toOrderRow(dto): OrderRow` before passing to table component.
+- Bad: Table columns bound directly to snake_case API fields across the app.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE04
+- Implements: EKP-P05, EKP-P06
+- Severity: recommended

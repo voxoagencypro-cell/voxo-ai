@@ -1,0 +1,21 @@
+---
+description: "EKP-LB10 — Versioning and migration"
+alwaysApply: false
+---
+
+# EKP-LB10 — Versioning and migration
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Evolve contracts deliberately—prefer reversible migration steps.
+- Deprecate before remove: mark fields/endpoints deprecated; measure usage; set removal date.
+- Large boundary moves (extract service, replace persistence) follow Level 4 refactoring governance (**EKP-RF07**) and require ADR.
+- Feature flags and parallel endpoints are valid two-way doors (**EKP-P03**) during migration.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB10
+- Implements: EKP-P03, EKP-P06
+- Severity: recommended

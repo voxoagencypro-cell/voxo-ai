@@ -1,0 +1,18 @@
+---
+description: "EKP-LB02 — Proportionality in architecture"
+alwaysApply: false
+---
+
+# EKP-LB02 — Proportionality in architecture
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Match architectural structure to problem significance, lifespan, and blast radius.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB02
+- Implements: EKP-P02
+- Severity: recommended

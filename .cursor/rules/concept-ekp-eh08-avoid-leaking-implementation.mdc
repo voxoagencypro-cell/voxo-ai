@@ -1,0 +1,20 @@
+---
+description: "EKP-EH08 — Avoid leaking implementation details"
+alwaysApply: false
+---
+
+# EKP-EH08 — Avoid leaking implementation details
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Outward failure messages must not expose infrastructure the caller cannot act on—and attackers should not learn system internals.
+- User-facing text: safe, actionable where possible ("Payment could not be processed")—not ("ORA-12154" or "NullPointerException in OrderRepository line 42").
+- Internal logs and traces may contain detail—outward responses may not (**EKP-LB11**).
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH08
+- Implements: EKP-P07
+- Severity: recommended

@@ -1,0 +1,26 @@
+---
+description: "EKP-FE05 — Model async UI explicitly"
+alwaysApply: false
+---
+
+# EKP-FE05 — Model async UI explicitly
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- Loading, empty, error, and success are user-visible states—model them explicitly, not as afterthoughts.
+- Every user-initiated async action has visible pending and failure feedback.
+- Retry and cancellation behavior must be defined for long operations.
+- Do not leave failed requests silent—map to EKP-EH-style user-visible errors.
+
+## Preferences
+
+- Good: `status: 'loading' | 'error' | 'empty' | 'ready'` drives render branches.
+- Bad: Spinner never dismissed; errors only `console.error`.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE05
+- Implements: EKP-P04, EKP-P07
+- Severity: recommended

@@ -1,0 +1,20 @@
+---
+description: "EKP-TS02 — Test pyramid and proportional verification"
+alwaysApply: false
+---
+
+# EKP-TS02 — Test pyramid and proportional verification
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Match test type and count to feedback speed, cost, and confidence needs—not to a fixed ratio diagram.
+- The pyramid is a **heuristic**, not law—a data pipeline may justify more integration tests than a CRUD API.
+- E2E tests are expensive—reserve for paths where unit/integration cannot represent real risk (**EKP-P02** proportionality).
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS02
+- Implements: EKP-P03, EKP-P10
+- Severity: recommended

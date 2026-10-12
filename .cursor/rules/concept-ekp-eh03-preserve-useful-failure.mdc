@@ -1,0 +1,21 @@
+---
+description: "EKP-EH03 — Preserve useful failure context"
+alwaysApply: false
+---
+
+# EKP-EH03 — Preserve useful failure context
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- A failure without context forces guesswork. Preserve what is needed to diagnose—not everything.
+- Exclude from outward responses: stack traces, SQL fragments, internal hostnames, credential hints (**EKP-EH08**).
+- When rethrowing or wrapping, preserve the original cause chain for internal logs—do not discard root cause.
+- Correlation identifiers across service boundaries support diagnosis (**EKP-P07**); propagation rules belong at architecture layer (EKP-LB11).
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH03
+- Implements: EKP-P07
+- Severity: recommended

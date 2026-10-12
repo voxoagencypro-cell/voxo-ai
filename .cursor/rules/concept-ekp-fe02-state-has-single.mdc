@@ -1,0 +1,26 @@
+---
+description: "EKP-FE02 — State has a single owner"
+alwaysApply: false
+---
+
+# EKP-FE02 — State has a single owner
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- Every piece of mutable UI state has one authoritative owner—avoid synchronized copies and ambiguous update paths.
+- Lift state only when multiple siblings need it; do not lift prematurely to global store.
+- Server state and client UI state are different concerns—do not mirror server data into editable local copies without sync strategy.
+- Document ownership in feature README or module boundary when non-obvious.
+
+## Preferences
+
+- Good: Server list from query cache; filter text in local component state.
+- Bad: Same `selectedId` in URL, context, and Redux with manual sync.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE02
+- Implements: EKP-P04, EKP-P05
+- Severity: recommended

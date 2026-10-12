@@ -84,14 +84,14 @@ export function Footer({
 
           <div className="flex flex-wrap gap-6">
             <a
-              href={`/${locale}/contact`}
+              href={`/${locale}/mentions-legales`}
               className="transition hover:text-white"
             >
               {d.legal}
             </a>
 
             <a
-              href={`/${locale}/contact`}
+              href={`/${locale}/politique-confidentialite`}
               className="transition hover:text-white"
             >
               {d.privacy}

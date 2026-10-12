@@ -1,0 +1,20 @@
+---
+description: "EKP-EH11 — Match failure strategy to system scope"
+alwaysApply: false
+---
+
+# EKP-EH11 — Match failure strategy to system scope
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- A CLI script, monolith module, and distributed workflow need different failure strategies—proportionality applies.
+- Do not treat a cross-service payment failure as a local catch-and-ignore.
+- Escalate to `layering-and-boundaries.md` when failure handling requires contract changes across deployable units.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH11
+- Implements: EKP-P02, EKP-P07
+- Severity: recommended

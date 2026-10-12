@@ -1,0 +1,18 @@
+---
+description: "EKP-RF02 — Small steps"
+alwaysApply: false
+---
+
+# EKP-RF02 — Small steps
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- Each step is a reversible two-way door. One refactoring per commit when possible.
+
+## References
+
+- `knowledge/engineering/refactoring.md` — EKP-RF02
+- Implements: EKP-P03
+- Severity: recommended

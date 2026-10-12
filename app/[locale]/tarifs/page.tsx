@@ -1,2 +1,85 @@
-import { notFound } from "next/navigation";import { Check } from "lucide-react";import { isLocale,getDictionary } from "@/lib/i18n";import { InnerPage } from "@/components/inner-page";import { Button } from "@/components/ui/button";
-export default async function Page({params}:{params:Promise<{locale:string}>}){const{locale}=await params;if(!isLocale(locale))notFound();const d=getDictionary(locale).pricing;return <InnerPage locale={locale} eyebrow={d.eyebrow} title={d.title} text="Deux offres lisibles, conçues pour commencer rapidement puis augmenter le volume."><div className="grid gap-5 lg:grid-cols-2">{d.plans.map((p,i)=><div key={p.name} className={`rounded-[32px] border p-8 ${i?"border-gold-300/35 bg-gold-300/[.06]":"border-white/10"}`}><h2 className="text-3xl font-semibold">{p.name}</h2><p className="mt-3 text-zinc-500">{p.desc}</p><p className="mt-8 text-5xl font-semibold">{p.price}<span className="text-base font-normal text-zinc-500"> {d.monthly}</span></p><ul className="mt-8 space-y-4">{p.features.map(f=><li className="flex gap-3" key={f}><Check className="text-gold-300" size={18}/>{f}</li>)}</ul><Button href={`/${locale}/checkout?plan=${p.name.toLowerCase()}`} className="mt-9 w-full" variant={i?"gold":"outline"}>{d.start}</Button></div>)}</div></InnerPage>}
+import { Check } from "lucide-react";
+import { notFound } from "next/navigation";
+import { InnerPage } from "@/components/inner-page";
+import { Button } from "@/components/ui/button";
+import { isLocale } from "@/lib/i18n";
+
+const pillars = [
+  {
+    title: "Consulting & cadrage",
+    items: [
+      "Analyse de vos canaux et de vos processus",
+      "Priorisation des leviers (acquisition, agents, CRM)",
+      "Feuille de route par phases, sans engagement sur des prix fixes",
+    ],
+  },
+  {
+    title: "Mise en place du système",
+    items: [
+      "Configuration des agents messagerie et vocaux",
+      "Connexion agendas, publicité et CRM selon votre stack",
+      "Tests, formation et ajustements",
+    ],
+  },
+  {
+    title: "Accompagnement continu",
+    items: [
+      "Optimisation des campagnes et des parcours",
+      "Évolution des automatisations et relances",
+      "Support et revues régulières",
+    ],
+  },
+];
+
+export default async function TarifsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+
+  return (
+    <InnerPage
+      locale={locale}
+      eyebrow="ACCOMPAGNEMENT"
+      title="Un devis adapté à votre système IA"
+      text="Chaque entreprise combine des briques différentes (publicité, messagerie, appels, agendas, CRM). Nous établissons une proposition sur mesure après avoir compris votre contexte — sans grille tarifaire affichée ni prix inventés."
+    >
+      <div className="rounded-2xl border border-brand-400/25 bg-brand-500/5 p-6 text-sm leading-7 text-zinc-300">
+        Les montants dépendent du périmètre (nombre de canaux, volume de
+        demandes, intégrations, accompagnement). Aucun paiement en ligne n&apos;est
+        requis à ce stade : la prochaine étape est un échange ou une démo
+        gratuite.
+      </div>
+
+      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        {pillars.map((block) => (
+          <article
+            key={block.title}
+            className="rounded-2xl border border-white/10 bg-white/[.03] p-6"
+          >
+            <h2 className="text-xl font-semibold text-white">{block.title}</h2>
+            <ul className="mt-4 space-y-3">
+              {block.items.map((item) => (
+                <li key={item} className="flex gap-3 text-sm text-zinc-400">
+                  <Check className="shrink-0 text-brand-400" size={18} />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-12 flex flex-wrap gap-4">
+        <Button href={`/${locale}/demo`} className="h-12 px-8">
+          Réserver une démo gratuite
+        </Button>
+        <Button href={`/${locale}/contact`} variant="outline" className="h-12 px-8">
+          Demander un devis
+        </Button>
+      </div>
+    </InnerPage>
+  );
+}

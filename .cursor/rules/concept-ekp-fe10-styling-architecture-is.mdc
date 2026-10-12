@@ -1,0 +1,27 @@
+---
+description: "EKP-FE10 — Styling architecture is an architectural decision"
+alwaysApply: false
+---
+
+# EKP-FE10 — Styling architecture is an architectural decision
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- Inspect and follow the repository’s established styling architecture before adding or inventing a mechanism.
+- Prefer continuing the existing paradigm over introducing a second one.
+- Treat **global** styling-stack changes as architectural decisions—document with ADR when blast radius is high (cite EKP-FE08).
+- Distinguish local style tweaks from architecture changes; do not “quietly” adopt a new stack in one feature.
+- **Anti-bias:** Do not introduce Tailwind, Bootstrap, SCSS, CSS-in-JS, CSS Modules, or another styling stack merely because the assistant is familiar with it.
+
+## Preferences
+
+- Good: New feature reuses the project’s existing CSS Modules + tokens.
+- Bad: PR adds Tailwind to a SCSS codebase “for speed”; second component library imported for one screen.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE10
+- Implements: EKP-P03, EKP-P09
+- Severity: recommended

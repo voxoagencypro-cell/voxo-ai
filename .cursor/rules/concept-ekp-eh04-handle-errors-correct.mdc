@@ -1,0 +1,20 @@
+---
+description: "EKP-EH04 — Handle errors at the correct boundary"
+alwaysApply: false
+---
+
+# EKP-EH04 — Handle errors at the correct boundary
+
+> **Source:** `knowledge/engineering/error-handling.md`
+
+## Directives
+
+- Translate failures at the layer edge—do not scatter boundary-specific handling through domain core.
+- Validate external input at entry boundary (EKP-LB09)—before domain execution.
+- Do not catch infrastructure failures in domain only to rethrow as generic errors without classification.
+
+## References
+
+- `knowledge/engineering/error-handling.md` — EKP-EH04
+- Implements: EKP-P07
+- Severity: recommended

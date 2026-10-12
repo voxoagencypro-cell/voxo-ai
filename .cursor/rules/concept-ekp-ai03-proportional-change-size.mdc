@@ -1,0 +1,27 @@
+---
+description: "EKP-AI03 — Proportional change size"
+alwaysApply: false
+---
+
+# EKP-AI03 — Proportional change size
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- Match the size and complexity of AI-generated change to problem significance, lifespan, and blast radius—not to the assistant's capacity to rewrite large areas.
+- Do not rewrite entire modules when a localized edit suffices.
+- Scale structural ambition to task lifespan (prototype vs. core domain).
+- Flag when a small request implies disproportionately large change.
+- Default to one concern per response unless the user requests a batch.
+
+## Preferences
+
+- Good: Bugfix in one method with one test update.
+- Bad: "Fix null check" triggers extraction of four classes and a new package.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI03
+- Implements: EKP-P02
+- Severity: required

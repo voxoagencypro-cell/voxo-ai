@@ -1,0 +1,26 @@
+---
+description: "EKP-FE07 — Respect rendering and data-fetch boundaries"
+alwaysApply: false
+---
+
+# EKP-FE07 — Respect rendering and data-fetch boundaries
+
+> **Source:** `knowledge/frontend/frontend-architecture.md`
+
+## Directives
+
+- Where and when you render/fetch determines performance and correctness—boundaries must be intentional.
+- Split code by route/feature boundary when bundle size affects users (**EKP-P08** evidence).
+- Do not subscribe the entire app tree to high-frequency updates for a local widget.
+- SSR/hydration boundaries (if used) are one-way doors—record ADR when adopting (EKP-AD).
+
+## Preferences
+
+- Good: Route-level data loader; memoized list row for large collections after measurement.
+- Bad: Global store subscription causing full-app re-render on each keystroke in search.
+
+## References
+
+- `knowledge/frontend/frontend-architecture.md` — EKP-FE07
+- Implements: EKP-P05, EKP-P08
+- Severity: recommended

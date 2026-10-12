@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Globe2, Menu, X, LogIn } from "lucide-react";
+import { ChevronDown, Globe2, LogIn, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import type { Locale } from "@/lib/i18n";
@@ -32,6 +32,7 @@ export function Navbar({
 
   const [open, setOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -50,13 +51,21 @@ export function Navbar({
     };
   }, []);
 
-  const links = [
-    [nav.solution, `/${locale}#solution`],
-    [nav.sectors, `/${locale}#secteurs`],
-    [nav.demo, `/${locale}/demo`],
-    [nav.pricing, `/${locale}#tarifs`],
-    [nav.faq, `/${locale}#faq`],
+  const serviceLinks = [
+    [nav.consulting, `/${locale}/consulting-ia`],
+    [nav.acquisition, `/${locale}/acquisition-publicite`],
+    [nav.agents, `/${locale}/agents-ia`],
+    [nav.crm, `/${locale}/crm-automatisation`],
   ];
+
+  const links = [
+    [nav.home, `/${locale}`],
+    ...serviceLinks,
+    [nav.contact, `/${locale}/contact`],
+  ];
+
+  const servicesMenuLabel =
+    locale === "de" ? "Leistungen" : locale === "en" ? "Services" : "Services";
 
   function getLanguageHref(nextLocale: Locale) {
     if (!pathname) {
@@ -83,7 +92,7 @@ export function Navbar({
           : "border-b border-white/[.06] bg-[#02050b]/45 backdrop-blur-xl"
       }`}
     >
-      <div className="mx-auto flex h-[82px] max-w-[1500px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-[72px] max-w-[1500px] items-center justify-between px-4 sm:h-[78px] sm:px-6 lg:px-10 xl:px-12">
         {/* LOGO */}
         <div className="group relative inline-flex items-center">
           <span className="absolute -inset-5 rounded-full bg-brand-500/0 blur-2xl transition duration-300 group-hover:bg-brand-500/20" />
@@ -93,19 +102,62 @@ export function Navbar({
           </span>
         </div>
 
-        {/* NAVIGATION DESKTOP */}
+        {/* NAVIGATION — tablette / petit desktop */}
         <nav
-          className="hidden items-center gap-8 lg:flex"
+          className="hidden items-center gap-4 lg:flex xl:hidden"
           aria-label="Navigation principale"
+        >
+          <a
+            href={`/${locale}`}
+            className="text-sm font-medium text-zinc-300 transition hover:text-white"
+          >
+            {nav.home}
+          </a>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setServicesOpen((v) => !v)}
+              aria-expanded={servicesOpen}
+              className="flex items-center gap-1 text-sm font-medium text-zinc-300 transition hover:text-white"
+            >
+              {servicesMenuLabel}
+              <ChevronDown size={16} className={servicesOpen ? "rotate-180" : ""} />
+            </button>
+            {servicesOpen && (
+              <div className="absolute left-0 top-full z-50 mt-2 min-w-[220px] rounded-xl border border-white/10 bg-[#080d18] p-1.5 shadow-2xl">
+                {serviceLinks.map(([label, href]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    onClick={() => setServicesOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 text-sm text-zinc-300 hover:bg-white/[.06] hover:text-white"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+          <a
+            href={`/${locale}/contact`}
+            className="text-sm font-medium text-zinc-300 transition hover:text-white"
+          >
+            {nav.contact}
+          </a>
+        </nav>
+
+        {/* NAVIGATION — grand écran */}
+        <nav
+          className="hidden items-center gap-5 xl:flex xl:gap-6"
+          aria-label="Navigation complète"
         >
           {links.map(([label, href]) => (
             <a
               key={href}
               href={href}
-              className="group relative text-sm font-medium text-zinc-300 transition hover:text-white"
+              className="group relative whitespace-nowrap text-sm font-medium text-zinc-300 transition hover:text-white"
             >
               {label}
-
               <span className="absolute -bottom-2 left-0 h-px w-0 bg-gradient-to-r from-brand-400 to-cyan-300 transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
@@ -197,25 +249,41 @@ export function Navbar({
       <div
         className={`overflow-hidden border-t border-white/10 bg-[#02050b]/95 backdrop-blur-2xl transition-all duration-300 lg:hidden ${
           open
-            ? "max-h-[700px] opacity-100"
+            ? "max-h-[900px] opacity-100"
             : "max-h-0 opacity-0"
         }`}
       >
-        <div className="space-y-2 px-5 py-5">
-          {links.map(([label, href]) => (
+        <div className="space-y-2 px-4 py-4 sm:px-5 sm:py-5">
+          <a
+            href={`/${locale}`}
+            onClick={() => setOpen(false)}
+            className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-zinc-200 hover:bg-white/[.04]"
+          >
+            {nav.home}
+            <span className="text-brand-400">→</span>
+          </a>
+          <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-wide text-zinc-500">
+            {servicesMenuLabel}
+          </p>
+          {serviceLinks.map(([label, href]) => (
             <a
               key={href}
               href={href}
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between rounded-2xl border border-transparent px-4 py-3.5 text-sm font-medium text-zinc-200 transition hover:border-white/10 hover:bg-white/[.04] hover:text-white"
+              className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-zinc-300 hover:bg-white/[.04] hover:text-white"
             >
               {label}
-
-              <span className="text-brand-400">
-                →
-              </span>
+              <span className="text-brand-400">→</span>
             </a>
           ))}
+          <a
+            href={`/${locale}/contact`}
+            onClick={() => setOpen(false)}
+            className="flex items-center justify-between rounded-xl px-3 py-3 text-sm font-medium text-zinc-200 hover:bg-white/[.04]"
+          >
+            {nav.contact}
+            <span className="text-brand-400">→</span>
+          </a>
 
           {/* LANGUES MOBILE */}
           <div className="mt-3 rounded-2xl border border-white/10 bg-white/[.025] p-3">

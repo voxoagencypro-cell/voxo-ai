@@ -1,0 +1,26 @@
+---
+description: "EKP-TY02 — Model types structurally, reason about shapes"
+alwaysApply: false
+---
+
+# EKP-TY02 — Model types structurally, reason about shapes
+
+> **Source:** `knowledge/typescript/typescript-fundamentals.md`
+
+## Directives
+
+- TypeScript uses **structural** typing—compatibility is by shape, not declaration site. Design explicit shapes for boundaries.
+- Avoid “duck typing by accident”—if two shapes align but mean different things, brand or separate types.
+- Do not rely on excess property checks alone for security or authorization semantics.
+- Shared DTOs between UI and API belong in typed modules with clear ownership (cite EKP-LB).
+
+## Preferences
+
+- Good: `interface CreateOrderRequest { … }` exported from a contracts package.
+- Bad: `function handle(data: { id: string })` duplicated with incompatible optional fields across files.
+
+## References
+
+- `knowledge/typescript/typescript-fundamentals.md` — EKP-TY02
+- Implements: EKP-P04, EKP-P05
+- Severity: recommended

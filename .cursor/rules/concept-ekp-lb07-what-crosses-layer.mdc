@@ -1,0 +1,18 @@
+---
+description: "EKP-LB07 — What crosses a layer"
+alwaysApply: false
+---
+
+# EKP-LB07 — What crosses a layer
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Only deliberate, validated artifacts cross layer boundaries—never raw framework or persistence leakage.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB07
+- Implements: EKP-P06
+- Severity: recommended

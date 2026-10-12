@@ -1,0 +1,18 @@
+---
+description: "EKP-TS12 — Review signals for test quality"
+alwaysApply: false
+---
+
+# EKP-TS12 — Review signals for test quality
+
+> **Source:** `knowledge/testing/testing.md`
+
+## Directives
+
+- Reviewers evaluate tests with the same rigor as production code.
+
+## References
+
+- `knowledge/testing/testing.md` — EKP-TS12
+- Implements: EKP-P10
+- Severity: recommended

@@ -1,0 +1,29 @@
+---
+description: "EKP-FE09 — Prefer semantic HTML and native capabilities"
+alwaysApply: false
+---
+
+# EKP-FE09 — Prefer semantic HTML and native capabilities
+
+> **Source:** `knowledge/frontend/frontend-styling-and-markup.md`
+
+## Directives
+
+- Prefer semantic HTML and native browser controls before custom widgets or generic containers.
+- Prefer native controls (`button`, `a`, form inputs) before custom clickable `div`/`span` widgets.
+- Use links for navigation and buttons for actions; do not conflate them for styling convenience.
+- Associate labels with controls; connect errors and help text to fields intentionally.
+- Avoid unnecessary wrapper elements that exist only to satisfy a styling preference.
+- Prefer progressive enhancement: capable baseline behavior first; optional enhancements when justified.
+- Prefer native semantics over recreating the same behavior with ARIA on non-semantic elements.
+
+## Preferences
+
+- Good: A submit control is a `button`; a field has a visible `label`; a nav landmark wraps primary navigation.
+- Bad: `div onClick` as primary action; icon-only control with no accessible name; ARIA roles used to paper over non-semantic markup.
+
+## References
+
+- `knowledge/frontend/frontend-styling-and-markup.md` — EKP-FE09
+- Implements: EKP-P04, EKP-P06
+- Severity: recommended

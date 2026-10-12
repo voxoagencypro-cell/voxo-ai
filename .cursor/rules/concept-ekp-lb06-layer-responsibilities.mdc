@@ -1,0 +1,18 @@
+---
+description: "EKP-LB06 — Layer responsibilities"
+alwaysApply: false
+---
+
+# EKP-LB06 — Layer responsibilities
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- Each layer has a single architectural reason to change—SRP at system scale (**EKP-SL01** analogy).
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB06
+- Implements: EKP-P05
+- Severity: recommended

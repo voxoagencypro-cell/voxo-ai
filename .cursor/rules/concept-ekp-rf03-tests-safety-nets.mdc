@@ -1,0 +1,18 @@
+---
+description: "EKP-RF03 — Tests as safety nets"
+alwaysApply: false
+---
+
+# EKP-RF03 — Tests as safety nets
+
+> **Source:** `knowledge/engineering/refactoring.md`
+
+## Directives
+
+- No structural change without a verification mechanism proportional to risk level.
+
+## References
+
+- `knowledge/engineering/refactoring.md` — EKP-RF03
+- Implements: EKP-P03, EKP-P10
+- Severity: recommended

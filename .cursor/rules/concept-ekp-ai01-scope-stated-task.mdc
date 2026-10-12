@@ -1,0 +1,27 @@
+---
+description: "EKP-AI01 — Scope to the stated task"
+alwaysApply: false
+---
+
+# EKP-AI01 — Scope to the stated task
+
+> **Source:** `knowledge/ai/ai-assisted-development.md`
+
+## Directives
+
+- AI assistants must implement what was asked—not what would be architecturally interesting. Scope expansion during implementation is a defect unless it addresses a discovered constraint tied to the stated task.
+- If scope is ambiguous, ask clarifying questions before writing code.
+- Do not add features, abstractions, or refactors not required to complete the stated task.
+- Do not solve adjacent problems "while you're in the file" unless the user explicitly expands scope.
+- When scope grows, stop and confirm the new scope before continuing.
+
+## Preferences
+
+- Good: User asks for email validation on a form field; assistant adds validation and tests for that field only.
+- Bad: User asks for email validation; assistant refactors the entire form module and extracts three new services.
+
+## References
+
+- `knowledge/ai/ai-assisted-development.md` — EKP-AI01
+- Implements: EKP-P01
+- Severity: required

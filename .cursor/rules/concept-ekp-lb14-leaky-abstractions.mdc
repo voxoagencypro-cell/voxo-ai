@@ -1,0 +1,18 @@
+---
+description: "EKP-LB14 — Leaky abstractions"
+alwaysApply: false
+---
+
+# EKP-LB14 — Leaky abstractions
+
+> **Source:** `knowledge/architecture/layering-and-boundaries.md`
+
+## Directives
+
+- A boundary fails when inner layers must understand outer-layer details to function correctly.
+
+## References
+
+- `knowledge/architecture/layering-and-boundaries.md` — EKP-LB14
+- Implements: EKP-P05, EKP-P06
+- Severity: recommended
