@@ -1,0 +1,371 @@
+diff --git a/components/photo-with-credit.tsx b/components/photo-with-credit.tsx
+index 8d685d3b..cf6ac0a7 100644
+--- a/components/photo-with-credit.tsx
++++ b/components/photo-with-credit.tsx
+@@ -1,28 +1,42 @@
+ import Image from "next/image";
+-import type { MarketingPhoto } from "@/lib/marketing-images";
++import {
++  marketingPhotoSrc,
++  type MarketingPhoto,
++} from "@/lib/marketing-images";
+ 
+ export function PhotoWithCredit({
+   photo,
+   priority = false,
+   className = "",
+   aspect = "aspect-[16/10]",
++  hero = false,
+ }: {
+   photo: MarketingPhoto;
+   priority?: boolean;
+   className?: string;
+   aspect?: string;
++  /** Bandeau large (pages service) — demande jusqu’à 2400 px si natif le permet. */
++  hero?: boolean;
+ }) {
++  const maxDisplay = hero ? 2400 : 1920;
++  const src = marketingPhotoSrc(photo, maxDisplay);
++
+   return (
+     <figure className={className}>
+       <div
+         className={`relative overflow-hidden rounded-2xl border border-white/10 ${aspect}`}
+       >
+         <Image
+-          src={photo.src}
++          src={src}
+           alt={photo.alt}
+           fill
+           className="object-cover"
+-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
++          quality={80}
++          sizes={
++            hero
++              ? "(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"
++              : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
++          }
+           loading={priority ? undefined : "lazy"}
+           priority={priority}
+         />
+diff --git a/components/service-page.tsx b/components/service-page.tsx
+index b3028d3e..11f418c5 100644
+--- a/components/service-page.tsx
++++ b/components/service-page.tsx
+@@ -29,6 +29,7 @@ export function ServicePage({
+     <InnerPage locale={locale} eyebrow={eyebrow} title={title} text={intro}>
+       <PhotoWithCredit
+         photo={photo}
++        hero
+         className="mb-10 sm:mb-12"
+         aspect="aspect-[21/9] sm:aspect-[2.4/1]"
+       />
+diff --git a/docs/screenshots/acquisition-desktop.png b/docs/screenshots/acquisition-desktop.png
+new file mode 100644
+index 00000000..b1d3e07a
+Binary files /dev/null and b/docs/screenshots/acquisition-desktop.png differ
+diff --git a/docs/screenshots/agents-mobile.png b/docs/screenshots/agents-mobile.png
+new file mode 100644
+index 00000000..9c6fc376
+Binary files /dev/null and b/docs/screenshots/agents-mobile.png differ
+diff --git a/docs/screenshots/home-desktop.png b/docs/screenshots/home-desktop.png
+index 2c8eb245..3c260b69 100644
+Binary files a/docs/screenshots/home-desktop.png and b/docs/screenshots/home-desktop.png differ
+diff --git a/docs/screenshots/home-mobile.png b/docs/screenshots/home-mobile.png
+index 08db8029..b75555f7 100644
+Binary files a/docs/screenshots/home-mobile.png and b/docs/screenshots/home-mobile.png differ
+diff --git a/lib/marketing-images.ts b/lib/marketing-images.ts
+index ab3418b7..58366664 100644
+--- a/lib/marketing-images.ts
++++ b/lib/marketing-images.ts
+@@ -6,18 +6,47 @@ export type PhotoCredit = {
+ };
+ 
+ export type MarketingPhoto = {
+-  src: string;
++  /** Identifiant Unsplash, ex. photo-1556761175-5973dc0f32e7 */
++  id: string;
++  /** Largeur native vérifiée (fichier JPEG sans paramètre w=). */
++  nativeWidth: number;
++  /** Hauteur native vérifiée. */
++  nativeHeight: number;
+   alt: string;
+   credit: PhotoCredit;
+ };
+ 
+-function unsplash(photoId: string, width = 1200) {
+-  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=${width}&q=75`;
++/** Largeurs servies — jamais au-delà de nativeWidth. */
++export const MARKETING_SRC_WIDTHS = [640, 960, 1280, 1600, 1920, 2400] as const;
++
++const MIN_NATIVE_WIDTH = 2400;
++
++function unsplashUrl(id: string, requestedWidth: number, nativeWidth: number) {
++  const w = Math.min(Math.max(1, requestedWidth), nativeWidth);
++  return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
++}
++
++/** URL principale pour next/image (≤ native, pas de faux 4K via w=3840). */
++export function marketingPhotoSrc(
++  photo: MarketingPhoto,
++  displayWidth = 1920,
++) {
++  return unsplashUrl(photo.id, displayWidth, photo.nativeWidth);
++}
++
++export function marketingPhotoSrcSet(photo: MarketingPhoto) {
++  const widths = MARKETING_SRC_WIDTHS.filter((w) => w <= photo.nativeWidth);
++  const used = widths.length > 0 ? widths : [photo.nativeWidth];
++  return used
++    .map((w) => `${unsplashUrl(photo.id, w, photo.nativeWidth)} ${w}w`)
++    .join(", ");
+ }
+ 
+ export const MARKETING_PHOTOS = {
+   acquisition: {
+-    src: unsplash("photo-1556761175-5973dc0f32e7"),
++    id: "photo-1556761175-5973dc0f32e7",
++    nativeWidth: 4767,
++    nativeHeight: 2681,
+     alt: "Réunion autour d’un ordinateur pour planifier une campagne",
+     credit: {
+       photographer: "Austin Distel",
+@@ -25,7 +54,9 @@ export const MARKETING_PHOTOS = {
+     },
+   },
+   consulting: {
+-    src: unsplash("photo-1600880292089-90a7e086ee0c"),
++    id: "photo-1600880292089-90a7e086ee0c",
++    nativeWidth: 6336,
++    nativeHeight: 9504,
+     alt: "Échange de conseil entre professionnels",
+     credit: {
+       photographer: "LinkedIn Sales Navigator",
+@@ -33,15 +64,19 @@ export const MARKETING_PHOTOS = {
+     },
+   },
+   agents: {
+-    src: unsplash("photo-1423666639041-f5600c06776f"),
+-    alt: "Personne au téléphone dans un environnement de travail",
++    id: "photo-1560250097-0b93528c311a",
++    nativeWidth: 3149,
++    nativeHeight: 4724,
++    alt: "Professionnel au téléphone dans un cadre de travail",
+     credit: {
+-      photographer: "Pavan Trikutam",
+-      profileUrl: "https://unsplash.com/@ptrikutam",
++      photographer: "LinkedIn Sales Navigator",
++      profileUrl: "https://unsplash.com/@linkedin",
+     },
+   },
+   crm: {
+-    src: unsplash("photo-1553877522-43269d4ea984"),
++    id: "photo-1553877522-43269d4ea984",
++    nativeWidth: 5418,
++    nativeHeight: 3612,
+     alt: "Collaborateurs travaillant ensemble sur un projet",
+     credit: {
+       photographer: "Campaign Creators",
+@@ -49,7 +84,9 @@ export const MARKETING_PHOTOS = {
+     },
+   },
+   clientRelation: {
+-    src: unsplash("photo-1521791136064-7986c2920216"),
++    id: "photo-1521791136064-7986c2920216",
++    nativeWidth: 6016,
++    nativeHeight: 4016,
+     alt: "Poignée de main après un échange professionnel",
+     credit: {
+       photographer: "rawpixel",
+@@ -57,11 +94,15 @@ export const MARKETING_PHOTOS = {
+     },
+   },
+   workspace: {
+-    src: unsplash("photo-1497366811353-6870744d04b2"),
+-    alt: "Espace de travail moderne sans personnes identifiables",
++    id: "photo-1524758631624-e2822e304c36",
++    nativeWidth: 3762,
++    nativeHeight: 2508,
++    alt: "Espace de travail moderne et lumineux",
+     credit: {
+-      photographer: "Luca Bravo",
+-      profileUrl: "https://unsplash.com/@lucabravo",
++      photographer: "Raising Humans",
++      profileUrl: "https://unsplash.com/@raising_humans",
+     },
+   },
+ } as const satisfies Record<string, MarketingPhoto>;
++
++export const MARKETING_PHOTO_MIN_WIDTH = MIN_NATIVE_WIDTH;
+diff --git a/scripts/capture-marketing-photos.mjs b/scripts/capture-marketing-photos.mjs
+new file mode 100644
+index 00000000..9ce85cc9
+--- /dev/null
++++ b/scripts/capture-marketing-photos.mjs
+@@ -0,0 +1,67 @@
++/**
++ * Captures visuelles pages avec photos (desktop + mobile).
++ * Usage: BASE_URL=http://localhost:3000 node scripts/capture-marketing-photos.mjs
++ */
++import { mkdirSync } from "fs";
++import { dirname, resolve } from "path";
++import { fileURLToPath } from "url";
++import { chromium } from "playwright";
++
++const base = process.env.BASE_URL || "http://localhost:3000";
++const outDir = resolve(dirname(fileURLToPath(import.meta.url)), "../docs/screenshots");
++mkdirSync(outDir, { recursive: true });
++
++const unique = Date.now();
++const payload = {
++  locale: "fr",
++  companyName: `Photo QA ${unique}`,
++  contactName: "Photo QA",
++  email: `photoqa+${unique}@example.com`,
++  phone: "+41790000088",
++  employeeRange: "solo",
++  priorities: ["acquisition"],
++  topPriority: "acquisition",
++  channels: ["email"],
++  marketingConsent: false,
++};
++
++const browser = await chromium.launch();
++const context = await browser.newContext();
++const intake = await context.request.post(`${base}/api/prospect-intake`, {
++  data: payload,
++  headers: { "Content-Type": "application/json" },
++});
++if (!intake.ok()) {
++  console.error(await intake.text());
++  process.exit(1);
++}
++
++const shots = [
++  { name: "home-desktop", path: "/fr", w: 1280, h: 800 },
++  { name: "home-mobile", path: "/fr", w: 390, h: 844 },
++  {
++    name: "acquisition-desktop",
++    path: "/fr/acquisition-publicite",
++    w: 1280,
++    h: 900,
++  },
++  {
++    name: "agents-mobile",
++    path: "/fr/agents-ia",
++    w: 390,
++    h: 844,
++  },
++];
++
++const page = await context.newPage();
++for (const s of shots) {
++  await page.setViewportSize({ width: s.w, height: s.h });
++  await page.goto(`${base}${s.path}`, { waitUntil: "networkidle" });
++  await page.screenshot({
++    path: resolve(outDir, `${s.name}.png`),
++    fullPage: false,
++  });
++}
++
++await browser.close();
++console.log("Captures marketing dans docs/screenshots/");
+diff --git a/scripts/verify-marketing-images.mjs b/scripts/verify-marketing-images.mjs
+new file mode 100644
+index 00000000..109536c5
+--- /dev/null
++++ b/scripts/verify-marketing-images.mjs
+@@ -0,0 +1,93 @@
++/**
++ * Vérifie les dimensions natives JPEG (sans paramètre w=) pour MARKETING_PHOTOS.
++ * Usage: node scripts/verify-marketing-images.mjs
++ */
++import { readFileSync } from "fs";
++import { resolve } from "path";
++
++const MIN_WIDTH = 2400;
++const src = readFileSync(resolve("lib/marketing-images.ts"), "utf8");
++
++const blockRe =
++  /(\w+):\s*\{\s*id:\s*"(photo-[^"]+)",\s*nativeWidth:\s*(\d+),\s*nativeHeight:\s*(\d+)/g;
++
++/** @type {{ key: string, id: string, nativeWidth: number, nativeHeight: number }[]} */
++const photos = [];
++let m;
++while ((m = blockRe.exec(src)) !== null) {
++  photos.push({
++    key: m[1],
++    id: m[2],
++    nativeWidth: Number(m[3]),
++    nativeHeight: Number(m[4]),
++  });
++}
++
++if (photos.length !== 6) {
++  console.error("Attendu 6 photos, trouvé", photos.length);
++  process.exit(1);
++}
++
++function readJpegSize(buf) {
++  let i = 2;
++  while (i < buf.length) {
++    if (buf[i] !== 0xff) break;
++    const marker = buf[i + 1];
++    const len = buf.readUInt16BE(i + 2);
++    if (marker === 0xc0 || marker === 0xc2) {
++      return {
++        height: buf.readUInt16BE(i + 5),
++        width: buf.readUInt16BE(i + 7),
++      };
++    }
++    i += 2 + len;
++  }
++  return null;
++}
++
++async function nativeSize(id) {
++  const url = `https://images.unsplash.com/${id}?auto=format`;
++  const res = await fetch(url);
++  if (!res.ok) {
++    return { error: `HTTP ${res.status}` };
++  }
++  const buf = Buffer.from(await res.arrayBuffer());
++  const size = readJpegSize(buf);
++  if (!size) {
++    return { error: "JPEG SOF introuvable", bytes: buf.length };
++  }
++  return { ...size, bytes: buf.length };
++}
++
++let failed = false;
++
++for (const photo of photos) {
++  const measured = await nativeSize(photo.id);
++  const ok =
++    !measured.error &&
++    measured.width === photo.nativeWidth &&
++    measured.height === photo.nativeHeight;
++
++  const wideEnough = !measured.error && measured.width >= MIN_WIDTH;
++
++  console.log(
++    `${photo.key} (${photo.id}):`,
++    measured.error
++      ? measured.error
++      : `${measured.width}×${measured.height}`,
++    "| déclaré",
++    `${photo.nativeWidth}×${photo.nativeHeight}`,
++    ok ? "metadata OK" : "metadata FAIL",
++    wideEnough ? "width OK" : "width FAIL",
++  );
++
++  if (measured.error || !ok || !wideEnough) {
++    failed = true;
++  }
++}
++
++if (failed) {
++  process.exit(1);
++}
++
++console.log("Toutes les photos marketing sont valides.");
