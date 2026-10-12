@@ -1,28 +1,42 @@
 import Image from "next/image";
-import type { MarketingPhoto } from "@/lib/marketing-images";
+import {
+  marketingPhotoSrc,
+  type MarketingPhoto,
+} from "@/lib/marketing-images";
 
 export function PhotoWithCredit({
   photo,
   priority = false,
   className = "",
   aspect = "aspect-[16/10]",
+  hero = false,
 }: {
   photo: MarketingPhoto;
   priority?: boolean;
   className?: string;
   aspect?: string;
+  /** Bandeau large (pages service) — demande jusqu’à 2400 px si natif le permet. */
+  hero?: boolean;
 }) {
+  const maxDisplay = hero ? 2400 : 1920;
+  const src = marketingPhotoSrc(photo, maxDisplay);
+
   return (
     <figure className={className}>
       <div
         className={`relative overflow-hidden rounded-2xl border border-white/10 ${aspect}`}
       >
         <Image
-          src={photo.src}
+          src={src}
           alt={photo.alt}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
+          quality={80}
+          sizes={
+            hero
+              ? "(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"
+              : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
+          }
           loading={priority ? undefined : "lazy"}
           priority={priority}
         />

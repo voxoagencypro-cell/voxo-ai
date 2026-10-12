@@ -29,6 +29,7 @@ export function ServicePage({
     <InnerPage locale={locale} eyebrow={eyebrow} title={title} text={intro}>
       <PhotoWithCredit
         photo={photo}
+        hero
         className="mb-10 sm:mb-12"
         aspect="aspect-[21/9] sm:aspect-[2.4/1]"
       />
