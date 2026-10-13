@@ -25,6 +25,14 @@ export const VOXO_ILLUSTRATIONS = {
     caption:
       "Illustration VOXO AI — exemple de fonctionnement, données fictives",
   },
+  agentsMessagerieAppelsRdv: {
+    src: "/images/marketing/voxo-agents-messagerie-appels-rdv.png",
+    width: 1942,
+    height: 809,
+    alt: "Schéma VOXO : messagerie, appels, rendez-vous et transfert vers un conseiller",
+    caption:
+      "Illustration VOXO AI — exemple de fonctionnement, données fictives",
+  },
 } as const satisfies Record<string, VoxoIllustrationAsset>;
 
 export type VoxoIllustrationKey = keyof typeof VOXO_ILLUSTRATIONS;

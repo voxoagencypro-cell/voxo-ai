@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
 import { ServicePage } from "@/components/service-page";
 import { isLocale } from "@/lib/i18n";
-import { MARKETING_PHOTOS } from "@/lib/marketing-images";
-
 export default async function AgentsIAPage({
   params,
 }: {
@@ -18,7 +16,7 @@ export default async function AgentsIAPage({
         eyebrow="AGENTS IA"
         title="Messagerie, appels et rendez-vous"
         intro="Des agents IA pour répondre aux demandes fréquentes, qualifier et transférer à un humain lorsque c'est nécessaire."
-        photo={MARKETING_PHOTOS.agents}
+        illustration="agentsMessagerieAppelsRdv"
         sections={[
           {
             title: "Messagerie",
