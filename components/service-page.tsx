@@ -16,6 +16,7 @@ export function ServicePage({
   title,
   intro,
   sections,
+  heroVisual,
   photo,
 }: {
   locale: string;
@@ -23,23 +24,26 @@ export function ServicePage({
   title: string;
   intro: string;
   sections: ServiceSection[];
-  photo: MarketingPhoto;
+  heroVisual?: React.ReactNode;
+  photo?: MarketingPhoto;
 }) {
   return (
     <InnerPage locale={locale} eyebrow={eyebrow} title={title} text={intro}>
-      <PhotoWithCredit
-        photo={photo}
-        hero
-        className="mb-10 sm:mb-12"
-        aspect="aspect-[21/9] sm:aspect-[2.4/1]"
-      />
+      {heroVisual && (
+        <div className="mb-10 sm:mb-12">{heroVisual}</div>
+      )}
+      {!heroVisual && photo && (
+        <PhotoWithCredit
+          photo={photo}
+          hero
+          className="mb-10 sm:mb-12"
+          aspect="aspect-[21/9] sm:aspect-[2.4/1]"
+        />
+      )}
 
       <div className="space-y-6">
         {sections.map((section) => (
-          <article
-            key={section.title}
-            className="voxo-card p-5 sm:p-7"
-          >
+          <article key={section.title} className="voxo-card p-5 sm:p-7">
             <h2 className="text-lg font-semibold text-white sm:text-xl">
               {section.title}
             </h2>

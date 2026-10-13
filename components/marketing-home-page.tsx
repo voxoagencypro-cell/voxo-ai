@@ -21,7 +21,8 @@ import {
   SectionIntro,
 } from "@/components/marketing-primitives";
 import { PhotoWithCredit } from "@/components/photo-with-credit";
-import { JourneyStrip, WorkflowMockup } from "@/components/workflow-mockup";
+import { JourneyStrip } from "@/components/workflow-mockup";
+import { VoxoCrmDemo } from "@/components/voxo-crm-demo";
 import { VoxoContainer } from "@/components/voxo/container";
 import { MARKETING_PHOTOS } from "@/lib/marketing-images";
 import type { Locale } from "@/lib/i18n";
@@ -113,7 +114,7 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
           </Reveal>
 
           <Reveal>
-            <WorkflowMockup />
+            <VoxoCrmDemo variant="home" />
           </Reveal>
         </VoxoContainer>
       </section>
@@ -163,18 +164,13 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
           description="Acquisition, réponses, qualification, rendez-vous et CRM dans un seul parcours — avec reprise humaine quand la décision l'exige."
         />
         <JourneyStrip />
-        <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
-          <div className="voxo-card p-5 sm:p-6">
-            <p className="text-sm leading-7 text-zinc-300">
-              Lorsqu&apos;une demande nécessite une décision humaine, elle est
-              transmise à la bonne personne avec le contexte utile : historique,
-              canal, qualification et prochaines actions.
-            </p>
-          </div>
-          <PhotoWithCredit
-            photo={MARKETING_PHOTOS.clientRelation}
-            aspect="aspect-[4/3]"
-          />
+        <div className="mt-10 space-y-6">
+          <VoxoCrmDemo variant="section" />
+          <p className="max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
+            Lorsqu&apos;une décision humaine est nécessaire, la demande est
+            transmise avec le contexte complet — sans présenter cette maquette
+            comme une intégration déjà active chez vous.
+          </p>
         </div>
       </MarketingSection>
 

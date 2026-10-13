@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ServicePage } from "@/components/service-page";
+import { VoxoCrmDemo } from "@/components/voxo-crm-demo";
 import { isLocale } from "@/lib/i18n";
-import { MARKETING_PHOTOS } from "@/lib/marketing-images";
 
 export default async function AcquisitionPage({
   params,
@@ -17,7 +17,7 @@ export default async function AcquisitionPage({
       eyebrow="ACQUISITION & PUBLICITÉ"
       title="De la campagne au client suivi"
       intro="L'acquisition est au cœur de notre approche : campagnes, pages de conversion, qualification des demandes et suivi CRM."
-      photo={MARKETING_PHOTOS.acquisition}
+      heroVisual={<VoxoCrmDemo variant="page" />}
       sections={[
         {
           title: "Campagnes orientées demandes",
