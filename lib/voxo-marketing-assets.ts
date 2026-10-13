@@ -31,6 +31,13 @@ export const VOXO_ILLUSTRATIONS = {
     alt: "Workflow illustratif n8n reliant messages et appels à un agent IA, au CRM, aux rendez-vous, aux relances et à un conseiller humain.",
     caption: "Illustration — exemple de workflow n8n.",
   },
+  crmVoxo: {
+    src: "/images/marketing/voxo-crm.png",
+    width: 1942,
+    height: 809,
+    alt: "Ordinateur présentant VOXO AI — CRM avec prospects, fiche client et historique.",
+    caption: "Illustration — exemple de CRM, données fictives",
+  },
 } as const satisfies Record<string, VoxoIllustrationAsset>;
 
 export type VoxoIllustrationKey = keyof typeof VOXO_ILLUSTRATIONS;
