@@ -8,10 +8,6 @@ import {
   loginErrorMessage,
   recoveryCallbackUserMessage,
 } from "@/lib/auth-login-messages";
-import {
-  buildPasswordRecoveryRedirectTo,
-  resolveAuthCallbackOrigin,
-} from "@/lib/auth-redirect-url";
 
 type Mode = "login" | "forgot" | "update-password";
 
@@ -77,19 +73,13 @@ export default function LoginForm() {
     setErrorMessage("");
     setInfoMessage("");
 
-    const supabase = createClient();
-    const callbackOrigin = resolveAuthCallbackOrigin({
-      windowOrigin: window.location.origin,
+    const response = await fetch("/api/auth/forgot-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.trim() }),
     });
-    const redirectTo = buildPasswordRecoveryRedirectTo(callbackOrigin);
 
-    const { error } = await supabase.auth.resetPasswordForEmail(
-      email.trim(),
-      { redirectTo },
-    );
-
-    if (error) {
-      logAuthError("resetPasswordForEmail", error);
+    if (!response.ok) {
       setErrorMessage(
         "Impossible d'envoyer l'e-mail de réinitialisation. Vérifiez l'adresse ou réessayez plus tard.",
       );

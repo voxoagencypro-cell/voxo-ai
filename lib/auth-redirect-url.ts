@@ -50,6 +50,14 @@ export function buildPasswordRecoveryRedirectTo(origin: string): string {
   return `${base}/auth/callback?type=recovery`;
 }
 
+/**
+ * URL de callback recovery — toujours la Site URL canonique (production).
+ * Ne jamais dériver de localhost / origin navigateur pour l'e-mail Supabase.
+ */
+export function getPasswordRecoveryRedirectTo(): string {
+  return buildPasswordRecoveryRedirectTo(getSiteUrl());
+}
+
 /** Évite de renvoyer l'utilisateur vers localhost depuis le serveur. */
 export function resolvePublicOriginFromRequest(request: Request): string {
   const incoming = new URL(request.url);
