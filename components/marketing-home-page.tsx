@@ -21,8 +21,7 @@ import {
   SectionIntro,
 } from "@/components/marketing-primitives";
 import { PhotoWithCredit } from "@/components/photo-with-credit";
-import { JourneyStrip } from "@/components/workflow-mockup";
-import { VoxoCrmDemo } from "@/components/voxo-crm-demo";
+import { JourneyStrip, WorkflowMockup } from "@/components/workflow-mockup";
 import { VoxoContainer } from "@/components/voxo/container";
 import { MARKETING_PHOTOS } from "@/lib/marketing-images";
 import type { Locale } from "@/lib/i18n";
@@ -114,7 +113,7 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
           </Reveal>
 
           <Reveal>
-            <VoxoCrmDemo variant="home" />
+            <WorkflowMockup />
           </Reveal>
         </VoxoContainer>
       </section>
@@ -164,13 +163,18 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
           description="Acquisition, réponses, qualification, rendez-vous et CRM dans un seul parcours — avec reprise humaine quand la décision l'exige."
         />
         <JourneyStrip />
-        <div className="mt-10 space-y-6">
-          <VoxoCrmDemo variant="section" />
-          <p className="max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
-            Publicité Meta ou Google, canal de réponse et suivi CRM restent
-            visibles dans la même fiche — maquette fictive, connexions réelles
-            selon votre projet.
-          </p>
+        <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
+          <div className="voxo-card p-5 sm:p-6">
+            <p className="text-sm leading-7 text-zinc-300">
+              Lorsqu&apos;une demande nécessite une décision humaine, elle est
+              transmise à la bonne personne avec le contexte utile : historique,
+              canal, qualification et prochaines actions.
+            </p>
+          </div>
+          <PhotoWithCredit
+            photo={MARKETING_PHOTOS.clientRelation}
+            aspect="aspect-[4/3]"
+          />
         </div>
       </MarketingSection>
 
