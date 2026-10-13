@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
+import { VoxoContainer } from "@/components/voxo/container";
 
 export function MarketingEyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-xs font-semibold tracking-[.22em] text-brand-300">
+    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-300 sm:text-xs">
       {children}
     </p>
   );
@@ -18,7 +19,7 @@ export function MarketingH1({
   return (
     <h1
       className={cn(
-        "text-balance text-3xl font-semibold leading-[1.12] tracking-[-.03em] sm:text-4xl lg:text-[2.65rem]",
+        "text-balance text-[1.75rem] font-semibold leading-[1.14] tracking-[-0.03em] sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]",
         className,
       )}
     >
@@ -37,7 +38,7 @@ export function MarketingH2({
   return (
     <h2
       className={cn(
-        "text-2xl font-semibold tracking-[-.02em] text-white sm:text-3xl",
+        "max-w-2xl text-balance text-xl font-semibold tracking-[-0.02em] text-white sm:text-2xl lg:text-3xl",
         className,
       )}
     >
@@ -48,7 +49,7 @@ export function MarketingH2({
 
 export function MarketingLead({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mt-4 max-w-xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
+    <p className="mt-4 max-w-xl text-[15px] leading-7 text-zinc-400 sm:text-base sm:leading-8 lg:text-lg">
       {children}
     </p>
   );
@@ -65,36 +66,58 @@ export function MarketingCard({
   as?: "div" | "a";
   href?: string;
 }) {
-  const base =
-    "rounded-2xl border border-white/10 bg-white/[.03] transition duration-200 hover:border-brand-400/35 hover:bg-brand-500/[.05]";
   if (Tag === "a" && href) {
     return (
-      <a href={href} className={cn(base, "block p-5 sm:p-6", className)}>
+      <a
+        href={href}
+        className={cn("group voxo-card-interactive block p-5 sm:p-6", className)}
+      >
         {children}
       </a>
     );
   }
-  return <div className={cn(base, "p-5 sm:p-6", className)}>{children}</div>;
+  return <div className={cn("voxo-card p-5 sm:p-6", className)}>{children}</div>;
 }
 
 export function MarketingSection({
   children,
   className,
   muted = false,
+  wide = false,
 }: {
   children: React.ReactNode;
   className?: string;
   muted?: boolean;
+  wide?: boolean;
 }) {
   return (
     <section
       className={cn(
-        "border-b border-white/[.08] py-14 sm:py-16 lg:py-20",
-        muted && "bg-white/[.02]",
+        "border-b border-white/[0.07] py-16 sm:py-20 lg:py-24",
+        muted && "bg-white/[0.015]",
         className,
       )}
     >
-      <div className="mx-auto max-w-6xl px-5 lg:px-8">{children}</div>
+      <VoxoContainer size={wide ? "wide" : "default"}>{children}</VoxoContainer>
     </section>
+  );
+}
+
+export function SectionIntro({
+  title,
+  description,
+}: {
+  title: React.ReactNode;
+  description?: React.ReactNode;
+}) {
+  return (
+    <header className="mb-10 max-w-2xl sm:mb-12">
+      {typeof title === "string" ? <MarketingH2>{title}</MarketingH2> : title}
+      {description && (
+        <p className="mt-3 text-sm leading-7 text-zinc-400 sm:text-base">
+          {description}
+        </p>
+      )}
+    </header>
   );
 }

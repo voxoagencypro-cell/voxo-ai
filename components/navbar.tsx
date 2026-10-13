@@ -88,8 +88,8 @@ export function Navbar({
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/10 bg-[#02050b]/75 shadow-[0_16px_60px_rgba(0,0,0,.38)] backdrop-blur-2xl"
-          : "border-b border-white/[.06] bg-[#02050b]/45 backdrop-blur-xl"
+          ? "border-b border-white/10 bg-[#02050b]/82 shadow-[0_20px_50px_rgba(0,0,0,.35)] backdrop-blur-xl"
+          : "border-b border-white/[0.06] bg-[#02050b]/55 backdrop-blur-lg"
       }`}
     >
       <div className="mx-auto flex h-[72px] max-w-[1500px] items-center justify-between px-4 sm:h-[78px] sm:px-6 lg:px-10 xl:px-12">
@@ -109,7 +109,7 @@ export function Navbar({
         >
           <a
             href={`/${locale}`}
-            className="text-sm font-medium text-zinc-300 transition hover:text-white"
+            className="voxo-nav-link"
           >
             {nav.home}
           </a>
@@ -118,7 +118,7 @@ export function Navbar({
               type="button"
               onClick={() => setServicesOpen((v) => !v)}
               aria-expanded={servicesOpen}
-              className="flex items-center gap-1 text-sm font-medium text-zinc-300 transition hover:text-white"
+              className="voxo-nav-link flex items-center gap-1"
             >
               {servicesMenuLabel}
               <ChevronDown size={16} className={servicesOpen ? "rotate-180" : ""} />
@@ -140,7 +140,7 @@ export function Navbar({
           </div>
           <a
             href={`/${locale}/contact`}
-            className="text-sm font-medium text-zinc-300 transition hover:text-white"
+            className="voxo-nav-link"
           >
             {nav.contact}
           </a>
@@ -155,7 +155,7 @@ export function Navbar({
             <a
               key={href}
               href={href}
-              className="group relative whitespace-nowrap text-sm font-medium text-zinc-300 transition hover:text-white"
+              className="voxo-nav-link group relative whitespace-nowrap"
             >
               {label}
               <span className="absolute -bottom-2 left-0 h-px w-0 bg-gradient-to-r from-brand-400 to-cyan-300 transition-all duration-300 group-hover:w-full" />

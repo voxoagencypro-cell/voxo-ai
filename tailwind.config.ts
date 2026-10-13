@@ -7,6 +7,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-voxo-sans)", "system-ui", "sans-serif"],
+      },
       colors: {
         gold: { 50: "#eef6ff", 100: "#d9eaff", 300: "#79adff", 400: "#3d83ff", 500: "#1768ff", 600: "#0751e6" },
         brand: {

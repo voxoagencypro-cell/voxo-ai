@@ -9,7 +9,9 @@ export function Logo({ locale = "fr" }: { locale?: string }) {
           <span key={index} className="w-[3px] rounded-full bg-brand-500 shadow-[0_0_14px_rgba(23,104,255,.55)] transition group-hover:bg-brand-300" style={{ height }} />
         ))}
       </span>
-      <span className="text-xl font-extrabold tracking-tight sm:text-2xl">VOXO <span className="text-brand-500">AI</span></span>
+      <span className="text-lg font-bold tracking-tight sm:text-xl">
+        VOXO <span className="text-brand-400">AI</span>
+      </span>
     </Link>
   );
 }

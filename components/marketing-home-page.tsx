@@ -10,17 +10,19 @@ import {
   Workflow,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/reveal";
 import {
   MarketingCard,
   MarketingEyebrow,
   MarketingH1,
-  MarketingH2,
   MarketingLead,
   MarketingSection,
+  SectionIntro,
 } from "@/components/marketing-primitives";
 import { PhotoWithCredit } from "@/components/photo-with-credit";
 import { JourneyStrip, WorkflowMockup } from "@/components/workflow-mockup";
+import { VoxoContainer } from "@/components/voxo/container";
 import { MARKETING_PHOTOS } from "@/lib/marketing-images";
 import type { Locale } from "@/lib/i18n";
 
@@ -64,10 +66,10 @@ const pains = [
   },
 ];
 
-const accompaniment = [
+const steps = [
   "Comprendre votre activité et vos difficultés.",
   "Concevoir le système adapté.",
-  "Connecter vos outils et mettre en place les automatisations.",
+  "Connecter vos outils et automatiser.",
   "Tester, accompagner et améliorer.",
 ];
 
@@ -75,17 +77,20 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
   const demoHref = `/${locale}/demo`;
 
   return (
-    <main className="overflow-hidden bg-[#02050b]">
-      <section className="hero-noise relative min-h-0 border-b border-white/[.08] pt-[72px] sm:pt-[82px]">
-        <div className="hero-grid absolute inset-0 opacity-80" />
-        <div className="relative mx-auto grid max-w-[1480px] gap-8 px-5 py-10 sm:gap-10 sm:py-14 lg:grid-cols-2 lg:items-center lg:gap-12 lg:px-10 lg:py-16">
+    <main className="relative overflow-hidden">
+      <section className="hero-noise relative border-b border-white/[0.07] pt-[72px] sm:pt-[78px]">
+        <div className="hero-grid absolute inset-0 opacity-90" />
+        <VoxoContainer
+          size="wide"
+          className="relative grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14 lg:py-20"
+        >
           <Reveal>
-            <MarketingEyebrow>CONSULTING & SYSTÈMES IA</MarketingEyebrow>
-            <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-brand-400/30 bg-brand-500/10 px-3 py-1 text-xs font-medium text-brand-200">
+            <MarketingEyebrow>Consulting & systèmes IA</MarketingEyebrow>
+            <Badge className="mt-4">
               <Megaphone size={14} aria-hidden />
               Acquisition de clients en priorité
-            </p>
-            <MarketingH1 className="mt-4">
+            </Badge>
+            <MarketingH1 className="mt-5">
               Attirez plus de clients. Répondez plus vite. Simplifiez votre
               organisation.
             </MarketingH1>
@@ -93,17 +98,14 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
               VOXO AI relie publicité, messages, appels, rendez-vous et suivi
               client dans un même système — pensé pour votre métier.
             </MarketingLead>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button
-                href={demoHref}
-                className="h-12 px-7 text-sm shadow-[0_16px_48px_rgba(24,94,255,.32)] sm:px-8"
-              >
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button href={demoHref} className="h-12 px-8">
                 Réserver une démo gratuite
               </Button>
               <Button
                 href={`/${locale}/acquisition-publicite`}
                 variant="outline"
-                className="h-12 px-7 sm:px-8"
+                className="h-12 px-8"
               >
                 Acquisition & publicité
               </Button>
@@ -113,33 +115,36 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
           <Reveal>
             <WorkflowMockup />
           </Reveal>
-        </div>
+        </VoxoContainer>
       </section>
 
       <MarketingSection>
-        <MarketingH2>Vos difficultés, nos leviers</MarketingH2>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-400 sm:text-base">
-          Chaque bloc correspond à une page service : difficulté, solution et
-          intérêt concret pour votre entreprise.
-        </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <SectionIntro
+          title="Vos difficultés, nos leviers"
+          description="Chaque carte mène à une page service : difficulté concrète, solution VOXO et intérêt pour votre entreprise."
+        />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {pains.map(({ title, text, href, icon: Icon, highlight }) => (
             <MarketingCard
               key={title}
               as="a"
               href={`/${locale}/${href}`}
-              className={`group ${highlight ? "ring-1 ring-brand-400/25" : ""}`}
+              className={cnHighlight(highlight)}
             >
-              <Icon
-                className={highlight ? "text-brand-300" : "text-brand-400"}
-                size={20}
-                aria-hidden
-              />
-              <h3 className="mt-3 text-base font-semibold text-white sm:text-lg">
+              <span
+                className={`inline-flex h-10 w-10 items-center justify-center rounded-xl border ${
+                  highlight
+                    ? "border-brand-400/30 bg-brand-500/15 text-brand-200"
+                    : "border-white/10 bg-white/[0.04] text-brand-400"
+                }`}
+              >
+                <Icon size={18} aria-hidden />
+              </span>
+              <h3 className="mt-4 text-base font-semibold text-white sm:text-[17px]">
                 {title}
               </h3>
               <p className="mt-2 text-sm leading-6 text-zinc-400">{text}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-300">
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-brand-300">
                 En savoir plus
                 <ArrowRight
                   size={15}
@@ -153,24 +158,19 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
       </MarketingSection>
 
       <MarketingSection muted>
-        <MarketingH2>
-          Du premier contact au suivi client, sans silos
-        </MarketingH2>
-        <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
-          Acquisition, réponses, qualification, rendez-vous et CRM se suivent
-          dans le même parcours — avec reprise humaine lorsque la décision le
-          demande.
-        </p>
-        <div className="mt-8">
-          <JourneyStrip />
-        </div>
-        <p className="mt-6 max-w-3xl rounded-xl border border-white/10 bg-[#0b111d]/80 p-4 text-sm leading-7 text-zinc-300 sm:p-5">
-          Lorsqu&apos;une demande nécessite une décision humaine, elle est
-          transmise à la bonne personne avec le contexte utile (historique,
-          canal, qualification, prochaines actions).
-        </p>
-        <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-start">
-          <WorkflowMockup compact />
+        <SectionIntro
+          title="Du premier contact au suivi client, sans silos"
+          description="Acquisition, réponses, qualification, rendez-vous et CRM dans un seul parcours — avec reprise humaine quand la décision l'exige."
+        />
+        <JourneyStrip />
+        <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
+          <div className="voxo-card p-5 sm:p-6">
+            <p className="text-sm leading-7 text-zinc-300">
+              Lorsqu&apos;une demande nécessite une décision humaine, elle est
+              transmise à la bonne personne avec le contexte utile : historique,
+              canal, qualification et prochaines actions.
+            </p>
+          </div>
           <PhotoWithCredit
             photo={MARKETING_PHOTOS.clientRelation}
             aspect="aspect-[4/3]"
@@ -179,61 +179,72 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
       </MarketingSection>
 
       <MarketingSection>
-        <MarketingH2>Notre accompagnement</MarketingH2>
-        <ol className="mt-8 space-y-3">
-          {accompaniment.map((item, i) => (
-            <li
-              key={item}
-              className="flex gap-4 rounded-xl border border-white/10 bg-white/[.03] p-4 sm:p-5"
-            >
-              <span className="text-xl font-semibold tabular-nums text-brand-400">
-                {i + 1}
-              </span>
-              <p className="text-sm leading-6 text-zinc-200 sm:text-base">
-                {item}
-              </p>
-            </li>
-          ))}
-        </ol>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button href={demoHref} className="h-11 px-7 sm:h-12 sm:px-8">
-            Réserver une démo gratuite
-          </Button>
-          <Button
-            href={`/${locale}/consulting-ia`}
-            variant="outline"
-            className="h-11 px-7 sm:h-12 sm:px-8"
-          >
-            Consulting IA
-          </Button>
-        </div>
-      </MarketingSection>
-
-      <MarketingSection className="border-b-0">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+          <div>
+            <SectionIntro
+              title="Notre accompagnement"
+              description="Quatre étapes claires, sans jargon — de l'analyse à l'amélioration continue."
+            />
+            <ol className="space-y-3">
+              {steps.map((item, i) => (
+                <li
+                  key={item}
+                  className="flex gap-4 rounded-xl border border-white/[0.08] bg-white/[0.025] p-4 sm:p-5"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-500/15 text-sm font-semibold tabular-nums text-brand-200">
+                    {i + 1}
+                  </span>
+                  <p className="text-sm leading-6 text-zinc-200 sm:text-[15px]">
+                    {item}
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href={demoHref} className="h-11 px-7">
+                Réserver une démo gratuite
+              </Button>
+              <Button
+                href={`/${locale}/consulting-ia`}
+                variant="outline"
+                className="h-11 px-7"
+              >
+                Consulting IA
+              </Button>
+            </div>
+          </div>
           <PhotoWithCredit
             photo={MARKETING_PHOTOS.workspace}
             aspect="aspect-[4/3]"
           />
-          <div>
-            <MarketingH2 className="text-2xl sm:text-3xl">
-              Un système, plusieurs canaux
-            </MarketingH2>
-            <p className="mt-4 text-sm leading-7 text-zinc-400 sm:text-base">
-              Agents de messagerie et vocaux, publicité, agendas et CRM : nous
-              assemblons les briques adaptées à votre métier, sans promesse
-              d&apos;intégration non configurée.
-            </p>
-            <Button
-              href={`/${locale}/contact`}
-              variant="outline"
-              className="mt-6 h-11 w-fit px-7 sm:h-12 sm:px-8"
-            >
-              Nous contacter
-            </Button>
-          </div>
         </div>
+      </MarketingSection>
+
+      <MarketingSection className="border-b-0 pb-24" muted>
+        <VoxoContainer className="voxo-card flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+          <div className="max-w-xl">
+            <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+              Un système, plusieurs canaux
+            </h2>
+            <p className="mt-2 text-sm leading-7 text-zinc-400 sm:text-base">
+              Messagerie, voix, publicité, agendas et CRM : nous assemblons les
+              briques adaptées à votre métier, sans promesse d&apos;intégration
+              non configurée.
+            </p>
+          </div>
+          <Button
+            href={`/${locale}/contact`}
+            variant="outline"
+            className="h-11 shrink-0 px-8"
+          >
+            Nous contacter
+          </Button>
+        </VoxoContainer>
       </MarketingSection>
     </main>
   );
+}
+
+function cnHighlight(highlight?: boolean) {
+  return highlight ? "ring-1 ring-brand-400/20" : undefined;
 }

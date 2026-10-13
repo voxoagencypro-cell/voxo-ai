@@ -5,7 +5,7 @@ import { ArrowRight, CalendarCheck, MessageCircle, UserPlus } from "lucide-react
 export function WorkflowMockup({ compact = false }: { compact?: boolean }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-white/10 bg-[#0a1019] shadow-[0_24px_80px_rgba(0,0,0,.45)] ${compact ? "p-3" : "p-4 sm:p-5"}`}
+      className={`voxo-card relative overflow-hidden shadow-[var(--voxo-shadow-soft)] ${compact ? "p-3" : "p-4 sm:p-5"}`}
       aria-label="Exemple de fonctionnement — interfaces fictives"
     >
       <p className="mb-3 text-[10px] font-medium uppercase tracking-[.14em] text-zinc-500 sm:text-[11px]">

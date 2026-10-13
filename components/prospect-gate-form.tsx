@@ -5,6 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/logo";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { FieldError, Label } from "@/components/ui/label";
+import { VoxoContainer } from "@/components/voxo/container";
 import type { Locale } from "@/lib/i18n";
 import { getSafeNextPath } from "@/lib/safe-next-path";
 import {
@@ -55,15 +58,6 @@ const initialState: FormState = {
   optionalDetail: "",
   marketingConsent: false,
 };
-
-function FieldError({ message }: { message?: string }) {
-  if (!message) return null;
-  return (
-    <p className="mt-1 text-sm text-red-400" role="alert">
-      {message}
-    </p>
-  );
-}
 
 export function ProspectGateForm({ locale }: { locale: Locale }) {
   const searchParams = useSearchParams();
@@ -254,8 +248,9 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <main className="hero-noise min-h-screen bg-[#02050b] px-4 py-5 text-[#f7f8fb] sm:py-7">
-      <div ref={formTopRef} className="mx-auto max-w-lg">
+    <main className="hero-noise relative min-h-screen bg-[#02050b] py-5 sm:py-7">
+      <VoxoContainer size="narrow" className="relative">
+      <div ref={formTopRef}>
         <div className="flex justify-center">
           <Logo locale={locale} />
         </div>
@@ -298,7 +293,7 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
             </Button>
           </div>
         ) : (
-          <div className="marketing-surface mt-5 p-5 sm:p-6">
+          <div className="voxo-card mt-5 p-5 sm:p-6">
             <h2
               ref={stepTitleRef}
               tabIndex={-1}
@@ -310,19 +305,20 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
             {step === 1 && (
               <div className="mt-4 space-y-4">
                 <div>
-                  <label htmlFor="companyName" className="text-sm text-zinc-300">
-                    Nom de l&apos;entreprise
-                  </label>
-                  <input
+                  <Label htmlFor="companyName">Nom de l&apos;entreprise</Label>
+                  <Input
                     id="companyName"
                     autoComplete="organization"
                     value={form.companyName}
+                    invalid={Boolean(errors.companyName)}
                     onChange={(e) =>
                       setForm({ ...form, companyName: e.target.value })
                     }
-                    className="marketing-input mt-1"
+                    className="mt-1.5"
                   />
-                  <FieldError message={errors.companyName} />
+                  {errors.companyName && (
+                    <FieldError>{errors.companyName}</FieldError>
+                  )}
                 </div>
                 <fieldset>
                   <legend className="text-sm text-zinc-300">
@@ -346,7 +342,9 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
                       </button>
                     ))}
                   </div>
-                  <FieldError message={errors.employeeRange} />
+                  {errors.employeeRange && (
+                    <FieldError>{errors.employeeRange}</FieldError>
+                  )}
                 </fieldset>
               </div>
             )}
@@ -354,54 +352,53 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
             {step === 2 && (
               <div className="mt-4 space-y-4">
                 <div>
-                  <label htmlFor="contactName" className="text-sm text-zinc-300">
-                    Nom et prénom
-                  </label>
-                  <input
+                  <Label htmlFor="contactName">Nom et prénom</Label>
+                  <Input
                     id="contactName"
                     autoComplete="name"
                     value={form.contactName}
+                    invalid={Boolean(errors.contactName)}
                     onChange={(e) =>
                       setForm({ ...form, contactName: e.target.value })
                     }
-                    className="marketing-input mt-1"
+                    className="mt-1.5"
                   />
-                  <FieldError message={errors.contactName} />
+                  {errors.contactName && (
+                    <FieldError>{errors.contactName}</FieldError>
+                  )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="text-sm text-zinc-300">
-                    E-mail
-                  </label>
-                  <input
+                  <Label htmlFor="email">E-mail</Label>
+                  <Input
                     id="email"
                     type="email"
                     inputMode="email"
                     autoComplete="email"
                     value={form.email}
+                    invalid={Boolean(errors.email)}
                     onChange={(e) =>
                       setForm({ ...form, email: e.target.value })
                     }
-                    className="marketing-input mt-1"
+                    className="mt-1.5"
                   />
-                  <FieldError message={errors.email} />
+                  {errors.email && <FieldError>{errors.email}</FieldError>}
                 </div>
                 <div>
-                  <label htmlFor="phone" className="text-sm text-zinc-300">
-                    Téléphone
-                  </label>
-                  <input
+                  <Label htmlFor="phone">Téléphone</Label>
+                  <Input
                     id="phone"
                     type="tel"
                     inputMode="tel"
                     autoComplete="tel"
                     placeholder="+41 79 000 00 00"
                     value={form.phone}
+                    invalid={Boolean(errors.phone)}
                     onChange={(e) =>
                       setForm({ ...form, phone: e.target.value })
                     }
-                    className="marketing-input mt-1"
+                    className="mt-1.5"
                   />
-                  <FieldError message={errors.phone} />
+                  {errors.phone && <FieldError>{errors.phone}</FieldError>}
                 </div>
               </div>
             )}
@@ -424,7 +421,9 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
                     </button>
                   ))}
                 </div>
-                <FieldError message={errors.priorities} />
+                {errors.priorities && (
+                  <FieldError>{errors.priorities}</FieldError>
+                )}
               </div>
             )}
 
@@ -446,7 +445,9 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
                     </button>
                   ))}
                 </div>
-                <FieldError message={errors.channels} />
+                {errors.channels && (
+                  <FieldError>{errors.channels}</FieldError>
+                )}
               </div>
             )}
 
@@ -481,7 +482,9 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
                         </label>
                       ))}
                     </div>
-                    <FieldError message={errors.topPriority} />
+                    {errors.topPriority && (
+                      <FieldError>{errors.topPriority}</FieldError>
+                    )}
                   </fieldset>
                 ) : (
                   <p className="rounded-xl border border-white/10 bg-[#0b111d] px-3 py-2.5 text-sm text-zinc-200">
@@ -545,6 +548,7 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
 
                 <Button
                   type="button"
+                  loading={submitting}
                   disabled={submitting}
                   onClick={handleSubmit}
                   className="h-12 w-full"
@@ -606,6 +610,7 @@ export function ProspectGateForm({ locale }: { locale: Locale }) {
           </p>
         )}
       </div>
+      </VoxoContainer>
     </main>
   );
 }

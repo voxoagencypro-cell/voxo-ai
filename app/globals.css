@@ -2,55 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+:root {
+  color-scheme: dark;
+  --voxo-bg: #02050b;
+  --voxo-bg-elevated: #0a1019;
+  --voxo-border: rgba(255, 255, 255, 0.09);
+  --voxo-border-strong: rgba(255, 255, 255, 0.14);
+  --voxo-text: #f7f8fb;
+  --voxo-text-muted: #a1a1aa;
+  --voxo-text-subtle: #71717a;
+  --voxo-radius: 1rem;
+  --voxo-radius-lg: 1.25rem;
+  --voxo-shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --voxo-focus: rgba(61, 131, 255, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #02050b;
-  color: #f7f8fb;
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--voxo-bg);
+  color: var(--voxo-text);
+  font-family: var(--font-voxo-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-a { color: inherit; text-decoration: none; }
-::selection { background: rgba(23,104,255,.42); color: #fff; }
-.text-balance { text-wrap: balance; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(23, 104, 255, 0.42);
+  color: #fff;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@layer components {
+  .voxo-card {
+    @apply rounded-[var(--voxo-radius-lg)] border border-white/[0.09] bg-white/[0.035] shadow-[0_1px_0_rgba(255,255,255,0.04)_inset];
+  }
+
+  .voxo-card-interactive {
+    @apply voxo-card transition duration-200 hover:border-brand-400/35 hover:bg-brand-500/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50;
+  }
+
+  .voxo-input {
+    @apply w-full rounded-xl border border-white/10 bg-[var(--voxo-bg-elevated)] px-3.5 py-2.5 text-[15px] text-white outline-none transition placeholder:text-zinc-600 focus:border-brand-400 focus:ring-2 focus:ring-[var(--voxo-focus)];
+  }
+
+  .voxo-choice {
+    @apply rounded-xl border px-3.5 py-2.5 text-left text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/45;
+  }
+
+  .voxo-choice-selected {
+    @apply border-brand-400/60 bg-brand-500/15 text-white shadow-[0_0_0_1px_rgba(61,131,255,0.15)_inset];
+  }
+
+  .voxo-choice-default {
+    @apply border-white/10 bg-[var(--voxo-bg-elevated)] text-zinc-300 hover:border-white/20 hover:bg-white/[0.03];
+  }
+
+  .voxo-surface {
+    @apply voxo-card;
+  }
+
+  .voxo-nav-link {
+    @apply relative text-sm font-medium text-zinc-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--voxo-bg)];
+  }
+}
 
 .hero-grid {
-  background-image: linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom,black 0%,transparent 95%);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 92%);
 }
+
 .hero-noise:before {
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.025;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
 }
+
+.voxo-ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(100px);
+  opacity: 0.35;
+}
+
+.voxo-ambient-orb-a {
+  top: -12rem;
+  left: -8rem;
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(circle, rgba(23, 104, 255, 0.35), transparent 70%);
+}
+
+.voxo-ambient-orb-b {
+  top: 30vh;
+  right: -10rem;
+  width: 32rem;
+  height: 32rem;
+  background: radial-gradient(circle, rgba(57, 162, 255, 0.12), transparent 70%);
+}
+
+/* Legacy aliases */
 .marketing-input {
-  @apply w-full rounded-xl border border-white/10 bg-[#0b111d] px-3 py-2.5 text-white outline-none transition placeholder:text-zinc-600 focus:border-brand-400 focus:ring-2 focus:ring-brand-400/25;
+  @apply voxo-input;
 }
 .marketing-choice {
-  @apply rounded-xl border px-3 py-2.5 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-brand-400/40;
+  @apply voxo-choice;
 }
 .marketing-choice-selected {
-  @apply border-brand-400/60 bg-brand-500/15 text-white;
+  @apply voxo-choice-selected;
 }
 .marketing-choice-default {
-  @apply border-white/10 bg-[#0b111d] text-zinc-300 hover:border-white/20;
+  @apply voxo-choice-default;
 }
 .marketing-surface {
-  @apply rounded-2xl border border-white/10 bg-white/[.03];
+  @apply voxo-surface;
 }
 
 .voice-wave {
-  background-image:
-    radial-gradient(circle, rgba(61,131,255,.95) 0 1.4px, transparent 1.7px),
-    radial-gradient(circle, rgba(23,104,255,.55) 0 1.15px, transparent 1.5px);
+  background-image: radial-gradient(circle, rgba(61, 131, 255, 0.95) 0 1.4px, transparent 1.7px),
+    radial-gradient(circle, rgba(23, 104, 255, 0.55) 0 1.15px, transparent 1.5px);
   background-size: 13px 13px, 19px 19px;
-  mask-image: linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);
-  filter: drop-shadow(0 0 12px rgba(23,104,255,.6));
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  filter: drop-shadow(0 0 12px rgba(23, 104, 255, 0.6));
   transform: perspective(600px) rotateX(62deg) rotateZ(-5deg) scaleY(1.4);
 }

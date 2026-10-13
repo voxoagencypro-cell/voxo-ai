@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { AmbientBackground } from "@/components/voxo/ambient-background";
 import type { Locale } from "@/lib/i18n";
 
 const BARE_PATH_SUFFIXES = [
@@ -34,8 +35,9 @@ export function LocaleShell({
 
   return (
     <>
+      <AmbientBackground />
       <Navbar locale={locale} nav={nav} />
-      {children}
+      <div className="relative">{children}</div>
       <Footer locale={locale} d={footer} />
     </>
   );

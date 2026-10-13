@@ -38,7 +38,7 @@ export function ServicePage({
         {sections.map((section) => (
           <article
             key={section.title}
-            className="marketing-card rounded-2xl border border-white/10 bg-white/[.03] p-5 sm:p-7"
+            className="voxo-card p-5 sm:p-7"
           >
             <h2 className="text-lg font-semibold text-white sm:text-xl">
               {section.title}

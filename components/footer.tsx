@@ -1,4 +1,5 @@
 import { Logo } from "@/components/logo";
+import { VoxoContainer } from "@/components/voxo/container";
 import type { Locale } from "@/lib/i18n";
 
 export function Footer({
@@ -6,105 +7,83 @@ export function Footer({
   d,
 }: {
   locale: Locale;
-  d: any;
+  d: { text: string; legal: string; privacy: string } | Record<string, unknown>;
 }) {
+  const copy = d as { text: string; legal: string; privacy: string };
   return (
-    <footer className="border-t border-white/[.08] py-12">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-
-        <div className="flex flex-col justify-between gap-10 md:flex-row">
-          
-          {/* VOXO AI */}
+    <footer className="border-t border-white/[0.07] bg-[#02050b]/80 py-14 backdrop-blur-sm">
+      <VoxoContainer size="wide">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Logo locale={locale} />
-
-            <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-600">
-              {d.text}
+            <p className="mt-4 max-w-sm text-sm leading-7 text-zinc-500">
+              {copy.text}
             </p>
           </div>
 
-          {/* CONTACT */}
           <div>
-            <p className="mb-4 text-sm font-semibold text-white">
+            <p className="text-xs font-semibold uppercase tracking-wide text-zinc-400">
               Contact
             </p>
-
-            <div className="flex flex-col gap-3 text-sm text-zinc-500">
-
+            <div className="mt-4 flex flex-col gap-2.5 text-sm text-zinc-500">
               <a
                 href="mailto:voxo.agencypro@gmail.com"
-                className="transition hover:text-white"
+                className="transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50"
               >
                 voxo.agencypro@gmail.com
               </a>
-
               <a
                 href="tel:+41795251381"
-                className="transition hover:text-white"
+                className="transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50"
               >
                 +41 79 525 13 81
               </a>
-
             </div>
           </div>
 
-          {/* RÉSEAUX SOCIAUX */}
           <div>
-            <p className="mb-4 text-sm font-semibold text-white">
-              Réseaux sociaux
+            <p className="text-xs font-semibold uppercase tracking-wide text-zinc-400">
+              Réseaux
             </p>
-
-            <div className="flex flex-col gap-3 text-sm text-zinc-500">
-
+            <div className="mt-4 flex flex-col gap-2.5 text-sm text-zinc-500">
               <a
                 href="https://www.instagram.com/voxo_ai/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition hover:text-white"
+                className="transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50"
               >
                 Instagram
               </a>
-
               <a
                 href="https://www.linkedin.com/company/voxo-ai/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition hover:text-white"
+                className="transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50"
               >
                 LinkedIn
               </a>
-
             </div>
           </div>
-
         </div>
 
-        {/* BAS DU FOOTER */}
-        <div className="mt-10 flex flex-col justify-between gap-5 border-t border-white/[.08] pt-6 text-sm text-zinc-600 md:flex-row">
-
-          <div className="flex flex-wrap gap-6">
+        <div className="mt-12 flex flex-col justify-between gap-4 border-t border-white/[0.07] pt-6 text-sm text-zinc-600 sm:flex-row sm:items-center">
+          <div className="flex flex-wrap gap-5">
             <a
               href={`/${locale}/mentions-legales`}
-              className="transition hover:text-white"
+              className="hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50"
             >
-              {d.legal}
+              {copy.legal}
             </a>
-
             <a
               href={`/${locale}/politique-confidentialite`}
-              className="transition hover:text-white"
+              className="hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/50"
             >
-              {d.privacy}
+              {copy.privacy}
             </a>
           </div>
-
-          <span>
-            © {new Date().getFullYear()} VOXO AI
-          </span>
-
+          <span>© {new Date().getFullYear()} VOXO AI</span>
         </div>
-
-      </div>
+      </VoxoContainer>
     </footer>
   );
 }

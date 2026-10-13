@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { voxoSans } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,8 +25,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr">
-      <body>{children}</body>
+    <html lang="fr" className={voxoSans.variable}>
+      <body className="min-h-screen font-sans antialiased">{children}</body>
     </html>
   );
 }
