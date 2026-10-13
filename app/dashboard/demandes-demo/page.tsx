@@ -9,8 +9,8 @@ import {
   type DemoRequestRow,
   type ProspectIntakeRow,
 } from "@/lib/admin-inbound-leads";
+import { getAdminEmail, getVerifiedUser, isAdminUser } from "@/lib/dashboard-auth";
 import { supabaseAdmin } from "@/lib/supabase/admin";
-import { createClient } from "@/lib/supabase/server";
 
 export default async function DemoRequestsPage({
   searchParams,
@@ -21,17 +21,13 @@ export default async function DemoRequestsPage({
   const showTests =
     showTestsParam === "1" || showTestsParam === "true";
 
-  const supabase = await createClient();
+  const user = await getVerifiedUser();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  if (!user) {
+    redirect("/login");
+  }
 
-  const adminEmail = process.env.VOXO_ADMIN_EMAIL?.trim().toLowerCase();
-
-  const userEmail = user?.email?.trim().toLowerCase();
-
-  if (!userEmail || !adminEmail || userEmail !== adminEmail) {
+  if (!isAdminUser(user) || !getAdminEmail()) {
     redirect("/dashboard");
   }
 

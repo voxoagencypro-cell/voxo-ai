@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
+import { getVerifiedUser, isAdminUser } from "@/lib/dashboard-auth";
 import { supabaseAdmin } from "@/lib/supabase/admin";
-import { createClient } from "@/lib/supabase/server";
 
 const allowedStatuses = [
   "new",
@@ -14,17 +14,13 @@ const allowedSources = ["demo_request", "prospect_intake"] as const;
 
 export async function POST(request: Request) {
   try {
-    const supabase = await createClient();
+    const user = await getVerifiedUser();
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
+    }
 
-    const adminEmail = process.env.VOXO_ADMIN_EMAIL?.trim().toLowerCase();
-
-    const userEmail = user?.email?.trim().toLowerCase();
-
-    if (!userEmail || !adminEmail || userEmail !== adminEmail) {
+    if (!isAdminUser(user)) {
       return NextResponse.json({ error: "Accès interdit" }, { status: 403 });
     }
 

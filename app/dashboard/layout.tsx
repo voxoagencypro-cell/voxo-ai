@@ -1,16 +1,14 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import { getVerifiedUser } from "@/lib/dashboard-auth";
+
+export const dynamic = "force-dynamic";
 
 export default async function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const supabase = await createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getVerifiedUser();
 
   if (!user) {
     redirect("/login");
