@@ -16,7 +16,7 @@ export default async function AgentsIAPage({
         eyebrow="AGENTS IA"
         title="Messagerie, appels et rendez-vous"
         intro="Des agents IA pour répondre aux demandes fréquentes, qualifier et transférer à un humain lorsque c'est nécessaire."
-        illustration="agentsMessagerieAppelsRdv"
+        illustration="agentsN8n"
         sections={[
           {
             title: "Messagerie",

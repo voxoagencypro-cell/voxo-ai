@@ -16,7 +16,7 @@ export default async function AcquisitionPage({
       eyebrow="ACQUISITION & PUBLICITÉ"
       title="De la campagne au client suivi"
       intro="L'acquisition est au cœur de notre approche : campagnes, pages de conversion, qualification des demandes et suivi CRM."
-      illustration="acquisitionQualificationSuivi"
+      illustration="acquisitionGoogleMeta"
       sections={[
         {
           title: "Campagnes orientées demandes",

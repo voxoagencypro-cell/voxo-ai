@@ -17,21 +17,19 @@ export const VOXO_ILLUSTRATIONS = {
     caption:
       "Illustration VOXO AI — exemple de fonctionnement, données fictives",
   },
-  acquisitionQualificationSuivi: {
-    src: "/images/marketing/voxo-acquisition-qualification-suivi.png",
+  acquisitionGoogleMeta: {
+    src: "/images/marketing/voxo-acquisition-google-meta.png",
     width: 1942,
     height: 809,
-    alt: "Schéma VOXO : acquisition, qualification, rendez-vous et suivi client",
-    caption:
-      "Illustration VOXO AI — exemple de fonctionnement, données fictives",
+    alt: "Ordinateur présentant des exemples de publicités Google Ads et Meta Ads pour VOXO AI.",
+    caption: "Illustration — exemples de campagnes Google Ads et Meta Ads.",
   },
-  agentsMessagerieAppelsRdv: {
-    src: "/images/marketing/voxo-agents-messagerie-appels-rdv.png",
+  agentsN8n: {
+    src: "/images/marketing/voxo-agents-n8n.png",
     width: 1942,
     height: 809,
-    alt: "Schéma VOXO : messagerie, appels, rendez-vous et transfert vers un conseiller",
-    caption:
-      "Illustration VOXO AI — exemple de fonctionnement, données fictives",
+    alt: "Workflow illustratif n8n reliant messages et appels à un agent IA, au CRM, aux rendez-vous, aux relances et à un conseiller humain.",
+    caption: "Illustration — exemple de workflow n8n.",
   },
 } as const satisfies Record<string, VoxoIllustrationAsset>;
 
