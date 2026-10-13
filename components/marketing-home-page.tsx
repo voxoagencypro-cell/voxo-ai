@@ -167,9 +167,9 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
         <div className="mt-10 space-y-6">
           <VoxoCrmDemo variant="section" />
           <p className="max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
-            Lorsqu&apos;une décision humaine est nécessaire, la demande est
-            transmise avec le contexte complet — sans présenter cette maquette
-            comme une intégration déjà active chez vous.
+            Publicité Meta ou Google, canal de réponse et suivi CRM restent
+            visibles dans la même fiche — maquette fictive, connexions réelles
+            selon votre projet.
           </p>
         </div>
       </MarketingSection>
