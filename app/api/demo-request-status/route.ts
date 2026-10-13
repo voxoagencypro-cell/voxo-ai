@@ -10,6 +10,8 @@ const allowedStatuses = [
   "closed",
 ];
 
+const allowedSources = ["demo_request", "prospect_intake"] as const;
+
 export async function POST(request: Request) {
   try {
     const supabase = await createClient();
@@ -18,69 +20,45 @@ export async function POST(request: Request) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    const adminEmail =
-      process.env.VOXO_ADMIN_EMAIL
-        ?.trim()
-        .toLowerCase();
+    const adminEmail = process.env.VOXO_ADMIN_EMAIL?.trim().toLowerCase();
 
-    const userEmail =
-      user?.email
-        ?.trim()
-        .toLowerCase();
+    const userEmail = user?.email?.trim().toLowerCase();
 
-    if (
-      !userEmail ||
-      !adminEmail ||
-      userEmail !== adminEmail
-    ) {
-      return NextResponse.json(
-        { error: "Accès interdit" },
-        { status: 403 }
-      );
+    if (!userEmail || !adminEmail || userEmail !== adminEmail) {
+      return NextResponse.json({ error: "Accès interdit" }, { status: 403 });
     }
 
     const body = await request.json();
-    const { id, status } = body;
+    const { id, status, source } = body;
 
     if (
       !id ||
-      !allowedStatuses.includes(status)
+      !allowedStatuses.includes(status) ||
+      !allowedSources.includes(source)
     ) {
-      return NextResponse.json(
-        { error: "Données invalides" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Données invalides" }, { status: 400 });
     }
 
+    const table =
+      source === "prospect_intake" ? "prospect_intakes" : "demo_requests";
+
     const { error } = await supabaseAdmin
-      .from("demo_requests")
+      .from(table)
       .update({ status })
       .eq("id", id);
 
     if (error) {
-      console.error(
-        "Erreur mise à jour statut démo :",
-        error
-      );
+      console.error("Erreur mise à jour statut :", table, error);
 
-      return NextResponse.json(
-        { error: "Erreur serveur" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
     }
 
     return NextResponse.json({
       success: true,
     });
   } catch (error) {
-    console.error(
-      "Erreur API demo-request-status :",
-      error
-    );
+    console.error("Erreur API demo-request-status :", error);
 
-    return NextResponse.json(
-      { error: "Erreur serveur" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
   }
 }

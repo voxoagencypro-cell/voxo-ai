@@ -188,7 +188,7 @@ export default function Sidebar() {
               }`}
             >
               <div className="flex items-center justify-between gap-3">
-                <span>Demandes de démo</span>
+                <span>Demandes entrantes</span>
 
                 {demoCount > 0 && (
                   <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-red-500 px-2 py-0.5 text-xs font-bold text-white">

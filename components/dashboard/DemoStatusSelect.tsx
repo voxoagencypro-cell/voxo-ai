@@ -5,14 +5,18 @@ import { useState } from "react";
 
 type DemoStatus = "new" | "contacted" | "converted" | "closed";
 
+type LeadSource = "demo_request" | "prospect_intake";
+
 type Props = {
   id: number | string;
   status: DemoStatus;
+  source: LeadSource;
 };
 
 export default function DemoStatusSelect({
   id,
   status,
+  source,
 }: Props) {
   const router = useRouter();
   const [currentStatus, setCurrentStatus] = useState(status);
@@ -35,6 +39,7 @@ export default function DemoStatusSelect({
         body: JSON.stringify({
           id,
           status: newStatus,
+          source,
         }),
       });
 

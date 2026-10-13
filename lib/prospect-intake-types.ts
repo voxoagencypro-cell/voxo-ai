@@ -9,6 +9,15 @@ export const EMPLOYEE_RANGES = [
 
 export type EmployeeRange = (typeof EMPLOYEE_RANGES)[number];
 
+export const EMPLOYEE_RANGE_LABELS: Record<EmployeeRange, string> = {
+  solo: "Indépendant / seul",
+  "2-5": "2 à 5 employés",
+  "6-10": "6 à 10 employés",
+  "11-50": "11 à 50 employés",
+  "51-200": "51 à 200 employés",
+  "200+": "Plus de 200 employés",
+};
+
 /** Objectifs étape 3 (ordre d’affichage : acquisition en premier). */
 export const PRIORITY_OPTIONS = [
   "acquisition",
