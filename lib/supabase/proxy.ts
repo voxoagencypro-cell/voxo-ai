@@ -46,7 +46,11 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  if (isLoginRoute && isAuthenticated) {
+  const isPasswordResetFlow =
+    isLoginRoute &&
+    request.nextUrl.searchParams.get("mode") === "update-password";
+
+  if (isLoginRoute && isAuthenticated && !isPasswordResetFlow) {
     const dashboardUrl = request.nextUrl.clone();
     dashboardUrl.pathname = "/dashboard";
 

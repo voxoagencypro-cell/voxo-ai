@@ -31,6 +31,7 @@ export async function middleware(request: NextRequest) {
   if (
     pathname.startsWith("/dashboard") ||
     pathname === "/login" ||
+    pathname.startsWith("/auth/") ||
     pathname.startsWith("/api/")
   ) {
     return sessionResponse;
