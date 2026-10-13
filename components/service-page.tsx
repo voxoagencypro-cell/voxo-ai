@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { InnerPage } from "@/components/inner-page";
 import { PhotoWithCredit } from "@/components/photo-with-credit";
+import { VoxoIllustration } from "@/components/voxo-illustration";
 import type { MarketingPhoto } from "@/lib/marketing-images";
+import {
+  VOXO_ILLUSTRATIONS,
+  type VoxoIllustrationKey,
+} from "@/lib/voxo-marketing-assets";
 
 export type ServiceSection = {
   title: string;
@@ -17,22 +22,32 @@ export function ServicePage({
   intro,
   sections,
   photo,
+  illustration,
 }: {
   locale: string;
   eyebrow: string;
   title: string;
   intro: string;
   sections: ServiceSection[];
-  photo: MarketingPhoto;
+  photo?: MarketingPhoto;
+  illustration?: VoxoIllustrationKey;
 }) {
   return (
     <InnerPage locale={locale} eyebrow={eyebrow} title={title} text={intro}>
-      <PhotoWithCredit
-        photo={photo}
-        hero
-        className="mb-10 sm:mb-12"
-        aspect="aspect-[21/9] sm:aspect-[2.4/1]"
-      />
+      {illustration ? (
+        <VoxoIllustration
+          asset={VOXO_ILLUSTRATIONS[illustration]}
+          hero
+          className="mb-10 sm:mb-12"
+        />
+      ) : photo ? (
+        <PhotoWithCredit
+          photo={photo}
+          hero
+          className="mb-10 sm:mb-12"
+          aspect="aspect-[21/9] sm:aspect-[2.4/1]"
+        />
+      ) : null}
 
       <div className="space-y-6">
         {sections.map((section) => (

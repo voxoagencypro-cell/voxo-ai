@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { ServicePage } from "@/components/service-page";
 import { isLocale } from "@/lib/i18n";
-import { MARKETING_PHOTOS } from "@/lib/marketing-images";
 
 export default async function CrmPage({
   params,
@@ -17,7 +16,7 @@ export default async function CrmPage({
       eyebrow="CRM & AUTOMATISATION"
       title="Centraliser pour ne rien laisser passer"
       intro="Fiches clients, demandes, échanges, appels et relances — selon les outils que nous connectons à votre système VOXO AI."
-      photo={MARKETING_PHOTOS.crm}
+      illustration="crmAcquisition"
       sections={[
         {
           title: "Vue client unifiée",
