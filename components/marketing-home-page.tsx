@@ -21,8 +21,6 @@ import {
   SectionIntro,
 } from "@/components/marketing-primitives";
 import { PhotoWithCredit } from "@/components/photo-with-credit";
-import { VoxoIllustration } from "@/components/voxo-illustration";
-import { VOXO_ILLUSTRATIONS } from "@/lib/voxo-marketing-assets";
 import { JourneyStrip, WorkflowMockup } from "@/components/workflow-mockup";
 import { VoxoContainer } from "@/components/voxo/container";
 import { MARKETING_PHOTOS } from "@/lib/marketing-images";
@@ -165,15 +163,18 @@ export function MarketingHomePage({ locale }: { locale: Locale }) {
           description="Acquisition, réponses, qualification, rendez-vous et CRM dans un seul parcours — avec reprise humaine quand la décision l'exige."
         />
         <JourneyStrip />
-        <div className="mt-10 space-y-6">
-          <VoxoIllustration
-            asset={VOXO_ILLUSTRATIONS.acquisitionQualificationSuivi}
+        <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10">
+          <div className="voxo-card p-5 sm:p-6">
+            <p className="text-sm leading-7 text-zinc-300">
+              Lorsqu&apos;une demande nécessite une décision humaine, elle est
+              transmise à la bonne personne avec le contexte utile : historique,
+              canal, qualification et prochaines actions.
+            </p>
+          </div>
+          <PhotoWithCredit
+            photo={MARKETING_PHOTOS.clientRelation}
+            aspect="aspect-[4/3]"
           />
-          <p className="max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base">
-            Lorsqu&apos;une décision humaine est nécessaire, la demande est
-            transmise avec le contexte utile — sans présenter cette illustration
-            comme une intégration déjà active chez vous.
-          </p>
         </div>
       </MarketingSection>
 
