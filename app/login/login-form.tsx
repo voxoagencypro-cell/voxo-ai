@@ -1,9 +1,17 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
-import { logAuthError, loginErrorMessage } from "@/lib/auth-login-messages";
+import {
+  logAuthError,
+  loginErrorMessage,
+  recoveryCallbackUserMessage,
+} from "@/lib/auth-login-messages";
+import {
+  buildPasswordRecoveryRedirectTo,
+  resolveAuthCallbackOrigin,
+} from "@/lib/auth-redirect-url";
 
 type Mode = "login" | "forgot" | "update-password";
 
@@ -26,6 +34,16 @@ export default function LoginForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [infoMessage, setInfoMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const callbackError = recoveryCallbackUserMessage(
+      searchParams.get("error"),
+    );
+    if (callbackError) {
+      setErrorMessage(callbackError);
+      setMode("login");
+    }
+  }, [searchParams]);
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -60,7 +78,10 @@ export default function LoginForm() {
     setInfoMessage("");
 
     const supabase = createClient();
-    const redirectTo = `${window.location.origin}/auth/callback?type=recovery`;
+    const callbackOrigin = resolveAuthCallbackOrigin({
+      windowOrigin: window.location.origin,
+    });
+    const redirectTo = buildPasswordRecoveryRedirectTo(callbackOrigin);
 
     const { error } = await supabase.auth.resetPasswordForEmail(
       email.trim(),
