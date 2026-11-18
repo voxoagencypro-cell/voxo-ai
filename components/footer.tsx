@@ -15,7 +15,7 @@ export function Footer({
       <VoxoContainer size="wide">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <Logo locale={locale} />
+            <Logo locale={locale} placement="footer" />
             <p className="mt-4 max-w-sm text-sm leading-7 text-zinc-500">
               {copy.text}
             </p>
