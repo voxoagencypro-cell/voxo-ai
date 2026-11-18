@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { VOXO_BRAND } from "@/lib/brand-assets";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://voxo-ai.ch"),
+  icons: {
+    icon: [{ url: VOXO_BRAND.symbolV.src, type: "image/png" }],
+    apple: [{ url: VOXO_BRAND.symbolV.src, type: "image/png" }],
+  },
   title: {
     default: "VOXO AI — Réceptionniste téléphonique IA",
     template: "%s | VOXO AI",
