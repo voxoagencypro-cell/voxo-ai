@@ -16,7 +16,7 @@ export function Footer({
           
           {/* VOXO AI */}
           <div>
-            <Logo locale={locale} />
+            <Logo locale={locale} placement="footer" />
 
             <p className="mt-4 max-w-sm text-sm leading-6 text-zinc-600">
               {d.text}
